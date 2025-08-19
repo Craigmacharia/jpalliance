@@ -1,0 +1,173 @@
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:cmacharia482@gmail.com?subject=Contact%20from%20Website&body=" + 
+      encodeURIComponent(`Name: ${e.target.name.value}\nEmail: ${e.target.email.value}\nMessage: ${e.target.message.value}`);
+  };
+
+  return (
+    <div className="contact-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
+      {/* Hero Section */}
+      <section 
+        className="text-white py-5 text-center" 
+        style={{ 
+          background: "linear-gradient(135deg, #0066CC 0%, #004C99 100%)"
+        }}
+      >
+        <div className="container py-4">
+          <h1 className="display-5 fw-bold mb-3">Contact Us</h1>
+          <p className="lead mx-auto" style={{ maxWidth: "700px" }}>
+            We're here to help with all your auditing, tax, and financial advisory needs
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Content */}
+      <div className="container py-5">
+        <div className="row g-4">
+          {/* Contact Form */}
+          <div className="col-lg-6">
+            <div className="card border-0 shadow-sm p-4 h-100">
+              <h3 className="fw-bold mb-4" style={{ color: "#004C99" }}>Send us a Message</h3>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label htmlFor="name" className="form-label fw-medium">Full Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    className="form-control py-2" 
+                    placeholder="Your Name" 
+                    required 
+                    style={{ borderRadius: "6px" }}
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="email" className="form-label fw-medium">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className="form-control py-2" 
+                    placeholder="Your Email" 
+                    required 
+                    style={{ borderRadius: "6px" }}
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="message" className="form-label fw-medium">Message</label>
+                  <textarea 
+                    id="message" 
+                    rows="5" 
+                    className="form-control py-2" 
+                    placeholder="How can we help you?" 
+                    required
+                    style={{ borderRadius: "6px" }}
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit" 
+                  className="btn w-100 py-2"
+                  style={{ 
+                    backgroundColor: "#004C99",
+                    color: "white",
+                    fontWeight: "600",
+                    borderRadius: "6px",
+                    border: "none",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = "#003366"}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = "#004C99"}
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div className="col-lg-6">
+            <div className="card border-0 shadow-sm p-4 h-100">
+              <h3 className="fw-bold mb-4" style={{ color: "#004C99" }}>Our Office</h3>
+              
+              <div className="mb-4">
+                <div className="d-flex align-items-start mb-3">
+                  <i className="bi bi-geo-alt-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
+                  <div>
+                    <h6 className="fw-bold mb-1">Address</h6>
+                    <p className="mb-0">Spur Mall Ruiru, 2nd Floor</p>
+                    <p className="mb-0">Ruiru, Kenya</p>
+                  </div>
+                </div>
+                
+                <div className="d-flex align-items-start mb-3">
+                  <i className="bi bi-envelope-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
+                  <div>
+                    <h6 className="fw-bold mb-1">Email</h6>
+                    <a href="mailto:cmacharia482@gmail.com" className="text-decoration-none">cmacharia482@gmail.com</a>
+                  </div>
+                </div>
+                
+                <div className="d-flex align-items-start mb-3">
+                  <i className="bi bi-telephone-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
+                  <div>
+                    <h6 className="fw-bold mb-1">Phone</h6>
+                    <a href="tel:+254755453975" className="text-decoration-none">+254 755 453975</a>
+                  </div>
+                </div>
+                
+                <div className="d-flex align-items-start">
+                  <i className="bi bi-clock-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
+                  <div>
+                    <h6 className="fw-bold mb-1">Working Hours</h6>
+                    <p className="mb-0">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p className="mb-0">Saturday: 9:00 AM - 1:00 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ratio ratio-16x9 mt-auto">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.752881022678!2d36.96311131475396!3d-1.1494359991366393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f9d6a9a3a5d%3A0x9b9b9b9b9b9b9b9b!2sSpur%20Mall%20Ruiru!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                  title="JP Alliance Location at Spur Mall Ruiru"
+                  allowFullScreen
+                  loading="lazy"
+                  style={{ border: "none", borderRadius: "8px" }}
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CSS */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+          
+          .contact-page {
+            background-color: #f8f9fa;
+          }
+          .card {
+            border-radius: 10px !important;
+            transition: transform 0.3s ease;
+          }
+          .card:hover {
+            transform: translateY(-5px);
+          }
+          a {
+            color: #004C99;
+          }
+          a:hover {
+            color: #003366;
+            text-decoration: underline;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
+
+export default Contact;
