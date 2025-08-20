@@ -76,7 +76,7 @@ const About = () => {
               JP Alliance & Associates is a premier audit and financial advisory firm based in Nairobi, Kenya.
             </p>
             <p className="mb-4">
-              With over 15 years of experience, we provide comprehensive financial solutions to businesses across East Africa. Our team of certified professionals is dedicated to helping clients navigate complex financial landscapes with confidence and clarity.
+              Founded by Josphat Chege, and with over 15 years of experience, we provide comprehensive financial solutions to businesses across East Africa. Our team of certified professionals is dedicated to helping clients navigate complex financial landscapes with confidence and clarity.
             </p>
             <p className="mb-4">
               We specialize in delivering tailored solutions that address the unique challenges faced by businesses in today's dynamic economic environment. Our client-centric approach ensures that we understand your specific needs and provide personalized services that drive growth and sustainability.

@@ -140,14 +140,14 @@ const Team = () => {
                       className="text-primary me-2"
                       style={{ fontSize: "1.2rem" }}
                     >
-                      <i className="bi bi-linkedin"></i>
+                      
                     </a>
                     <a 
                       href="#" 
                       className="text-primary me-2"
                       style={{ fontSize: "1.2rem" }}
                     >
-                      <i className="bi bi-envelope"></i>
+                      
                     </a>
                   </div>
                 </div>

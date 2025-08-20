@@ -7,18 +7,16 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Testimonials from './pages/Testimonials';
 import Team from "./pages/Team";
+import NewsEvents from "./pages/NewsEvents";
+import BlogDetail from './pages/BlogDetail';
+import Careers from './pages/Careers';
 
 
 // Placeholder pages until you build proper ones
 function ServiceDetail({ title }) {
   return <h1 className="text-center mt-5">{title} Services</h1>;
 }
-function NewsEvents() {
-  return <h1 className="text-center mt-5">News & Events</h1>;
-}
-function Careers() {
-  return <h1 className="text-center mt-5">Careers at JP Alliance</h1>;
-}
+
 
 function App() {
   return (
@@ -35,6 +33,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/news/:id" element={<BlogDetail />} />
           
 
           {/* Service Details */}

@@ -128,15 +128,6 @@ function Footer() {
                   Payroll
                 </Link>
               </li>
-              <li className="mb-2">
-                <Link 
-                  className="text-white text-decoration-none hover-effect" 
-                  to="/services/business-advisory"
-                  style={{ transition: "all 0.3s ease" }}
-                >
-                  Business Advisory
-                </Link>
-              </li>
               <li>
                 <Link 
                   className="text-white text-decoration-none hover-effect" 

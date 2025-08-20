@@ -19,7 +19,7 @@ const Home = () => {
     {
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80",
       title: "Business Growth Partners",
-      description: "Financial advisory services to drive sustainable growth"
+      description: "Financial advisory services to drive sustainable growth in the future"
     }
   ];
 
@@ -135,9 +135,9 @@ const Home = () => {
           <h2 
             className="fw-bold mb-4 animate-fade-in"
             style={{ 
-              textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-              fontWeight: "700",
-              fontSize: "2.8rem"
+              textShadow: "0 2px 4px rgba(0,0,0,0.74)",
+              fontWeight: "100",
+              fontSize: "2.2rem"
             }}
           >
             JP Alliance & Associates

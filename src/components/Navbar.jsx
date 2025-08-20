@@ -7,7 +7,7 @@ function Navbar() {
       style={{ 
         backgroundColor: "#004C99",
         fontFamily: "'Quicksand', sans-serif",
-        fontWeight: "500",
+        fontWeight: "400",
         padding: "0.5rem 0",
         boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
       }}
@@ -20,7 +20,7 @@ function Navbar() {
           style={{
             fontFamily: "'Quicksand', sans-serif",
             fontWeight: "700",
-            fontSize: "1.5rem"
+            fontSize: "1rem"
           }}
         >
           <img 
