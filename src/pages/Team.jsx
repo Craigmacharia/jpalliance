@@ -167,7 +167,7 @@ const Team = () => {
           <div className="col-md-3 col-6 mb-4">
             <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
               <h3 className="fw-bold text-primary mb-2">75+</h3>
-              <p className="text-muted mb-0">Years Combined Experience</p>
+              <p className="text-muted mb-0">Years Experience</p>
             </div>
           </div>
           <div className="col-md-3 col-6 mb-4">

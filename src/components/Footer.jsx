@@ -52,19 +52,10 @@ function Footer() {
               <li className="mb-2">
                 <Link 
                   className="text-white text-decoration-none hover-effect" 
-                  to="/services"
-                  style={{ transition: "all 0.3s ease" }}
-                >
-                  Services
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link 
-                  className="text-white text-decoration-none hover-effect" 
                   to="/team"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  Team
+                  Teams
                 </Link>
               </li>
               <li className="mb-2">
@@ -76,13 +67,22 @@ function Footer() {
                   Careers
                 </Link>
               </li>
-              <li>
+              <li className="mb-2">
                 <Link 
                   className="text-white text-decoration-none hover-effect" 
                   to="/contact"
                   style={{ transition: "all 0.3s ease" }}
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  className="text-white text-decoration-none hover-effect" 
+                  to="/services"
+                  style={{ transition: "all 0.3s ease" }}
+                >
+                  Services
                 </Link>
               </li>
             </ul>
@@ -104,10 +104,10 @@ function Footer() {
               <li className="mb-2">
                 <Link 
                   className="text-white text-decoration-none hover-effect" 
-                  to="/services/external-audit"
+                  to="/services/payroll"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  External Audit
+                  Payroll
                 </Link>
               </li>
               <li className="mb-2">
@@ -122,10 +122,10 @@ function Footer() {
               <li className="mb-2">
                 <Link 
                   className="text-white text-decoration-none hover-effect" 
-                  to="/services/payroll"
+                  to="/services/external-audit"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  Payroll
+                  External Audit
                 </Link>
               </li>
               <li>
