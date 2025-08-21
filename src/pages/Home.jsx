@@ -65,12 +65,12 @@ const Home = () => {
   const services = [
     {
       title: "Audit & Assurance",
-      description: "Comprehensive audit services ensuring financial accuracy and regulatory compliance",
+      description: "Comprehensive audit services ensuring financial accuracy",
       icon: "bi-file-earmark-check"
     },
     {
       title: "Tax Advisory",
-      description: "Strategic tax planning and compliance services for businesses and individuals",
+      description: "Strategic tax planning and compliance services",
       icon: "bi-calculator"
     },
     {
@@ -90,7 +90,7 @@ const Home = () => {
     },
     {
       title: "Business Consulting",
-      description: "Strategic advice to enhance your business operations and profitability",
+      description: "Strategic advice to enhance your business operations",
       icon: "bi-briefcase"
     }
   ];
@@ -357,8 +357,8 @@ const Home = () => {
         style={{ 
           background: "linear-gradient(135deg, #004787 0%, #003366 100%)",
           fontFamily: "'Quicksand', sans-serif",
-          borderRadius: "20px 20px 0 0",
-          margin: "0 15px"
+          borderRadius: "20px 20px",
+          margin: " 15px"
         }}
       >
         <div className="container py-4">
@@ -387,7 +387,7 @@ const Home = () => {
                 transition: "all 0.3s ease"
               }}
             >
-              <i className="bi bi-telephone me-2"></i> Call Us
+              <i className="bi bi-telephone me-2"></i> Call us
             </a>
             <a 
               href="mailto:cmacharia482@gmail.com" 
@@ -398,7 +398,7 @@ const Home = () => {
                 transition: "all 0.3s ease"
               }}
             >
-              <i className="bi bi-envelope me-2"></i> Email Us
+              <i className="bi bi-envelope me-2"></i> Email
             </a>
           </div>
         </div>

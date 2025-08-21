@@ -10,6 +10,11 @@ import Team from "./pages/Team";
 import NewsEvents from "./pages/NewsEvents";
 import BlogDetail from './pages/BlogDetail';
 import Careers from './pages/Careers';
+import Tax from './pages/Tax';
+import Payroll from "./pages/Payroll";
+import ExternalAudit from "./pages/ExternalAudit";
+import InternalAudit from "./pages/InternalAudit";
+
 
 
 // Placeholder pages until you build proper ones
@@ -37,10 +42,12 @@ function App() {
           
 
           {/* Service Details */}
-          <Route path="/services/tax" element={<ServiceDetail title="Tax" />} />
-          <Route path="/services/external-audit" element={<ServiceDetail title="External Audit" />} />
-          <Route path="/services/internal-audit" element={<ServiceDetail title="Internal Audit" />} />
-          <Route path="/services/payroll" element={<ServiceDetail title="Payroll" />} />
+          <Route path="/services/tax" element={<Tax />} />
+
+
+          <Route path="/services/external-audit" element={<ExternalAudit />} />
+          <Route path="/services/internal-audit" element={<InternalAudit />} />
+          <Route path="/services/payroll" element={<Payroll />} />
           <Route path="/services/business-advisory" element={<ServiceDetail title="Business Advisory" />} />
           <Route
             path="/services/accounting-bookkeeping"

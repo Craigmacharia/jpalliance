@@ -66,19 +66,24 @@ const Services = () => {
     <div className="services-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
-        className="text-white py-5 d-flex align-items-center" 
-        style={{ 
-          background: "linear-gradient(135deg, #0066CC 0%, #004C99 100%)",
-          minHeight: "300px"
-        }}
-      >
-        <div className="container text-center">
-          <h1 className="display-5 fw-bold mb-3 animate-fade-in">Our Professional Services</h1>
-          <p className="lead mx-auto animate-fade-in" style={{ maxWidth: "700px" }}>
-            Comprehensive financial solutions tailored to your business needs
-          </p>
-        </div>
-      </section>
+    className="text-white py-5 text-center position-relative" 
+    style={{ 
+      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 70, 149, 0.5)), url('/uzima.png') center/cover no-repeat",
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center"
+    }}
+  >
+    <div className="container py-4 position-relative z-index-1">
+      <h1 className="display-5 fw-bold mb-3">Services at JP</h1>
+      <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
+        Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
+      </p>
+      <div className="mt-4">
+        
+      </div>
+    </div>
+  </section>
 
       {/* Services Grid */}
       <div className="container py-5">

@@ -13,18 +13,24 @@ const Contact = () => {
     <div className="contact-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
-        className="text-white py-5 text-center" 
-        style={{ 
-          background: "linear-gradient(135deg, #0066CC 0%, #004C99 100%)"
-        }}
-      >
-        <div className="container py-4">
-          <h1 className="display-5 fw-bold mb-3">Contact Us</h1>
-          <p className="lead mx-auto" style={{ maxWidth: "700px" }}>
-            We're here to help with all your auditing, tax, and financial advisory needs
-          </p>
-        </div>
-      </section>
+    className="text-white py-5 text-center position-relative" 
+    style={{ 
+      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/fon.png') center/cover no-repeat",
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center"
+    }}
+  >
+    <div className="container py-4 position-relative z-index-1">
+      <h1 className="display-5 fw-bold mb-3">Contact Us Today</h1>
+      <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
+        Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
+      </p>
+      <div className="mt-4">
+        
+      </div>
+    </div>
+  </section>
 
       {/* Contact Content */}
       <div className="container py-5">

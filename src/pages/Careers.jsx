@@ -54,18 +54,24 @@ export default function Careers() {
     <div className="careers-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
-        className="text-white py-5 text-center" 
-        style={{ 
-          background: "linear-gradient(135deg, #0066CC 0%, #004C99 100%)"
-        }}
-      >
-        <div className="container py-4">
-          <h1 className="display-5 fw-bold mb-3">Join Our Team</h1>
-          <p className="lead mx-auto" style={{ maxWidth: "700px" }}>
-            Build your career with JP Alliance & Associates and grow with a team of passionate professionals
-          </p>
-        </div>
-      </section>
+    className="text-white py-5 text-center position-relative" 
+    style={{ 
+      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/carloan.png') center/cover no-repeat",
+      minHeight: "60vh",
+      display: "flex",
+      alignItems: "center"
+    }}
+  >
+    <div className="container py-4 position-relative z-index-1">
+      <h1 className="display-5 fw-bold mb-3">Join Our Firm</h1>
+      <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
+        Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
+      </p>
+      <div className="mt-4">
+        
+      </div>
+    </div>
+  </section>
 
       {/* Application Form */}
       <div className="container py-5">
