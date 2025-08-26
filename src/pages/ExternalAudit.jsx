@@ -1,9 +1,17 @@
 // pages/ExternalAudit.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const ExternalAudit = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    window.scrollTo(0, 0);
+  }, []);
+
   const auditServices = [
     {
       icon: "bi-file-earmark-check",
@@ -37,31 +45,79 @@ const ExternalAudit = () => {
     }
   ];
 
+  const auditProcess = [
+    { step: 1, title: "Planning", description: "We define objectives, scope, and timelines aligned to your regulatory and stakeholder needs." },
+    { step: 2, title: "Fieldwork", description: "Our team performs evidence-based testing and evaluates internal controls and risks." },
+    { step: 3, title: "Reporting", description: "We deliver a clear report with findings, qualifications (if any), and practical recommendations." },
+    { step: 4, title: "Follow-ups", description: "We support implementation and monitor remediation for sustained improvements." }
+  ];
+
   return (
     <div className="external-audit-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
-        className="text-white py-5 text-center position-relative" 
+        className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
         style={{ 
-          background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/build.png') center/cover no-repeat",
-          minHeight: "60vh",
-          display: "flex",
-          alignItems: "center"
+          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('/build.png') center/cover no-repeat",
+          minHeight: "60vh"
         }}
       >
-        <div className="container py-4 position-relative z-index-1">
-          <h1 className="display-5 fw-bold mb-3">External Audit Services</h1>
-          <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
-            Independent and objective audit services that ensure compliance, improve financial reporting, and build trust with stakeholders
-          </p>
-          <div className="mt-4">
-            <a
-              href="#services"
-              className="btn btn-light px-4 py-2 fw-bold rounded-pill"
-              style={{ color: "#004C99" }}
-            >
-              Explore Our Services <i className="bi bi-arrow-down ms-2"></i>
-            </a>
+        <div className="container position-relative z-index-1 text-center">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <h1 className="display-4 fw-bold mb-4">External Audit Services</h1>
+              <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
+                Independent and objective audit services that ensure compliance, improve financial reporting, and build trust with stakeholders
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="position-absolute bottom-0 start-0 end-0 bg-white" style={{ height: "50px", clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
+      </section>
+
+      {/* Intro Section */}
+      <section className="py-5">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Independent Assurance You Can Trust</h2>
+              <p className="text-muted mb-4 fs-5">
+                At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we deliver rigorous, standards-driven audits that strengthen governance,
+                enhance transparency, and build confidence with regulators, investors, and your board.
+              </p>
+              <p className="text-muted mb-4 fs-5">
+                Our team follows International Standards on Auditing (ISA) and tailors engagement plans to your industry and risk profile,
+                ensuring high-quality outcomes and actionable recommendations.
+              </p>
+              <div className="d-flex flex-wrap gap-3">
+                <a
+                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20External%20Audit%20Services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
+                  style={{ transition: "all 0.3s ease" }}
+                >
+                  <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
+                </a>
+                <a 
+                  href="tel:+254755453975" 
+                  className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill fw-semibold"
+                  style={{ transition: "all 0.3s ease" }}
+                >
+                  <i className="bi bi-telephone me-2"></i> Call Directly
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="rounded-3 overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  alt="External Audit Services" 
+                  className="img-fluid" 
+                  style={{ width: "100%", height: "400px", objectFit: "cover" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -117,92 +173,82 @@ const ExternalAudit = () => {
             </div>
 
             {/* Services Grid */}
-            <div id="services" className="text-center mb-5">
-              <h2 className="fw-bold mb-3" style={{ color: "#004C99" }}>Our Audit Services</h2>
-              <p className="text-muted mx-auto" style={{ maxWidth: "700px" }}>
-                Comprehensive external audit solutions tailored to meet regulatory requirements and organizational needs
-              </p>
-            </div>
+            <section id="services" className="py-2">
+              <div className="text-center mb-5">
+                <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Audit Services</h2>
+                <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
+                  Comprehensive external audit solutions tailored to meet regulatory requirements and organizational needs
+                </p>
+              </div>
 
-            <div className="row g-4 mb-5">
-              {auditServices.map((service, index) => (
-                <div key={index} className="col-md-6 col-lg-4">
-                  <div 
-                    className="card border-0 shadow-sm h-100 service-card"
-                    style={{ 
-                      borderRadius: "15px",
-                      transition: "all 0.3s ease"
-                    }}
-                  >
-                    <div className="card-body p-4 text-center">
-                      <div className="icon-wrapper mb-3">
-                        <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "2.5rem" }}></i>
+              <div className="row g-4 mb-4">
+                {auditServices.map((service, index) => (
+                  <div key={index} className="col-md-6 col-lg-4">
+                    <div 
+                      className="card h-100 border-0 service-card"
+                      style={{ 
+                        borderRadius: "12px",
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? "translateY(0)" : "translateY(30px)",
+                        transition: `all 0.6s ease ${index * 0.05}s`,
+                        boxShadow: "0 5px 20px rgba(0, 76, 153, 0.1)"
+                      }}
+                    >
+                      <div className="card-body p-4 d-flex flex-column">
+                        <div 
+                          className="icon-wrapper mb-4 p-3 rounded-3 d-inline-flex align-items-center justify-content-center"
+                          style={{ 
+                            width: "70px",
+                            height: "70px",
+                            background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)",
+                            transition: "all 0.3s ease",
+                            boxShadow: "0 5px 15px rgba(0, 76, 153, 0.2)"
+                          }}
+                        >
+                          <i className={`bi ${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
+                        </div>
+                        <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99", minHeight: "60px", fontSize: "1.25rem" }}>
+                          {service.title}
+                        </h5>
+                        <p className="card-text text-muted flex-grow-1 mb-0" style={{ lineHeight: "1.6", fontSize: "0.95rem" }}>
+                          {service.description}
+                        </p>
                       </div>
-                      <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99" }}>
-                        {service.title}
-                      </h5>
-                      <p className="card-text text-muted">{service.description}</p>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </section>
 
-            {/* CTA Section */}
-            <div className="card border-0 shadow-lg mt-5" style={{ 
-              borderRadius: "15px",
-              background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)"
-            }}>
-              <div className="card-body p-5 text-center">
-                <h3 className="fw-bold mb-4" style={{ color: "#004C99" }}>
-                  Ready for a Trusted External Audit Partner?
-                </h3>
-                <p className="lead mb-4 mx-auto" style={{ maxWidth: "600px" }}>
-                  Contact us today and let our audit team help you strengthen compliance
-                  and build confidence with your stakeholders.
+            {/* Process Section */}
+            <section className="py-2">
+              <div className="text-center mb-5">
+                <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Audit Process</h2>
+                <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
+                  A structured approach to deliver high-quality assurance and practical recommendations
                 </p>
-                
-                <div className="d-flex justify-content-center gap-3 flex-wrap">
-                  <a
-                    href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20External%20Audit%20Services."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary px-4 py-3 fw-bold"
-                    style={{
-                      backgroundColor: "#004C99",
-                      border: "none",
-                      borderRadius: "10px",
-                      transition: "all 0.3s ease",
-                      minWidth: "250px"
-                    }}
-                  >
-                    <i className="bi bi-whatsapp me-2"></i>
-                    Inquire via WhatsApp
-                  </a>
-                  
-                  <a
-                    href="tel:+254755453975"
-                    className="btn btn-outline-primary px-4 py-3 fw-bold"
-                    style={{
-                      borderColor: "#004C99",
-                      color: "#004C99",
-                      borderRadius: "10px",
-                      transition: "all 0.3s ease",
-                      minWidth: "200px"
-                    }}
-                  >
-                    <i className="bi bi-telephone me-2"></i>
-                    Call Us Now
-                  </a>
-                </div>
-                
-                <div className="mt-4">
-                  <small className="text-muted">
-                    📧 Or email us at: <a href="mailto:cmacharia482@gmail.com" className="text-primary">cmacharia482@gmail.com</a>
-                  </small>
+              </div>
+
+              <div className="row">
+                <div className="col-lg-10 mx-auto">
+                  <div className="d-flex flex-column flex-md-row justify-content-between position-relative">
+                    {/* Connecting line */}
+                    
+                    {auditProcess.map((step, idx) => (
+                      <div key={idx} className={`d-flex flex-column align-items-center position-relative z-index-1 ${idx < auditProcess.length - 1 ? 'mb-5 mb-md-0' : ''}`} style={{ flex: "1" }}>
+                        <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
+                          <span className="fs-4 fw-bold">{step.step}</span>
+                        </div>
+                        <h5 className="fw-bold mb-3 text-center">{step.title}</h5>
+                        <p className="text-muted text-center">{step.description}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
+
+            
 
             {/* Additional Info */}
             <div className="row mt-5 pt-4">
@@ -255,35 +301,45 @@ const ExternalAudit = () => {
         {`
           @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
           
+          .service-card {
+            transition: all 0.3s ease !important;
+          }
+          
           .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(0, 76, 153, 0.15) !important;
           }
           
           .service-card:hover .icon-wrapper {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
           }
           
-          .icon-wrapper {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 76, 135, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
+          .btn-primary {
+            background: linear-gradient(135deg, #004C99 0%, #0066CC 100%);
+            border: none;
           }
           
           .btn-primary:hover {
-            background-color: #003366 !important;
+            background: linear-gradient(135deg, #003366 0%, #004C99 100%);
             transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 76, 153, 0.3) !important;
+          }
+          
+          .btn-outline-primary {
+            color: #004C99;
+            border-color: #004C99;
           }
           
           .btn-outline-primary:hover {
-            background-color: #004C99 !important;
-            color: white !important;
+            background-color: #004C99;
+            color: white;
             transform: translateY(-2px);
+          }
+          
+          .btn-light:hover {
+            background-color: #f8f9fa !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
           }
         `}
       </style>

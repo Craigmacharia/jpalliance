@@ -25,16 +25,73 @@ const Home = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToPrev = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 9000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  // Scroll reveal
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  // Animated counters for stats
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll('.stat-value'));
+    if (elements.length === 0) return;
+
+    const parseNumberAndSuffix = (raw) => {
+      const numeric = parseFloat(String(raw).replace(/[^0-9.]/g, '')) || 0;
+      const suffix = String(raw).replace(/[0-9.]/g, '');
+      return { numeric, suffix };
+    };
+
+    const animate = (el) => {
+      const raw = el.getAttribute('data-target');
+      const duration = 1200;
+      const { numeric, suffix } = parseNumberAndSuffix(raw);
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min(1, (now - start) / duration);
+        const current = Math.floor(numeric * progress);
+        el.textContent = `${current}${suffix}`;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   // Core values data
@@ -123,25 +180,37 @@ const Home = () => {
             key={index}
             className={`position-absolute w-100 h-100 transition-all ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             style={{
-              background: `linear-gradient(rgba(0, 71, 135, 0.8), rgba(0, 71, 135, 0.8)), url(${slide.image}) center/cover`,
+              background: `linear-gradient(rgba(0, 71, 135, 0.8), rgba(0, 71, 135, 0.8))`,
               transition: "opacity 1.2s ease-in-out",
               borderRadius: "0 0 20px 20px"
             }}
-          ></div>
+          >
+            <div
+              className="w-100 h-100 slide-bg"
+              style={{
+                background: `url(${slide.image}) center/cover`,
+                borderRadius: "0 0 20px 20px",
+                animation: index === currentSlide ? "kenburns 10s ease-in-out forwards" : "none"
+              }}
+            ></div>
+          </div>
         ))}
         
         {/* Slide Content */}
         <div className="container position-relative z-index-1 text-center py-5">
           <h2 
-            className="fw-bold mb-4 animate-fade-in"
+            className="mb-3 animate-fade-in"
             style={{ 
               textShadow: "0 2px 4px rgba(0,0,0,0.74)",
-              fontWeight: "100",
+              fontWeight: 400,
               fontSize: "2.2rem"
             }}
           >
             JP Alliance & Associates
           </h2>
+          <h3 className="mb-3 animate-fade-in" style={{ fontWeight: 500 }}>
+            {slides[currentSlide].title}
+          </h3>
           <p 
             className="lead mb-5 mx-auto animate-fade-in"
             style={{
@@ -176,17 +245,47 @@ const Home = () => {
               Contact Us
             </Link>
           </div>
+
+          {/* Slide Controls */}
+          <button
+            aria-label="Previous slide"
+            onClick={goToPrev}
+            className="btn btn-light position-absolute top-50 start-0 translate-middle-y rounded-pill shadow-sm d-none d-md-inline-flex"
+            style={{ marginLeft: "20px", opacity: 0.9 }}
+          >
+            <i className="bi bi-chevron-left"></i>
+          </button>
+          <button
+            aria-label="Next slide"
+            onClick={goToNext}
+            className="btn btn-light position-absolute top-50 end-0 translate-middle-y rounded-pill shadow-sm d-none d-md-inline-flex"
+            style={{ marginRight: "20px", opacity: 0.9 }}
+          >
+            <i className="bi bi-chevron-right"></i>
+          </button>
+
+          {/* Indicators */}
+          <div className="d-flex justify-content-center gap-2 mt-4">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setCurrentSlide(i)}
+                className={`hero-dot ${i === currentSlide ? 'active' : ''}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="py-5 bg-white">
         <div className="container">
-          <div className="row text-center">
+          <div className="row text-center reveal">
             {stats.map((stat, index) => (
               <div key={index} className="col-md-3 col-6 mb-4">
                 <div className="animate-stat" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <h3 className="fw-bold text-primary mb-1">{stat.value}</h3>
+                  <h3 className="text-primary mb-1 stat-value" data-target={stat.value} style={{ fontWeight: 600 }}>0</h3>
                   <p className="text-muted mb-0">{stat.label}</p>
                 </div>
               </div>
@@ -199,8 +298,8 @@ const Home = () => {
       <section className="py-5 bg-light">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <h3 className="fw-bold mb-4" style={{ color: "#004787" }}>
+            <div className="col-lg-6 mb-4 mb-lg-0 reveal">
+              <h3 className="mb-4" style={{ color: "#004787", fontWeight: 600 }}>
                 About Our Firm
               </h3>
               <p className="lead mb-4">
@@ -225,12 +324,13 @@ const Home = () => {
                 Learn More About Us
               </Link>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 reveal">
               <div className="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80"
                   alt="Our Office"
                   className="img-fluid rounded shadow-lg"
+                  loading="lazy"
                   style={{ border: "5px solid white" }}
                 />
                 <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end" style={{zIndex: 5}}>
@@ -246,25 +346,26 @@ const Home = () => {
       {/* Core Values Section */}
       <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
         <div className="container">
-          <div className="text-center mb-5">
-            <h3 className="fw-bold" style={{ color: "#004787" }}>Our Core Values</h3>
+          <div className="text-center mb-5 reveal">
+            <h3 className="" style={{ color: "#004787", fontWeight: 600 }}>Core Values</h3>
+            <div className="heading-underline mx-auto"></div>
             <p className="text-muted">The principles that guide our work</p>
           </div>
-          <div className="row g-4">
+          <div className="row g-4 reveal">
             {coreValues.map((value, index) => (
               <div key={index} className="col-md-3 col-sm-6">
                 <div 
-                  className="card h-100 border-0 shadow-sm p-4 text-center hover-card"
+                  className="card h-100 border-0 shadow-sm p-4 text-center hover-card tilt-hover stagger"
                   style={{
                     transition: "all 0.3s ease",
                     borderRadius: "15px"
                   }}
                 >
-                  <div className="card-body">
+                  <div className="card-body" style={{ animationDelay: `${index * 0.06}s` }}>
                     <div className="icon-wrapper mb-3">
                       <i className={`bi ${value.icon} text-primary`} style={{ fontSize: "2.5rem" }}></i>
                     </div>
-                    <h5 className="card-title fw-bold mb-3" style={{ color: "#004787" }}>{value.title}</h5>
+                    <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{value.title}</h5>
                     <p className="card-text">{value.description}</p>
                   </div>
                 </div>
@@ -277,25 +378,26 @@ const Home = () => {
       {/* Services Section */}
       <section className="py-5 bg-white">
         <div className="container">
-          <div className="text-center mb-5">
-            <h3 className="fw-bold" style={{ color: "#004787" }}>Our Services</h3>
+          <div className="text-center mb-5 reveal">
+            <h3 className="" style={{ color: "#004787", fontWeight: 600 }}>Our Services</h3>
+            <div className="heading-underline mx-auto"></div>
             <p className="text-muted">Comprehensive financial solutions for your business</p>
           </div>
-          <div className="row g-4">
+          <div className="row g-4 reveal">
             {services.map((service, index) => (
               <div key={index} className="col-lg-4 col-md-6">
                 <div 
-                  className="card h-100 border-0 shadow-sm p-4 hover-card"
+                  className="card h-100 border-0 shadow-sm p-4 hover-card tilt-hover stagger"
                   style={{
                     transition: "all 0.3s ease",
                     borderRadius: "15px"
                   }}
                 >
-                  <div className="card-body text-center">
+                  <div className="card-body text-center" style={{ animationDelay: `${index * 0.06}s` }}>
                     <div className="icon-wrapper mb-3">
                       <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "2rem" }}></i>
                     </div>
-                    <h5 className="card-title fw-bold mb-3" style={{ color: "#004787" }}>{service.title}</h5>
+                    <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{service.title}</h5>
                     <p className="card-text mb-4">{service.description}</p>
                     <Link 
                       to="/services" 
@@ -319,21 +421,23 @@ const Home = () => {
 
       {/* Testimonial Preview */}
       <section className="py-5 bg-light">
-        <div className="container text-center">
-          <h3 className="fw-bold mb-4" style={{ color: "#004787" }}>Client Testimonials</h3>
+        <div className="container text-center reveal">
+          <h3 className="mb-2" style={{ color: "#004787", fontWeight: 600 }}>Client Testimonials</h3>
+          <div className="heading-underline mx-auto mb-3"></div>
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <div className="card border-0 shadow-sm p-4">
+              <div className="card border-0 shadow-sm p-4 tilt-hover">
                 <div className="card-body">
-                  <i className="bi bi-chat-quote text-primary" style={{ fontSize: "2rem" }}></i>
+                  <i className="bi bi-chat-quote text-primary pulse" style={{ fontSize: "2rem" }}></i>
                   <p className="fst-italic my-4">
                     "JP Alliance & Associates transformed our financial systems and helped us achieve 30% growth in just one year. Their expertise in tax planning saved us significant costs."
                   </p>
                   <div className="d-flex align-items-center justify-content-center">
                     <img 
-                      src="https://randomuser.me/api/portraits/men/41.jpg" 
+                      src="carloan.png" 
                       alt="Client" 
                       className="rounded-circle me-3"
+                      loading="lazy"
                       style={{ width: "50px", height: "50px", objectFit: "cover" }}
                     />
                     <div>
@@ -353,7 +457,7 @@ const Home = () => {
 
       {/* CTA Section */}
       <section 
-        className="py-5 text-white text-center"
+        className="py-5 text-white text-center reveal"
         style={{ 
           background: "linear-gradient(135deg, #004787 0%, #003366 100%)",
           fontFamily: "'Quicksand', sans-serif",
@@ -362,7 +466,7 @@ const Home = () => {
         }}
       >
         <div className="container py-4">
-          <h3 className="fw-bold mb-4">Ready to Grow Your Business?</h3>
+          <h3 className="mb-4" style={{ fontWeight: 600 }}>Ready to Grow Your Business?</h3>
           <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px" }}>
             Partner with our team of financial experts to take your business to the next level.
           </p>
@@ -470,6 +574,46 @@ const Home = () => {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
           }
+
+          /* Ken Burns hero */
+          @keyframes kenburns {
+            0% { transform: scale(1) translateZ(0); }
+            100% { transform: scale(1.08) translateZ(0); }
+          }
+          .slide-bg { will-change: transform; }
+
+          /* Dots */
+          .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            transition: all 0.3s ease;
+          }
+          .hero-dot.active {
+            background: #ffffff;
+            width: 26px;
+            border-radius: 999px;
+          }
+          .hero-dot:hover { background: #ffffff; }
+
+          /* Scroll reveal */
+          .reveal { opacity: 0; transform: translateY(24px); transition: all .7s ease; }
+          .reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
+          .heading-underline { width: 90px; height: 4px; background: #004787; border-radius: 999px; margin-top: 10px; }
+
+          /* Tilt hover */
+          .tilt-hover { transition: transform .25s ease, box-shadow .25s ease; }
+          .tilt-hover:hover { transform: perspective(600px) rotateX(2deg) rotateY(-2deg) translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.12) !important; }
+
+          /* Pulse */
+          @keyframes pulseScale {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+          }
+          .pulse { animation: pulseScale 2.4s ease-in-out infinite; }
           
           .icon-wrapper {
             display: inline-flex;

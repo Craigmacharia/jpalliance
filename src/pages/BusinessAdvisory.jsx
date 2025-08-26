@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-export default function Tax() {
+const BusinessAdvisory = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -11,92 +11,92 @@ export default function Tax() {
     window.scrollTo(0, 0);
   }, []);
 
-  const taxServices = [
+  const advisoryServices = [
     {
       id: 1,
-      icon: "bi-file-earmark-text",
-      title: "Corporate Tax Filing",
-      description: "Comprehensive corporate tax compliance and filing services for businesses of all sizes",
-      benefits: ["KRA compliance", "Timely submissions", "Documentation management"]
+      title: "Strategic Planning",
+      description: "Develop comprehensive business strategies to achieve your long-term goals and objectives.",
+      icon: "bi bi-bullseye",
+      benefits: ["Market analysis", "Goal setting", "Implementation roadmap"]
     },
     {
       id: 2,
-      icon: "bi-person-circle",
-      title: "Individual Tax Filing",
-      description: "Personal income tax preparation and filing for individuals and sole proprietors",
-      benefits: ["Deduction optimization", "Tax return preparation", "KRA iTax support"]
+      title: "Financial Advisory",
+      description: "Optimize your financial structure, manage cash flow, and improve profitability.",
+      icon: "bi bi-graph-up-arrow",
+      benefits: ["Cash flow management", "Financial modeling", "Profitability analysis"]
     },
     {
       id: 3,
-      icon: "bi-calculator",
-      title: "VAT & PAYE Support",
-      description: "Expert handling of Value Added Tax, Pay As You Earn, and other statutory deductions",
-      benefits: ["Monthly returns", "Compliance monitoring", "Payment processing"]
+      title: "Operational Efficiency",
+      description: "Streamline operations, reduce costs, and enhance overall business performance.",
+      icon: "bi bi-gear-fill",
+      benefits: ["Process optimization", "Cost reduction", "Performance metrics"]
     },
     {
       id: 4,
-      icon: "bi-graph-up-arrow",
-      title: "Tax Planning",
-      description: "Strategic tax planning to minimize liabilities and maximize your financial benefits",
-      benefits: ["Tax efficiency analysis", "Strategy development", "Implementation guidance"]
+      title: "Risk Management",
+      description: "Identify potential risks and develop strategies to mitigate their impact on your business.",
+      icon: "bi bi-shield-check",
+      benefits: ["Risk assessment", "Contingency planning", "Compliance review"]
     },
     {
       id: 5,
-      icon: "bi-shield-check",
-      title: "Tax Compliance Reviews",
-      description: "Thorough reviews to ensure full compliance with Kenyan tax regulations",
-      benefits: ["Compliance audit", "Risk assessment", "Remediation planning"]
+      title: "Growth Strategy",
+      description: "Develop and execute plans for business expansion, market penetration, and diversification.",
+      icon: "bi bi-rocket-fill",
+      benefits: ["Market expansion", "Product diversification", "Strategic partnerships"]
     },
     {
       id: 6,
-      icon: "bi-people",
-      title: "Dispute Resolution",
-      description: "Professional representation and resolution of disputes with tax authorities",
-      benefits: ["KRA liaison", "Appeal preparation", "Settlement negotiation"]
+      title: "Succession Planning",
+      description: "Plan for leadership transitions and ensure business continuity for the future.",
+      icon: "bi bi-people-fill",
+      benefits: ["Leadership development", "Transition planning", "Knowledge transfer"]
     }
   ];
 
-  const taxProcess = [
+  const caseStudies = [
     {
-      step: 1,
-      title: "Consultation & Analysis",
-      description: "We begin by understanding your tax situation, business structure, and financial objectives."
+      id: 1,
+      company: "Manufacturing Company",
+      challenge: "Declining profitability and operational inefficiencies",
+      solution: "Implemented lean manufacturing processes and cost control measures",
+      result: "25% increase in operational efficiency and 18% reduction in costs"
     },
     {
-      step: 2,
-      title: "Strategy Development",
-      description: "Our experts create a customized tax strategy tailored to your specific needs and goals."
+      id: 2,
+      company: "Tech Startup",
+      challenge: "Difficulty scaling operations and securing funding",
+      solution: "Developed growth strategy and financial projections for investors",
+      result: "Secured $2M in funding and expanded to new markets locally and abroad"
     },
     {
-      step: 3,
-      title: "Implementation",
-      description: "We handle all aspects of tax filing and compliance, ensuring accuracy and timeliness."
-    },
-    {
-      step: 4,
-      title: "Ongoing Support",
-      description: "We provide continuous monitoring and support to keep you compliant as regulations change."
+      id: 3,
+      company: "Family Business",
+      challenge: "No clear succession plan for leadership transition",
+      solution: "Created comprehensive succession plan and leadership development program",
+      result: "Smooth transition to next generation with 95% retention of key staff"
     }
   ];
 
   return (
-    <div className="tax-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
+    <div className="business-advisory-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
         className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
         style={{ 
-          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
+          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
           minHeight: "60vh"
         }}
       >
         <div className="container position-relative z-index-1 text-center">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <h1 className="display-4 fw-bold mb-4">Tax Advisory Services</h1>
+              <h1 className="display-4 fw-bold mb-4">Business Advisory Services</h1>
               <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
-                Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
+                Strategic guidance to navigate challenges, capitalize on opportunities, and drive sustainable growth for your business.
               </p>
-              
             </div>
           </div>
         </div>
@@ -108,41 +108,35 @@ export default function Tax() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Comprehensive Tax Solutions</h2>
+              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Expert Guidance for Business Success</h2>
               <p className="text-muted mb-4 fs-5">
-                At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we help 
-                individuals and businesses navigate the complexities of tax compliance and planning in Kenya. 
-                Our team ensures you stay compliant with the latest KRA regulations while maximizing your 
-                benefits and minimizing liabilities.
+                Our Business Advisory services provide the strategic insight and practical guidance needed to navigate complex business challenges and capitalize on growth opportunities. We partner with you to develop customized solutions that drive sustainable success.
               </p>
               <p className="text-muted mb-4 fs-5">
-                With our deep understanding of Kenyan tax laws and extensive experience across various industries, 
-                we provide tailored solutions that address your specific tax challenges and opportunities.
+                With decades of combined experience across various industries, our advisors bring fresh perspectives and proven methodologies to help your business thrive in today's competitive landscape.
               </p>
               <div className="d-flex flex-wrap gap-3">
-                <a
-                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Tax%20Advisory%20Services."
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  to="/contact" 
                   className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
-                </a>
+                  Schedule Consultation
+                </Link>
                 <a 
-                  href="tel:+254755453975" 
+                  href="#services" 
                   className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill fw-semibold"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  <i className="bi bi-telephone me-2"></i> Call Directly
+                  Explore Services
                 </a>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                  alt="Tax Advisory Services" 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  altBusiness Advisory Team 
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
                 />
@@ -156,14 +150,14 @@ export default function Tax() {
       <section id="services" className="py-5 bg-light">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Tax Services</h2>
+            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Advisory Services</h2>
             <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-              Comprehensive tax solutions tailored to meet your specific needs and ensure compliance with Kenyan regulations
+              Comprehensive advisory solutions tailored to your specific business needs and challenges
             </p>
           </div>
 
           <div className="row g-4">
-            {taxServices.map((service) => (
+            {advisoryServices.map((service) => (
               <div key={service.id} className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 border-0 service-card"
@@ -186,7 +180,7 @@ export default function Tax() {
                         boxShadow: "0 5px 15px rgba(0, 76, 153, 0.2)"
                       }}
                     >
-                      <i className={`bi ${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
+                      <i className={`${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
                     </div>
                     <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99", minHeight: "60px", fontSize: "1.25rem" }}>
                       {service.title}
@@ -195,7 +189,7 @@ export default function Tax() {
                       {service.description}
                     </p>
                     <div className="mt-auto">
-                      <h6 className="fw-semibold mb-3" style={{ color: "#004C99" }}>Key Features:</h6>
+                      <h6 className="fw-semibold mb-3" style={{ color: "#004C99" }}>Key Benefits:</h6>
                       <ul className="list-unstyled">
                         {service.benefits.map((benefit, index) => (
                           <li key={index} className="d-flex align-items-center mb-2">
@@ -213,13 +207,13 @@ export default function Tax() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Approach Section */}
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Tax Advisory Process</h2>
+            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Advisory Approach</h2>
             <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-              A structured approach to ensure comprehensive tax compliance and optimization
+              A structured methodology that delivers tangible results and sustainable growth
             </p>
           </div>
 
@@ -234,8 +228,8 @@ export default function Tax() {
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">1</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Consultation</h5>
-                  <p className="text-muted text-center">{taxProcess[0].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Analysis</h5>
+                  <p className="text-muted text-center">We begin by thoroughly understanding your business, challenges, and goals through detailed analysis.</p>
                 </div>
 
                 {/* Step 2 */}
@@ -244,7 +238,7 @@ export default function Tax() {
                     <span className="fs-4 fw-bold">2</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Strategy Planning</h5>
-                  <p className="text-muted text-center">{taxProcess[1].description}</p>
+                  <p className="text-muted text-center">We craft customized strategies tailored to your specific situation and objectives.</p>
                 </div>
 
                 {/* Step 3 */}
@@ -253,7 +247,7 @@ export default function Tax() {
                     <span className="fs-4 fw-bold">3</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Implementation</h5>
-                  <p className="text-muted text-center">{taxProcess[2].description}</p>
+                  <p className="text-muted text-center">We work alongside your team to execute the plan, ensuring smooth adoption and integration.</p>
                 </div>
 
                 {/* Step 4 */}
@@ -261,8 +255,8 @@ export default function Tax() {
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">4</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Support</h5>
-                  <p className="text-muted text-center">{taxProcess[3].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Reviewing</h5>
+                  <p className="text-muted text-center">We continuously monitor progress and make adjustments to ensure optimal results.</p>
                 </div>
               </div>
             </div>
@@ -270,90 +264,41 @@ export default function Tax() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Case Studies */}
       <section className="py-5 bg-light">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Why Choose us?</h2>
-              
-              <div className="d-flex align-items-start mb-4">
-                <div className="me-4">
-                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
-                    <i className="bi bi-award-fill text-primary fs-3"></i>
-                  </div>
-                </div>
-                <div>
-                  <h5 className="fw-bold">Certified Tax Professionals</h5>
-                  <p className="text-muted mb-0">Our team consists of certified tax experts with extensive knowledge of Kenyan tax laws.</p>
-                </div>
-              </div>
-              
-              <div className="d-flex align-items-start mb-4">
-                <div className="me-4">
-                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
-                    <i className="bi bi-clock-fill text-primary fs-3"></i>
-                  </div>
-                </div>
-                <div>
-                  <h5 className="fw-bold">Timely Compliance</h5>
-                  <p className="text-muted mb-0">We ensure all tax filings and payments are submitted before deadlines to avoid penalties.</p>
-                </div>
-              </div>
-              
-              <div className="d-flex align-items-start mb-4">
-                <div className="me-4">
-                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
-                    <i className="bi bi-shield-fill-check text-primary fs-3"></i>
-                  </div>
-                </div>
-                <div>
-                  <h5 className="fw-bold">KRA Compliance</h5>
-                  <p className="text-muted mb-0">We stay updated with the latest KRA regulations to ensure full compliance.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="col-lg-6">
-              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Industries We Serve</h2>
-              
-              <div className="row">
-                <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-building text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">Corporate</h5>
-                    <p className="text-muted mb-0">Large enterprises and multinational companies</p>
-                  </div>
-                </div>
-                
-                <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-shop text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">SMEs</h5>
-                    <p className="text-muted mb-0">Small and medium-sized enterprises</p>
-                  </div>
-                </div>
-                
-                <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-person text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">Individuals</h5>
-                    <p className="text-muted mb-0">Personal tax and sole proprietors</p>
-                  </div>
-                </div>
-                
-                <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-gear text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">Manufacturing</h5>
-                    <p className="text-muted mb-0">Industrial and production businesses</p>
+          <div className="text-center mb-5">
+            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Success Stories</h2>
+            <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
+              See how our advisory services have helped businesses overcome challenges and achieve growth
+            </p>
+          </div>
+
+          <div className="row g-4">
+            {caseStudies.map((study) => (
+              <div key={study.id} className="col-lg-4 col-md-6">
+                <div className="card h-100 border-0 shadow-sm rounded-3">
+                  <div className="card-body p-4">
+                    <div className="bg-primary bg-opacity-10 rounded-3 p-3 mb-4">
+                      <h5 className="fw-bold mb-0" style={{ color: "#004C99" }}>{study.company}</h5>
+                    </div>
+                    <h6 className="fw-semibold mb-3">Challenge:</h6>
+                    <p className="text-muted mb-4">{study.challenge}</p>
+                    <h6 className="fw-semibold mb-3">Our Solution:</h6>
+                    <p className="text-muted mb-4">{study.solution}</p>
+                    <div className="bg-success bg-opacity-10 rounded-3 p-3 mt-auto">
+                      <h6 className="fw-semibold mb-2 text-success">Results Achieved:</h6>
+                      <p className="text-success mb-0">{study.result}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      
 
       {/* CSS */}
       <style>
@@ -400,8 +345,16 @@ export default function Tax() {
             transform: translateY(-2px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
           }
+          
+          .btn-outline-light:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1) !important;
+          }
         `}
       </style>
     </div>
   );
-}
+};
+
+export default BusinessAdvisory;

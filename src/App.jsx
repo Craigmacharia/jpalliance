@@ -14,6 +14,9 @@ import Tax from './pages/Tax';
 import Payroll from "./pages/Payroll";
 import ExternalAudit from "./pages/ExternalAudit";
 import InternalAudit from "./pages/InternalAudit";
+import BusinessAdvisory from "./pages/BusinessAdvisory";
+import ForensicAudit from "./pages/ForensicAudit";
+
 
 
 
@@ -47,6 +50,8 @@ function App() {
 
           <Route path="/services/external-audit" element={<ExternalAudit />} />
           <Route path="/services/internal-audit" element={<InternalAudit />} />
+          <Route path="/services/business-advisory" element={<BusinessAdvisory />} />
+          <Route path="/services/forensic-audit" element={<ForensicAudit />} />
           <Route path="/services/payroll" element={<Payroll />} />
           <Route path="/services/business-advisory" element={<ServiceDetail title="Business Advisory" />} />
           <Route

@@ -1,10 +1,9 @@
-// src/pages/Payroll.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-export default function Payroll() {
+export default function ForensicAudit() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,76 +11,76 @@ export default function Payroll() {
     window.scrollTo(0, 0);
   }, []);
 
-  const payrollServices = [
+  const forensicServices = [
     {
       id: 1,
-      icon: "bi-cash-coin",
-      title: "Automated Payroll Processing",
-      description: "Efficient and accurate salary processing with automated calculations for all employee payments",
-      benefits: ["Salary calculations", "Overtime processing", "Bonus management"]
+      icon: "bi-search",
+      title: "Fraud Detection & Investigation",
+      description: "Comprehensive fraud detection through data analysis, interviews, and forensic accounting techniques",
+      benefits: ["Data analytics", "Interview techniques", "Document review"]
     },
     {
       id: 2,
-      icon: "bi-receipt",
-      title: "Tax & Statutory Deductions",
-      description: "Proper handling of PAYE, NHIF, NSSF, and other statutory deductions in compliance with Kenyan laws",
-      benefits: ["PAYE calculations", "NHIF deductions", "NSSF compliance"]
+      icon: "bi-shield-exclamation",
+      title: "Financial Crime Investigations",
+      description: "Investigation of money laundering, corruption, and other financial crimes with evidence preservation",
+      benefits: ["Evidence preservation", "Chain of custody", "Legal compliance"]
     },
     {
       id: 3,
-      icon: "bi-file-earmark-text",
-      title: "Custom Payslip Generation",
-      description: "Professional and detailed payslips tailored to your organization's branding and requirements",
-      benefits: ["Branded payslips", "Detailed breakdown", "Digital delivery"]
+      icon: "bi-graph-down",
+      title: "Asset Tracing & Recovery",
+      description: "Track and recover misappropriated assets through forensic analysis and legal proceedings",
+      benefits: ["Asset identification", "Recovery strategies", "Legal support"]
     },
     {
       id: 4,
-      icon: "bi-shield-check",
-      title: "Labor Law Compliance",
-      description: "Full compliance with Kenyan labor laws and regulations to protect your business from penalties",
-      benefits: ["Legal compliance", "Regulation updates", "Risk mitigation"]
+      icon: "bi-file-earmark-text",
+      title: "Expert Witness Services",
+      description: "Professional expert witness testimony and report preparation for legal proceedings",
+      benefits: ["Court testimony", "Expert reports", "Cross-examination support"]
     },
     {
       id: 5,
-      icon: "bi-graph-up",
-      title: "Payroll Reports & Analytics",
-      description: "Comprehensive reports and record keeping for better financial planning and decision making",
-      benefits: ["Financial reports", "Analytics dashboard", "Record keeping"]
+      icon: "bi-laptop",
+      title: "Digital Forensics",
+      description: "Computer and digital device forensics to recover and analyze electronic evidence",
+      benefits: ["Data recovery", "Digital evidence", "Chain of custody"]
     },
     {
       id: 6,
-      icon: "bi-headset",
-      title: "Ongoing Support",
-      description: "Dedicated support team to handle any payroll queries and ensure smooth operations",
-      benefits: ["24/7 support", "Query resolution", "Training assistance"]
+      icon: "bi-building",
+      title: "Corporate Investigations",
+      description: "Internal corporate investigations for misconduct, compliance violations, and governance issues",
+      benefits: ["Misconduct investigation", "Compliance review", "Governance assessment"]
     }
   ];
 
-  const payrollProcess = [
+  const forensicProcess = [
     {
       step: 1,
-      title: "Data Collection & Setup",
-      description: "We gather employee information, salary structures, and statutory requirements to set up your payroll system."
+      title: "Initial Assessment & Planning",
+      description: "We assess the scope, gather preliminary information, and develop a comprehensive investigation plan."
     },
     {
       step: 2,
-      title: "Processing & Calculations",
-      description: "Our system processes salaries, calculates deductions, and ensures accuracy in all financial computations."
+      title: "Evidence Collection & Preservation",
+      description: "Systematic collection and preservation of all relevant evidence following forensic standards."
     },
     {
       step: 3,
-      title: "Compliance Verification",
-      description: "We verify all statutory deductions and ensure full compliance with Kenyan labor and tax regulations."
+      title: "Analysis & Investigation",
+      description: "Detailed forensic analysis, interviews, and investigation to uncover the truth."
     },
     {
       step: 4,
-      title: "Delivery & Support",
-      description: "We deliver payslips, process payments, and provide ongoing support for all payroll-related queries."
+      title: "Reporting & Legal Support",
+      description: "Comprehensive reporting and ongoing support for legal proceedings and recovery actions."
     }
   ];
 
   return (
-    <div className="payroll-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
+    <div className="forensic-audit-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
         className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
@@ -93,11 +92,10 @@ export default function Payroll() {
         <div className="container position-relative z-index-1 text-center">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <h1 className="display-4 fw-bold mb-4">Payroll Services</h1>
+              <h1 className="display-4 fw-bold mb-4">Forensic Audit & Investigations</h1>
               <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
-                Comprehensive payroll solutions ensuring accurate, timely payments and full compliance with statutory requirements
+                Professional forensic investigation services to detect fraud, preserve evidence, and support legal proceedings
               </p>
-              
             </div>
           </div>
         </div>
@@ -109,19 +107,19 @@ export default function Payroll() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Streamlined Payroll Management</h2>
+              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Uncover the Truth with Professional Forensics</h2>
               <p className="text-muted mb-4 fs-5">
-                At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we ensure your employees 
-                are paid accurately, on time, and in full compliance with statutory requirements. From salary 
-                processing to statutory deductions, we've got you covered.
+                At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we provide comprehensive 
+                forensic audit and investigation services that help organizations detect fraud, investigate misconduct, 
+                and preserve evidence for legal proceedings.
               </p>
               <p className="text-muted mb-4 fs-5">
-                Our automated payroll system handles everything from basic salary calculations to complex statutory 
-                deductions, ensuring accuracy and compliance while saving you time and reducing errors.
+                Our certified forensic professionals use advanced techniques, data analytics, and industry best practices 
+                to conduct thorough investigations that stand up to legal scrutiny and help you recover losses.
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Payroll%20Services."
+                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Forensic%20Audit%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
@@ -142,7 +140,7 @@ export default function Payroll() {
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                  alt="Payroll Services" 
+                  alt="Forensic Audit Services" 
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
                 />
@@ -156,14 +154,14 @@ export default function Payroll() {
       <section id="services" className="py-5 bg-light">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Payroll Services</h2>
+            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Forensic Services</h2>
             <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-              Comprehensive payroll solutions tailored to meet your organization's specific needs and ensure compliance
+              Comprehensive forensic investigation services designed to detect fraud and support legal proceedings
             </p>
           </div>
 
           <div className="row g-4">
-            {payrollServices.map((service) => (
+            {forensicServices.map((service) => (
               <div key={service.id} className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 border-0 service-card"
@@ -217,9 +215,9 @@ export default function Payroll() {
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Payroll Process</h2>
+            <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Forensic Investigation Process</h2>
             <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-              A structured approach to ensure accurate payroll processing and full statutory compliance
+              A systematic approach to forensic investigations that ensures evidence integrity and legal compliance
             </p>
           </div>
 
@@ -227,15 +225,15 @@ export default function Payroll() {
             <div className="col-lg-10 mx-auto">
               <div className="d-flex flex-column flex-md-row justify-content-between position-relative">
                 {/* Connecting line */}
-                
+                <div className="position-absolute top-50 start-0 end-0 bg-primary" style={{ height: "3px", zIndex: 0, transform: "translateY(-50%)" }}></div>
                 
                 {/* Step 1 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1 mb-5 mb-md-0" style={{ flex: "1" }}>
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">1</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Data Collection</h5>
-                  <p className="text-muted text-center">{payrollProcess[0].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Initial Assessment & Planning</h5>
+                  <p className="text-muted text-center">{forensicProcess[0].description}</p>
                 </div>
 
                 {/* Step 2 */}
@@ -243,8 +241,8 @@ export default function Payroll() {
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">2</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Processing</h5>
-                  <p className="text-muted text-center">{payrollProcess[1].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Evidence Collection & Preservation</h5>
+                  <p className="text-muted text-center">{forensicProcess[1].description}</p>
                 </div>
 
                 {/* Step 3 */}
@@ -252,8 +250,8 @@ export default function Payroll() {
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">3</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Verification</h5>
-                  <p className="text-muted text-center">{payrollProcess[2].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Analysis & Investigation</h5>
+                  <p className="text-muted text-center">{forensicProcess[2].description}</p>
                 </div>
 
                 {/* Step 4 */}
@@ -261,8 +259,8 @@ export default function Payroll() {
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">4</span>
                   </div>
-                  <h5 className="fw-bold mb-3 text-center">Delivery</h5>
-                  <p className="text-muted text-center">{payrollProcess[3].description}</p>
+                  <h5 className="fw-bold mb-3 text-center">Reporting & Legal Support</h5>
+                  <p className="text-muted text-center">{forensicProcess[3].description}</p>
                 </div>
               </div>
             </div>
@@ -275,7 +273,7 @@ export default function Payroll() {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Why Choose Our Payroll Services?</h2>
+              <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Why Choose Our Forensic Services?</h2>
               
               <div className="d-flex align-items-start mb-4">
                 <div className="me-4">
@@ -284,20 +282,8 @@ export default function Payroll() {
                   </div>
                 </div>
                 <div>
-                  <h5 className="fw-bold">Certified Payroll Professionals</h5>
-                  <p className="text-muted mb-0">Our team consists of certified payroll experts with extensive knowledge of Kenyan labor laws.</p>
-                </div>
-              </div>
-              
-              <div className="d-flex align-items-start mb-4">
-                <div className="me-4">
-                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
-                    <i className="bi bi-clock-fill text-primary fs-3"></i>
-                  </div>
-                </div>
-                <div>
-                  <h5 className="fw-bold">Timely Processing</h5>
-                  <p className="text-muted mb-0">We ensure all payroll processing and payments are completed on time to maintain employee satisfaction.</p>
+                  <h5 className="fw-bold">Certified Forensic Professionals</h5>
+                  <p className="text-muted mb-0">Our team consists of certified forensic accountants and investigators with extensive experience.</p>
                 </div>
               </div>
               
@@ -308,8 +294,20 @@ export default function Payroll() {
                   </div>
                 </div>
                 <div>
-                  <h5 className="fw-bold">Full Compliance</h5>
-                  <p className="text-muted mb-0">We stay updated with the latest labor laws and statutory requirements to ensure full compliance.</p>
+                  <h5 className="fw-bold">Evidence Preservation</h5>
+                  <p className="text-muted mb-0">We maintain strict chain of custody and evidence preservation protocols for legal proceedings.</p>
+                </div>
+              </div>
+              
+              <div className="d-flex align-items-start mb-4">
+                <div className="me-4">
+                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
+                    <i className="bi bi-graph-up text-primary fs-3"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 className="fw-bold">Advanced Analytics</h5>
+                  <p className="text-muted mb-0">We use cutting-edge data analytics and forensic tools to uncover hidden patterns and evidence.</p>
                 </div>
               </div>
             </div>
@@ -322,31 +320,31 @@ export default function Payroll() {
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
                     <i className="bi bi-building text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Corporate</h5>
-                    <p className="text-muted mb-0">Large enterprises with complex payroll requirements</p>
+                    <p className="text-muted mb-0">Internal fraud investigations and compliance reviews</p>
                   </div>
                 </div>
                 
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-shop text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">SMEs</h5>
-                    <p className="text-muted mb-0">Small and medium-sized enterprises</p>
+                    <i className="bi bi-bank text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Financial Services</h5>
+                    <p className="text-muted mb-0">Banking fraud and money laundering investigations</p>
                   </div>
                 </div>
                 
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-gear text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">Manufacturing</h5>
-                    <p className="text-muted mb-0">Industrial and production businesses</p>
+                    <i className="bi bi-shield text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Insurance</h5>
+                    <p className="text-muted mb-0">Claims fraud investigation and assessment</p>
                   </div>
                 </div>
                 
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-briefcase text-primary fs-1 mb-3"></i>
-                    <h5 className="fw-bold">Service Sector</h5>
-                    <p className="text-muted mb-0">Professional services and consulting firms</p>
+                    <i className="bi bi-gavel text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Legal Firms</h5>
+                    <p className="text-muted mb-0">Expert witness and litigation support services</p>
                   </div>
                 </div>
               </div>
@@ -360,13 +358,13 @@ export default function Payroll() {
         background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)" 
       }}>
         <div className="container py-5 position-relative z-index-1">
-          <h2 className="fw-bold mb-4 display-5">Ready to Streamline Your Payroll?</h2>
+          <h2 className="fw-bold mb-4 display-5">Need Professional Forensic Investigation?</h2>
           <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px" }}>
-            Contact us today to discuss how we can support your payroll needs and ensure compliance
+            Contact us today for expert forensic services that help you uncover the truth and protect your interests
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <a
-              href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Payroll%20Services."
+              href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Forensic%20Audit%20Services."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-light btn-lg px-5 py-3 rounded-pill fw-semibold shadow"

@@ -103,8 +103,8 @@ const Contact = () => {
                   <i className="bi bi-geo-alt-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
                   <div>
                     <h6 className="fw-bold mb-1">Address</h6>
-                    <p className="mb-0">Spur Mall Ruiru, 2nd Floor</p>
-                    <p className="mb-0">Ruiru, Kenya</p>
+                    <p className="mb-0">Blessed House, Opposite Garden City Mall</p>
+                    <p className="mb-0">Nairobi, Kenya</p>
                   </div>
                 </div>
                 
@@ -134,14 +134,67 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="ratio ratio-16x9 mt-auto">
+              <div className="ratio ratio-16x9 mt-auto position-relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.752881022678!2d36.96311131475396!3d-1.1494359991366393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f9d6a9a3a5d%3A0x9b9b9b9b9b9b9b9b!2sSpur%20Mall%20Ruiru!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
-                  title="JP Alliance Location at Spur Mall Ruiru"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8199999999997!2d36.8175!3d-1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4b2b2b2b2%3A0x9b9b9b9b9b9b9b9b!2sBlessed%20House%2C%20Opposite%20Garden%20City%20Mall!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                  title="JP Alliance Location at Blessed House, Opposite Garden City Mall"
                   allowFullScreen
                   loading="lazy"
                   style={{ border: "none", borderRadius: "8px" }}
                 ></iframe>
+                
+                {/* Custom Location Marker */}
+                <div 
+                  className="position-absolute d-flex flex-column align-items-center"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 10,
+                    pointerEvents: "none"
+                  }}
+                >
+                  {/* Red Marker Pin */}
+                  <div 
+                    className="position-relative"
+                    style={{
+                      width: "0",
+                      height: "0",
+                      borderLeft: "12px solid transparent",
+                      borderRight: "12px solid transparent",
+                      borderTop: "20px solid #dc3545",
+                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))"
+                    }}
+                  >
+                    {/* White dot in center */}
+                    <div 
+                      className="position-absolute"
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        background: "white",
+                        borderRadius: "50%",
+                        top: "-16px",
+                        left: "-3px"
+                      }}
+                    ></div>
+                  </div>
+                  
+                  {/* Company Label */}
+                  <div 
+                    className="bg-white text-dark px-3 py-2 rounded-3 shadow-sm border"
+                    style={{
+                      fontSize: "0.85rem",
+                      fontWeight: "600",
+                      whiteSpace: "nowrap",
+                      marginTop: "5px",
+                      borderColor: "#dc3545 !important"
+                    }}
+                  >
+                    <i className="bi bi-building me-2 text-danger"></i>
+                    JP Alliance & Associates
+                  </div>
+                </div>
               </div>
             </div>
           </div>
