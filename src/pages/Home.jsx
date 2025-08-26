@@ -235,11 +235,14 @@ const Home = () => {
             </Link>
             <Link 
               to="/contact" 
-              className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
+              className="btn btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
                 letterSpacing: "0.5px",
-                transition: "all 0.3s ease"
+                transition: "all 0.3s ease",
+                backgroundColor: "#004C99",
+                color: "white",
+                border: "none"
               }}
             >
               Contact Us
