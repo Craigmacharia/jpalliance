@@ -24,7 +24,6 @@ const Home = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,9 +32,29 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  // Preload slide images for smoother transitions
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    slides.forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+  }, [slides]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      prevSlide();
+    } else if (event.key === "ArrowRight") {
+      nextSlide();
+    }
+  };
 
   // Core values data
   const coreValues = [
@@ -116,6 +135,11 @@ const Home = () => {
           margin: "0px 15px",
           boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
         }}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Homepage highlights"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
       >
         {/* Background Slides */}
         {slides.map((slide, index) => (
@@ -127,12 +151,13 @@ const Home = () => {
               transition: "opacity 1.2s ease-in-out",
               borderRadius: "0 0 20px 20px"
             }}
+            aria-hidden={index !== currentSlide}
           ></div>
         ))}
         
         {/* Slide Content */}
         <div className="container position-relative z-index-1 text-center py-5">
-          <h2 
+          <h1 
             className="fw-bold mb-4 animate-fade-in"
             style={{ 
               textShadow: "0 2px 4px rgba(0,0,0,0.74)",
@@ -141,7 +166,7 @@ const Home = () => {
             }}
           >
             JP Alliance & Associates
-          </h2>
+          </h1>
           <p 
             className="lead mb-5 mx-auto animate-fade-in"
             style={{
@@ -149,6 +174,8 @@ const Home = () => {
               maxWidth: "700px",
               textShadow: "0 1px 3px rgba(0,0,0,0.3)"
             }}
+            role="status"
+            aria-live="polite"
           >
             {slides[currentSlide].description}
           </p>
@@ -180,8 +207,9 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-5 bg-white">
+      <section className="py-5 bg-white" aria-labelledby="stats-heading">
         <div className="container">
+          <h2 id="stats-heading" className="visually-hidden">Key firm statistics</h2>
           <div className="row text-center">
             {stats.map((stat, index) => (
               <div key={index} className="col-md-3 col-6 mb-4">
@@ -196,13 +224,13 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-5 bg-light">
+      <section className="py-5 bg-light" aria-labelledby="about-heading">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <h3 className="fw-bold mb-4" style={{ color: "#004787" }}>
+              <h2 id="about-heading" className="fw-bold mb-4" style={{ color: "#004787" }}>
                 About Our Firm
-              </h3>
+              </h2>
               <p className="lead mb-4">
                 JP Alliance & Associates is a premier audit and financial advisory firm based in Nairobi, Kenya.
               </p>
@@ -232,6 +260,8 @@ const Home = () => {
                   alt="Our Office"
                   className="img-fluid rounded shadow-lg"
                   style={{ border: "5px solid white" }}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end" style={{zIndex: 5}}>
                   <h5 className="mb-0">Since 2008</h5>
@@ -244,10 +274,10 @@ const Home = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
+      <section className="py-5" style={{ backgroundColor: "#f8f9fa" }} aria-labelledby="values-heading">
         <div className="container">
           <div className="text-center mb-5">
-            <h3 className="fw-bold" style={{ color: "#004787" }}>Our Core Values</h3>
+            <h2 id="values-heading" className="fw-bold" style={{ color: "#004787" }}>Our Core Values</h2>
             <p className="text-muted">The principles that guide our work</p>
           </div>
           <div className="row g-4">
@@ -275,10 +305,10 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-5 bg-white">
+      <section className="py-5 bg-white" aria-labelledby="services-heading">
         <div className="container">
           <div className="text-center mb-5">
-            <h3 className="fw-bold" style={{ color: "#004787" }}>Our Services</h3>
+            <h2 id="services-heading" className="fw-bold" style={{ color: "#004787" }}>Our Services</h2>
             <p className="text-muted">Comprehensive financial solutions for your business</p>
           </div>
           <div className="row g-4">
@@ -318,9 +348,9 @@ const Home = () => {
       </section>
 
       {/* Testimonial Preview */}
-      <section className="py-5 bg-light">
+      <section className="py-5 bg-light" aria-labelledby="testimonials-heading">
         <div className="container text-center">
-          <h3 className="fw-bold mb-4" style={{ color: "#004787" }}>Client Testimonials</h3>
+          <h2 id="testimonials-heading" className="fw-bold mb-4" style={{ color: "#004787" }}>Client Testimonials</h2>
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="card border-0 shadow-sm p-4">
@@ -332,9 +362,11 @@ const Home = () => {
                   <div className="d-flex align-items-center justify-content-center">
                     <img 
                       src="https://randomuser.me/api/portraits/men/41.jpg" 
-                      alt="Client" 
+                      alt="Client"
                       className="rounded-circle me-3"
                       style={{ width: "50px", height: "50px", objectFit: "cover" }}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <h6 className="mb-0">James Kimani</h6>
@@ -360,9 +392,10 @@ const Home = () => {
           borderRadius: "20px 20px",
           margin: " 15px"
         }}
+        aria-labelledby="cta-heading"
       >
         <div className="container py-4">
-          <h3 className="fw-bold mb-4">Ready to Grow Your Business?</h3>
+          <h2 id="cta-heading" className="fw-bold mb-4">Ready to Grow Your Business?</h2>
           <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px" }}>
             Partner with our team of financial experts to take your business to the next level.
           </p>
@@ -485,6 +518,15 @@ const Home = () => {
           .hover-card:hover .icon-wrapper {
             transform: scale(1.1);
             background: rgba(0, 76, 135, 0.2);
+          }
+
+          /* Respect reduced motion preferences */
+          @media (prefers-reduced-motion: reduce) {
+            * {
+              animation: none !important;
+              transition: none !important;
+              scroll-behavior: auto !important;
+            }
           }
         `}
       </style>
