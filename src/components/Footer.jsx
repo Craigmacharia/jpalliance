@@ -128,11 +128,11 @@ function Footer() {
               </h5>
               <ul className="list-unstyled">
                 {[
-                  { to: "/tax", text: "Tax Services", icon: "bi-calculator" },
-                  { to: "/payroll", text: "Payroll", icon: "bi-people" },
-                  { to: "/external-audit", text: "General Audit", icon: "bi-file-earmark-check" },
-                  { to: "/business-advisory", text: "Business Advisory", icon: "bi-graph-up" },
-                  { to: "/forensic-audit", text: "Forensic Audit", icon: "bi-search" }
+                  { to: "/services/tax", text: "Tax Services", icon: "bi-calculator" },
+                  { to: "/services/payroll", text: "Payroll", icon: "bi-people" },
+                  { to: "/services/external-audit", text: "General Audit", icon: "bi-file-earmark-check" },
+                  { to: "/services/business-advisory", text: "Business Advisory", icon: "bi-graph-up" },
+                  { to: "/services/forensic-audit", text: "Forensic Audit", icon: "bi-search" }
                 ].map((service, index) => (
                   <li key={index} className="mb-3">
                     <Link 
