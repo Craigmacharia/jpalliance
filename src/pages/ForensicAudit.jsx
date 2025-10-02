@@ -92,10 +92,11 @@ export default function ForensicAudit() {
         <div className="container position-relative z-index-1 text-center">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <h1 className="display-4 fw-bold mb-4">Forensic Audit & Investigations</h1>
+              <h1 className="display-4 fw-bold mb-4">Forensic Auditing</h1>
               <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
-                Professional forensic investigation services to detect fraud, preserve evidence, and support legal proceedings
-              </p>
+              Professional forensic investigation services to detect fraud, preserve evidence, and support legal proceedings
+          </p>
+              
             </div>
           </div>
         </div>
@@ -137,13 +138,14 @@ export default function ForensicAudit() {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="rounded-3 overflow-hidden shadow-lg">
+              <div className="rounded-3 overflow-hidden shadow-lg position-relative">
                 <img 
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                   alt="Forensic Audit Services" 
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
                 />
+                <div className="position-absolute top-0 start-0 w-100 h-100 bg-primary" style={{ opacity: "0.1" }}></div>
               </div>
             </div>
           </div>
@@ -161,7 +163,7 @@ export default function ForensicAudit() {
           </div>
 
           <div className="row g-4">
-            {forensicServices.map((service) => (
+            {forensicServices.map((service, index) => (
               <div key={service.id} className="col-md-6 col-lg-4">
                 <div 
                   className="card h-100 border-0 service-card"
@@ -169,7 +171,7 @@ export default function ForensicAudit() {
                     borderRadius: "12px",
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                    transition: `all 0.6s ease ${service.delay || "0.1s"}`,
+                    transition: `all 0.6s ease ${index * 0.1}s`,
                     boxShadow: "0 5px 20px rgba(0, 76, 153, 0.1)"
                   }}
                 >
@@ -225,11 +227,11 @@ export default function ForensicAudit() {
             <div className="col-lg-10 mx-auto">
               <div className="d-flex flex-column flex-md-row justify-content-between position-relative">
                 {/* Connecting line */}
-                <div className="position-absolute top-50 start-0 end-0 bg-primary" style={{ height: "3px", zIndex: 0, transform: "translateY(-50%)" }}></div>
+                
                 
                 {/* Step 1 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1 mb-5 mb-md-0" style={{ flex: "1" }}>
-                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
+                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3 shadow" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">1</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Initial Assessment & Planning</h5>
@@ -238,7 +240,7 @@ export default function ForensicAudit() {
 
                 {/* Step 2 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1 mb-5 mb-md-0" style={{ flex: "1" }}>
-                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
+                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3 shadow" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">2</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Evidence Collection & Preservation</h5>
@@ -247,7 +249,7 @@ export default function ForensicAudit() {
 
                 {/* Step 3 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1 mb-5 mb-md-0" style={{ flex: "1" }}>
-                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
+                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3 shadow" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">3</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Analysis & Investigation</h5>
@@ -256,7 +258,7 @@ export default function ForensicAudit() {
 
                 {/* Step 4 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1" style={{ flex: "1" }}>
-                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
+                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3 shadow" style={{ width: "70px", height: "70px" }}>
                     <span className="fs-4 fw-bold">4</span>
                   </div>
                   <h5 className="fw-bold mb-3 text-center">Reporting & Legal Support</h5>
@@ -310,6 +312,18 @@ export default function ForensicAudit() {
                   <p className="text-muted mb-0">We use cutting-edge data analytics and forensic tools to uncover hidden patterns and evidence.</p>
                 </div>
               </div>
+
+              <div className="d-flex align-items-start mb-4">
+                <div className="me-4">
+                  <div className="bg-primary bg-opacity-10 rounded-3 p-3">
+                    <i className="bi bi-clock-history text-primary fs-3"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 className="fw-bold">Timely Results</h5>
+                  <p className="text-muted mb-0">We understand the urgency of forensic investigations and deliver timely, actionable results.</p>
+                </div>
+              </div>
             </div>
             
             <div className="col-lg-6">
@@ -317,7 +331,7 @@ export default function ForensicAudit() {
               
               <div className="row">
                 <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
                     <i className="bi bi-building text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Corporate</h5>
                     <p className="text-muted mb-0">Internal fraud investigations and compliance reviews</p>
@@ -325,7 +339,7 @@ export default function ForensicAudit() {
                 </div>
                 
                 <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
                     <i className="bi bi-bank text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Financial Services</h5>
                     <p className="text-muted mb-0">Banking fraud and money laundering investigations</p>
@@ -333,7 +347,7 @@ export default function ForensicAudit() {
                 </div>
                 
                 <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
                     <i className="bi bi-shield text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Insurance</h5>
                     <p className="text-muted mb-0">Claims fraud investigation and assessment</p>
@@ -341,10 +355,26 @@ export default function ForensicAudit() {
                 </div>
                 
                 <div className="col-sm-6 mb-4">
-                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
-                    <i className="bi bi-gavel text-primary fs-1 mb-3"></i>
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
+                    <i className="bi bi-briefcase text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Legal Firms</h5>
                     <p className="text-muted mb-0">Expert witness and litigation support services</p>
+                  </div>
+                </div>
+
+                <div className="col-sm-6 mb-4">
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
+                    <i className="bi bi-hospital text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Healthcare</h5>
+                    <p className="text-muted mb-0">Medical fraud and billing investigations</p>
+                  </div>
+                </div>
+
+                <div className="col-sm-6 mb-4">
+                  <div className="bg-white rounded-3 p-4 h-100 shadow-sm border-0">
+                    <i className="bi bi-house-gear text-primary fs-1 mb-3"></i>
+                    <h5 className="fw-bold">Government</h5>
+                    <p className="text-muted mb-0">Public sector fraud and corruption investigations</p>
                   </div>
                 </div>
               </div>
@@ -353,46 +383,8 @@ export default function ForensicAudit() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-5 text-white text-center position-relative overflow-hidden" style={{ 
-        background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)" 
-      }}>
-        <div className="container py-5 position-relative z-index-1">
-          <h2 className="fw-bold mb-4 display-5">Need Professional Forensic Investigation?</h2>
-          <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px" }}>
-            Contact us today for expert forensic services that help you uncover the truth and protect your interests
-          </p>
-          <div className="d-flex justify-content-center gap-3 flex-wrap">
-            <a
-              href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Forensic%20Audit%20Services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-light btn-lg px-5 py-3 rounded-pill fw-semibold shadow"
-              style={{
-                transition: "all 0.3s ease",
-                minWidth: "200px"
-              }}
-            >
-              <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
-            </a>
-            <a 
-              href="tel:+254755453975" 
-              className="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-semibold"
-              style={{
-                transition: "all 0.3s ease",
-                minWidth: "200px"
-              }}
-            >
-              <i className="bi bi-telephone me-2"></i> Call Now
-            </a>
-          </div>
-        </div>
-        <div className="position-absolute top-0 end-0 w-100 h-100" style={{ 
-          background: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
-          opacity: "0.05", 
-          zIndex: 0 
-        }}></div>
-      </section>
+      {/* Enhanced Contact Section */}
+      
 
       {/* CSS */}
       <style>
@@ -438,6 +430,14 @@ export default function ForensicAudit() {
             background-color: #f8f9fa !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
+          }
+
+          .z-index-1 {
+            z-index: 1;
+          }
+
+          .top-35 {
+            top: 35px;
           }
         `}
       </style>

@@ -1,120 +1,107 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Home = () => {
-  // Slideshow data
+  // Preload critical images
+  useEffect(() => {
+    const preloadImages = [
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "jplogo5.png"
+    ];
+    
+    preloadImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // Slideshow data with optimized images
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80",
-      title: "Professional Audit Services",
-      description: "Comprehensive financial audits with precision and integrity"
+      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+      title: "Professional Audit & Assurance Services",
+      description: "Comprehensive financial audits with precision and integrity since 2008"
     },
     {
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
       title: "Tax Advisory Experts",
-      description: "Strategic tax planning to optimize your financial position"
+      description: "Strategic tax planning and compliance services for businesses across East Africa"
     },
     {
-      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80",
-      title: "Business Growth Partners",
-      description: "Financial advisory services to drive sustainable growth in the future"
+      image: "watu.png",
+      title: "Business Consulting & Financial Advisory",
+      description: "Tailored solutions addressing unique business challenges in today's dynamic economy"
     }
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const goToPrev = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 9000);
-    return () => clearInterval(interval);
+  
+  const goToNext = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const goToPrev = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
 
-  // Scroll reveal
+  // Optimized slideshow with cleanup
   useEffect(() => {
+    const interval = setInterval(goToNext, 8000);
+    return () => clearInterval(interval);
+  }, [goToNext]);
+
+  // Debounced scroll reveal
+  useEffect(() => {
+    let timeoutId;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-visible");
-            observer.unobserve(entry.target);
+            timeoutId = setTimeout(() => {
+              entry.target.classList.add("reveal-visible");
+            }, 50);
           }
         });
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.1,
+        rootMargin: "50px"
+      }
     );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  // Animated counters for stats
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('.stat-value'));
-    if (elements.length === 0) return;
-
-    const parseNumberAndSuffix = (raw) => {
-      const numeric = parseFloat(String(raw).replace(/[^0-9.]/g, '')) || 0;
-      const suffix = String(raw).replace(/[0-9.]/g, '');
-      return { numeric, suffix };
-    };
-
-    const animate = (el) => {
-      const raw = el.getAttribute('data-target');
-      const duration = 1200;
-      const { numeric, suffix } = parseNumberAndSuffix(raw);
-      const start = performance.now();
-      const step = (now) => {
-        const progress = Math.min(1, (now - start) / duration);
-        const current = Math.floor(numeric * progress);
-        el.textContent = `${current}${suffix}`;
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animate(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
+    
+    const elements = document.querySelectorAll('.reveal');
     elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   // Core values data
   const coreValues = [
     {
-      title: "Integrity",
-      icon: "bi-shield-check",
-      description: "We uphold the highest ethical standards in all our engagements"
-    },
-    {
       title: "Excellence",
       icon: "bi-award",
-      description: "Commitment to delivering exceptional quality in our services"
+      description: "With efficiency and diligence, carry out tasks to attain utmost excellence in our service delivery"
     },
     {
-      title: "Innovation",
-      icon: "bi-lightbulb",
-      description: "Creative solutions tailored to your unique business needs"
+      title: "Integrity",
+      icon: "bi-shield-check",
+      description: "Demonstrate high standards of honesty, reliability and confidentiality in all engagements"
     },
     {
-      title: "Professionalism",
-      icon: "bi-person-badge",
-      description: "Certified experts providing reliable financial guidance"
+      title: "Teamwork",
+      icon: "bi-people",
+      description: "Working together as a team with unity of purpose to achieve our mission effectively"
+    },
+    {
+      title: "Responsibility",
+      icon: "bi-check-circle",
+      description: "Being accountable for every action and efficiently utilizing resources to meet client needs"
     }
   ];
 
@@ -122,43 +109,51 @@ const Home = () => {
   const services = [
     {
       title: "Audit & Assurance",
-      description: "Comprehensive audit services ensuring financial accuracy",
+      description: "Statutory audits following International Auditing Standards with risk-based approach",
       icon: "bi-file-earmark-check"
     },
     {
       title: "Tax Advisory",
-      description: "Strategic tax planning and compliance services",
+      description: "Full tax advisory services including corporate tax, VAT, and acting as your tax agents",
       icon: "bi-calculator"
     },
     {
-      title: "Financial Advisory",
-      description: "Expert guidance to optimize your financial performance and growth",
-      icon: "bi-graph-up"
-    },
-    {
       title: "Accounting Services",
-      description: "Professional bookkeeping and financial reporting services",
+      description: "Design of accounting systems, financial procedures and internal controls",
       icon: "bi-journal-bookmark"
     },
     {
-      title: "Risk Management",
-      description: "Identifying and mitigating financial risks to protect your business",
-      icon: "bi-shield-exclamation"
+      title: "Business Consulting",
+      description: "Financial analysis, evaluation and advisory services for business improvement",
+      icon: "bi-briefcase"
     },
     {
-      title: "Business Consulting",
-      description: "Strategic advice to enhance your business operations",
-      icon: "bi-briefcase"
+      title: "Special Assignments",
+      description: "Financial procedures development, cash flow advisory and internal controls evaluation",
+      icon: "bi-clipboard-check"
+    },
+    {
+      title: "Financing Arrangement",
+      description: "Project feasibility reviews, financial planning and investment structuring",
+      icon: "bi-graph-up"
     }
   ];
 
   // Stats data
   const stats = [
     { value: "15+", label: "Years Experience" },
-    { value: "200+", label: "Clients Served" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "12", label: "Professional Staff" }
+    { value: "30+", label: "Clients Served" },
+    { value: "8", label: "Professional Staff" },
+    { value: "98%", label: "Client Satisfaction" }
   ];
+
+  // Single testimonial data
+  const testimonial = {
+    quote: "JP Alliance & Associates transformed our financial systems and helped us achieve 30% growth in just one year. Their expertise in tax planning saved us significant costs while their audit services ensured complete compliance.",
+    company: "Highlands Mineral Water",
+    position: "Manufacturing - Soft Drinks",
+    results: ["30% Business Growth", "Full Tax Compliance", "Streamlined Financial Systems"]
+  };
 
   return (
     <div style={{ fontFamily: "'Quicksand', sans-serif" }}>
@@ -166,69 +161,62 @@ const Home = () => {
       <section 
         className="text-white d-flex align-items-center" 
         style={{ 
-          minHeight: "90vh",
+          minHeight: "85vh",
           position: "relative",
           overflow: "hidden",
-          borderRadius: " 20px 20px",
-          margin: "0px 15px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+          borderRadius: "12px",
+          margin: "10px 15px",
         }}
       >
-        {/* Background Slides */}
+        {/* Background Slides with optimized loading */}
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`position-absolute w-100 h-100 transition-all ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+            className={`position-absolute w-100 h-100 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             style={{
-              background: `linear-gradient(rgba(0, 71, 135, 0.8), rgba(0, 71, 135, 0.8))`,
-              transition: "opacity 1.2s ease-in-out",
-              borderRadius: "0 0 20px 20px"
+              background: `linear-gradient(rgba(0, 71, 135, 0.85), rgba(0, 71, 135, 0.78)), url(${slide.image}) center/cover`,
+              transition: "opacity 0.8s ease-in-out",
+              borderRadius: "12px",
+              willChange: "opacity"
             }}
-          >
-            <div
-              className="w-100 h-100 slide-bg"
-              style={{
-                background: `url(${slide.image}) center/cover`,
-                borderRadius: "0 0 20px 20px",
-                animation: index === currentSlide ? "kenburns 10s ease-in-out forwards" : "none"
-              }}
-            ></div>
-          </div>
+          />
         ))}
         
         {/* Slide Content */}
-        <div className="container position-relative z-index-1 text-center py-5">
+        <div className="container position-relative text-center py-5">
           <h2 
-            className="mb-3 animate-fade-in"
+            className="mb-3"
             style={{ 
-              textShadow: "0 2px 4px rgba(0,0,0,0.74)",
-              fontWeight: 400,
-              fontSize: "2.2rem"
+              fontWeight: 600,
+              fontSize: "clamp(2rem, 4vw, 2.4rem)",
+              letterSpacing: "-0.5px"
             }}
           >
             JP Alliance & Associates
           </h2>
-          <h3 className="mb-3 animate-fade-in" style={{ fontWeight: 500 }}>
+          <h3 className="mb-3" style={{ 
+            fontWeight: 500, 
+            fontSize: "clamp(1.4rem, 3vw, 1.8rem)" 
+          }}>
             {slides[currentSlide].title}
           </h3>
           <p 
-            className="lead mb-5 mx-auto animate-fade-in"
+            className="lead mb-5 mx-auto"
             style={{
-              fontSize: "1.4rem",
+              fontSize: "clamp(1rem, 2vw, 1.2rem)",
               maxWidth: "700px",
-              textShadow: "0 1px 3px rgba(0,0,0,0.3)"
+              lineHeight: "1.6"
             }}
           >
             {slides[currentSlide].description}
           </p>
-          <div className="d-flex justify-content-center gap-3 animate-fade-in">
+          <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Link 
               to="/services" 
               className="btn btn-light btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s ease"
+                minWidth: "140px"
               }}
             >
               Our Services
@@ -238,11 +226,10 @@ const Home = () => {
               className="btn btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s ease",
-                backgroundColor: "#004C99",
+                backgroundColor: "rgba(255,255,255,0.15)",
                 color: "white",
-                border: "none"
+                border: "1px solid rgba(255,255,255,0.3)",
+                minWidth: "140px"
               }}
             >
               Contact Us
@@ -253,16 +240,16 @@ const Home = () => {
           <button
             aria-label="Previous slide"
             onClick={goToPrev}
-            className="btn btn-light position-absolute top-50 start-0 translate-middle-y rounded-pill shadow-sm d-none d-md-inline-flex"
-            style={{ marginLeft: "20px", opacity: 0.9 }}
+            className="btn btn-light position-absolute top-50 start-0 translate-middle-y rounded-pill shadow-sm d-none d-md-flex align-items-center justify-content-center"
+            style={{ width: "44px", height: "44px", marginLeft: "15px" }}
           >
             <i className="bi bi-chevron-left"></i>
           </button>
           <button
             aria-label="Next slide"
             onClick={goToNext}
-            className="btn btn-light position-absolute top-50 end-0 translate-middle-y rounded-pill shadow-sm d-none d-md-inline-flex"
-            style={{ marginRight: "20px", opacity: 0.9 }}
+            className="btn btn-light position-absolute top-50 end-0 translate-middle-y rounded-pill shadow-sm d-none d-md-flex align-items-center justify-content-center"
+            style={{ width: "44px", height: "44px", marginRight: "15px" }}
           >
             <i className="bi bi-chevron-right"></i>
           </button>
@@ -287,9 +274,9 @@ const Home = () => {
           <div className="row text-center reveal">
             {stats.map((stat, index) => (
               <div key={index} className="col-md-3 col-6 mb-4">
-                <div className="animate-stat" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <h3 className="text-primary mb-1 stat-value" data-target={stat.value} style={{ fontWeight: 600 }}>0</h3>
-                  <p className="text-muted mb-0">{stat.label}</p>
+                <div>
+                  <h3 className="text-primary mb-2" style={{ fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 2.2rem)" }}>{stat.value}</h3>
+                  <p className="text-muted mb-0" style={{ fontSize: "0.95rem" }}>{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -305,14 +292,11 @@ const Home = () => {
               <h3 className="mb-4" style={{ color: "#004787", fontWeight: 600 }}>
                 About Our Firm
               </h3>
-              <p className="lead mb-4">
-                JP Alliance & Associates is a premier audit and financial advisory firm based in Nairobi, Kenya.
+              <p className="mb-4" style={{ lineHeight: "1.7" }}>
+                JP Alliance & Associates is an independent firm of Certified Public Accountants with expertise in audit and assurance, tax advisory and business consulting. Registered by The Institute of Certified Public Accountants of Kenya (ICPAK), we are mandated to conduct audit and assurance, tax advisory, and business consulting services.
               </p>
-              <p>
-                With over 15 years of experience, we provide comprehensive financial solutions to businesses across East Africa. Our team of certified professionals is dedicated to helping clients navigate complex financial landscapes with confidence.
-              </p>
-              <p>
-                We specialize in delivering tailored solutions that address the unique challenges faced by businesses in today's dynamic economic environment. Our client-centric approach ensures that we understand your specific needs and provide personalized services that drive growth and sustainability.
+              <p className="mb-4" style={{ lineHeight: "1.7" }}>
+                Our professional team of 8 staff is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
               </p>
               <Link 
                 to="/about" 
@@ -320,8 +304,7 @@ const Home = () => {
                 style={{
                   fontWeight: "600",
                   backgroundColor: "#004787",
-                  border: "none",
-                  transition: "all 0.3s ease"
+                  border: "none"
                 }}
               >
                 Learn More About Us
@@ -330,15 +313,15 @@ const Home = () => {
             <div className="col-lg-6 reveal">
               <div className="position-relative">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80"
+                  src="trust.jpg"
                   alt="Our Office"
-                  className="img-fluid rounded shadow-lg"
+                  className="img-fluid rounded shadow"
                   loading="lazy"
-                  style={{ border: "5px solid white" }}
+                  style={{ border: "4px solid white" }}
                 />
-                <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end" style={{zIndex: 5}}>
-                  <h5 className="mb-0">Since 2008</h5>
-                  <p className="mb-0">Serving Kenyan Businesses</p>
+                <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
+                  <h5 className="mb-0" style={{ fontWeight: 600 }}>Since 2008</h5>
+                  <p className="mb-0" style={{ fontSize: "0.9rem" }}>Serving Kenyan Businesses</p>
                 </div>
               </div>
             </div>
@@ -350,26 +333,26 @@ const Home = () => {
       <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
         <div className="container">
           <div className="text-center mb-5 reveal">
-            <h3 className="" style={{ color: "#004787", fontWeight: 600 }}>Core Values</h3>
-            <div className="heading-underline mx-auto"></div>
-            <p className="text-muted">The principles that guide our work</p>
+            <h3 style={{ color: "#004787", fontWeight: 600 }}>Our Core Values</h3>
+            <div className="heading-underline mx-auto mb-3"></div>
+            <p className="text-muted">The principles that guide our work and client relationships</p>
           </div>
           <div className="row g-4 reveal">
             {coreValues.map((value, index) => (
               <div key={index} className="col-md-3 col-sm-6">
                 <div 
-                  className="card h-100 border-0 shadow-sm p-4 text-center hover-card tilt-hover stagger"
+                  className="card h-100 border-0 shadow-sm p-4 text-center"
                   style={{
-                    transition: "all 0.3s ease",
-                    borderRadius: "15px"
+                    borderRadius: "15px",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease"
                   }}
                 >
-                  <div className="card-body" style={{ animationDelay: `${index * 0.06}s` }}>
+                  <div className="card-body">
                     <div className="icon-wrapper mb-3">
-                      <i className={`bi ${value.icon} text-primary`} style={{ fontSize: "2.5rem" }}></i>
+                      <i className={`bi ${value.icon} text-primary`} style={{ fontSize: "2.2rem" }}></i>
                     </div>
                     <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{value.title}</h5>
-                    <p className="card-text">{value.description}</p>
+                    <p className="card-text" style={{ lineHeight: "1.6" }}>{value.description}</p>
                   </div>
                 </div>
               </div>
@@ -382,34 +365,33 @@ const Home = () => {
       <section className="py-5 bg-white">
         <div className="container">
           <div className="text-center mb-5 reveal">
-            <h3 className="" style={{ color: "#004787", fontWeight: 600 }}>Our Services</h3>
-            <div className="heading-underline mx-auto"></div>
-            <p className="text-muted">Comprehensive financial solutions for your business</p>
+            <h3 style={{ color: "#004787", fontWeight: 600 }}>Our Professional Services</h3>
+            <div className="heading-underline mx-auto mb-3"></div>
+            <p className="text-muted">Comprehensive financial and business solutions tailored to your needs</p>
           </div>
           <div className="row g-4 reveal">
             {services.map((service, index) => (
               <div key={index} className="col-lg-4 col-md-6">
                 <div 
-                  className="card h-100 border-0 shadow-sm p-4 hover-card tilt-hover stagger"
+                  className="card h-100 border-0 shadow-sm p-4"
                   style={{
-                    transition: "all 0.3s ease",
-                    borderRadius: "15px"
+                    borderRadius: "15px",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease"
                   }}
                 >
-                  <div className="card-body text-center" style={{ animationDelay: `${index * 0.06}s` }}>
+                  <div className="card-body text-center">
                     <div className="icon-wrapper mb-3">
-                      <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "2rem" }}></i>
+                      <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "1.8rem" }}></i>
                     </div>
                     <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{service.title}</h5>
-                    <p className="card-text mb-4">{service.description}</p>
+                    <p className="card-text mb-4" style={{ lineHeight: "1.6" }}>{service.description}</p>
                     <Link 
                       to="/services" 
                       className="btn btn-outline-primary px-3 rounded-pill"
                       style={{
                         fontWeight: "600",
                         borderColor: "#004787",
-                        color: "#004787",
-                        transition: "all 0.3s ease"
+                        color: "#004787"
                       }}
                     >
                       Learn More
@@ -422,37 +404,83 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial Preview */}
+      {/* Single Product Card Testimonial Section */}
       <section className="py-5 bg-light">
-        <div className="container text-center reveal">
-          <h3 className="mb-2" style={{ color: "#004787", fontWeight: 600 }}>Client Testimonials</h3>
-          <div className="heading-underline mx-auto mb-3"></div>
+        <div className="container reveal">
+          <div className="text-center mb-5">
+            <h3 style={{ color: "#004787", fontWeight: 600 }}>Client Success Story</h3>
+            <div className="heading-underline mx-auto mb-3"></div>
+            <p className="text-muted">Transforming businesses through expert financial guidance</p>
+          </div>
           <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="card border-0 shadow-sm p-4 tilt-hover">
-                <div className="card-body">
-                  <i className="bi bi-chat-quote text-primary pulse" style={{ fontSize: "2rem" }}></i>
-                  <p className="fst-italic my-4">
-                    "JP Alliance & Associates transformed our financial systems and helped us achieve 30% growth in just one year. Their expertise in tax planning saved us significant costs."
-                  </p>
-                  <div className="d-flex align-items-center justify-content-center">
-                    <img 
-                      src="carloan.png" 
-                      alt="Client" 
-                      className="rounded-circle me-3"
-                      loading="lazy"
-                      style={{ width: "50px", height: "50px", objectFit: "cover" }}
-                    />
-                    <div>
-                      <h6 className="mb-0">James Kimani</h6>
-                      <small className="text-muted">CEO, Nairobi Enterprises</small>
+            <div className="col-lg-10">
+              <div className="card border-0 shadow-sm overflow-hidden">
+                <div className="row g-0">
+                  <div className="col-md-8">
+                    <div className="card-body p-4 p-lg-5">
+                      <div className="d-flex align-items-center mb-4">
+                        <i className="bi bi-chat-quote text-primary me-3" style={{ fontSize: "1.5rem" }}></i>
+                        <h5 className="mb-0" style={{ color: "#004787", fontWeight: 600 }}>Client Testimonial</h5>
+                      </div>
+                      <p style={{ fontSize: "1.05rem", lineHeight: "1.7", color: "#333" }}>
+                        "{testimonial.quote}"
+                      </p>
+                      <div className="mt-4">
+                        <h6 style={{ fontWeight: 600, color: "#004787" }}>{testimonial.company}</h6>
+                        <p className="text-muted mb-3">{testimonial.position}</p>
+                        <div className="d-flex flex-wrap gap-2">
+                          {testimonial.results.map((result, index) => (
+                            <span 
+                              key={index}
+                              className="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill"
+                              style={{ fontSize: "0.85rem", fontWeight: "500" }}
+                            >
+                              {result}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 bg-primary text-white">
+                    <div className="card-body p-4 p-lg-5 d-flex flex-column justify-content-center h-100">
+                      <h5 className="mb-4" style={{ fontWeight: 600 }}>Services Delivered</h5>
+                      <ul className="list-unstyled mb-0">
+                        <li className="mb-2">
+                          <i className="bi bi-check-circle-fill me-2"></i>
+                          Comprehensive Audit
+                        </li>
+                        <li className="mb-2">
+                          <i className="bi bi-check-circle-fill me-2"></i>
+                          Tax Advisory
+                        </li>
+                        <li className="mb-2">
+                          <i className="bi bi-check-circle-fill me-2"></i>
+                          Financial Systems Review
+                        </li>
+                        <li className="mb-2">
+                          <i className="bi bi-check-circle-fill me-2"></i>
+                          Compliance Management
+                        </li>
+                        <li>
+                          <i className="bi bi-check-circle-fill me-2"></i>
+                          Growth Strategy
+                        </li>
+                      </ul>
+                      <div className="mt-4 pt-3 border-top border-white border-opacity-25">
+                        <small className="opacity-75">Ready to achieve similar results?</small>
+                        <Link 
+                          to="/testimonials" 
+                          className="btn btn-light btn-sm w-100 mt-2 rounded-pill"
+                          style={{ fontWeight: "600" }}
+                        >
+                          View more Success Stories
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <Link to="/testimonials" className="btn btn-outline-primary mt-4 rounded-pill">
-                Read More Testimonials
-              </Link>
             </div>
           </div>
         </div>
@@ -462,16 +490,15 @@ const Home = () => {
       <section 
         className="py-5 text-white text-center reveal"
         style={{ 
-          background: "linear-gradient(135deg, #004787 0%, #003366 100%)",
-          fontFamily: "'Quicksand', sans-serif",
-          borderRadius: "20px 20px",
-          margin: " 15px"
+          backgroundColor: "#004787",
+          borderRadius: "12px",
+          margin: "10px 15px"
         }}
       >
         <div className="container py-4">
           <h3 className="mb-4" style={{ fontWeight: 600 }}>Ready to Grow Your Business?</h3>
-          <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px" }}>
-            Partner with our team of financial experts to take your business to the next level.
+          <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px", fontSize: "1.1rem" }}>
+            Partner with our team of certified financial experts to navigate complex financial landscapes with confidence.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Link 
@@ -479,45 +506,42 @@ const Home = () => {
               className="btn btn-light btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s ease"
+                minWidth: "180px"
               }}
             >
               Get a Consultation
             </Link>
             <a 
-              href="tel:+254755453975" 
+              href="tel:+254738462705" 
               className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s ease"
+                minWidth: "140px"
               }}
             >
-              <i className="bi bi-telephone me-2"></i> Call us
+              <i className="bi bi-telephone me-2"></i> Call Us
             </a>
             <a 
-              href="mailto:cmacharia482@gmail.com" 
+              href="mailto:Contact@jpa.co.ke" 
               className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
               style={{
                 fontWeight: "600",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s ease"
+                minWidth: "140px"
               }}
             >
-              <i className="bi bi-envelope me-2"></i> Email
+              <i className="bi bi-envelope me-2"></i> Email Us
             </a>
           </div>
         </div>
       </section>
 
-      {/* CSS */}
+      {/* Optimized CSS */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
           
           .transition-all {
-            transition: all 1s ease-in-out;
+            transition: all 0.8s ease-in-out;
           }
           .opacity-100 {
             opacity: 1;
@@ -525,113 +549,106 @@ const Home = () => {
           .opacity-0 {
             opacity: 0;
           }
-          .z-index-1 {
-            z-index: 1;
+          
+          .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15) !important;
           }
-          .hover-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-          }
-          .hover-card:hover .card-text,
-          .hover-card:hover .card-title {
-            opacity: 1 !important;
-          }
+          
           .btn-light:hover {
-            background-color: #fff !important;
+            background-color: #f8f9fa !important;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
           }
+          
           .btn-outline-light:hover {
             background-color: rgba(255,255,255,0.1) !important;
             transform: translateY(-2px);
           }
+          
           .btn-primary:hover {
             background-color: #003366 !important;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
           }
+          
           .btn-outline-primary:hover {
             background-color: #004787 !important;
             color: white !important;
             transform: translateY(-2px);
           }
           
-          /* Animations */
-          .animate-fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
-            animation-delay: 0.3s;
-          }
-          
-          .animate-stat {
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-          }
-          
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          /* Ken Burns hero */
-          @keyframes kenburns {
-            0% { transform: scale(1) translateZ(0); }
-            100% { transform: scale(1.08) translateZ(0); }
-          }
-          .slide-bg { will-change: transform; }
-
           /* Dots */
           .hero-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.4);
             border: none;
             transition: all 0.3s ease;
           }
           .hero-dot.active {
             background: #ffffff;
-            width: 26px;
+            width: 24px;
             border-radius: 999px;
           }
-          .hero-dot:hover { background: #ffffff; }
+          .hero-dot:hover { 
+            background: #ffffff; 
+          }
 
           /* Scroll reveal */
-          .reveal { opacity: 0; transform: translateY(24px); transition: all .7s ease; }
-          .reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
-          .heading-underline { width: 90px; height: 4px; background: #004787; border-radius: 999px; margin-top: 10px; }
-
-          /* Tilt hover */
-          .tilt-hover { transition: transform .25s ease, box-shadow .25s ease; }
-          .tilt-hover:hover { transform: perspective(600px) rotateX(2deg) rotateY(-2deg) translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.12) !important; }
-
-          /* Pulse */
-          @keyframes pulseScale {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
+          .reveal { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: all 0.6s ease; 
           }
-          .pulse { animation: pulseScale 2.4s ease-in-out infinite; }
+          .reveal-visible { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
+          }
           
+          .heading-underline { 
+            width: 60px; 
+            height: 3px; 
+            background: #004787; 
+            border-radius: 2px; 
+          }
+
           .icon-wrapper {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 76, 135, 0.1);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 76, 135, 0.08);
             border-radius: 50%;
             transition: all 0.3s ease;
           }
-          
-          .hover-card:hover .icon-wrapper {
+
+          .icon-wrapper:hover {
             transform: scale(1.1);
-            background: rgba(0, 76, 135, 0.2);
+            background: rgba(0, 76, 135, 0.15);
+          }
+
+          /* Performance optimizations */
+          * {
+            box-sizing: border-box;
+          }
+          
+          .card {
+            will-change: transform;
+          }
+          
+          /* Reduced motion for accessibility */
+          @media (prefers-reduced-motion: reduce) {
+            .reveal,
+            .card,
+            .btn-light,
+            .btn-primary,
+            .btn-outline-primary,
+            .hero-dot,
+            .icon-wrapper {
+              transition: none !important;
+              transform: none !important;
+            }
           }
         `}
       </style>

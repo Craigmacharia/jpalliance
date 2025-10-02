@@ -95,8 +95,8 @@ export default function Payroll() {
             <div className="col-lg-8">
               <h1 className="display-4 fw-bold mb-4">Payroll Services</h1>
               <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
-                Comprehensive payroll solutions ensuring accurate, timely payments and full compliance with statutory requirements
-              </p>
+            Comprehensive payroll solutions ensuring accurate, timely payments and full compliance with statutory requirements
+          </p>
               
             </div>
           </div>
@@ -111,10 +111,10 @@ export default function Payroll() {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Streamlined Payroll Management</h2>
               <p className="text-muted mb-4 fs-5">
-                At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we ensure your employees 
-                are paid accurately, on time, and in full compliance with statutory requirements. From salary 
-                processing to statutory deductions, we've got you covered.
-              </p>
+                  At <span className="fw-bold text-dark">JP Alliance & Associates</span>, we ensure your employees 
+                  are paid accurately, on time, and in full compliance with statutory requirements. From salary 
+                  processing to statutory deductions, we've got you covered.
+                </p>
               <p className="text-muted mb-4 fs-5">
                 Our automated payroll system handles everything from basic salary calculations to complex statutory 
                 deductions, ensuring accuracy and compliance while saving you time and reducing errors.
@@ -136,8 +136,8 @@ export default function Payroll() {
                 >
                   <i className="bi bi-telephone me-2"></i> Call Directly
                 </a>
-              </div>
-            </div>
+                    </div>
+                  </div>
             <div className="col-lg-6">
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
@@ -146,21 +146,21 @@ export default function Payroll() {
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
                 />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Services Grid */}
+            {/* Services Grid */}
       <section id="services" className="py-5 bg-light">
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Payroll Services</h2>
             <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
               Comprehensive payroll solutions tailored to meet your organization's specific needs and ensure compliance
-            </p>
-          </div>
+              </p>
+            </div>
 
           <div className="row g-4">
             {payrollServices.map((service) => (
@@ -178,7 +178,7 @@ export default function Payroll() {
                   <div className="card-body p-4 d-flex flex-column">
                     <div 
                       className="icon-wrapper mb-4 p-3 rounded-3 d-inline-flex align-items-center justify-content-center"
-                      style={{ 
+                    style={{ 
                         width: "70px",
                         height: "70px",
                         background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)",
@@ -187,10 +187,10 @@ export default function Payroll() {
                       }}
                     >
                       <i className={`bi ${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
-                    </div>
+                      </div>
                     <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99", minHeight: "60px", fontSize: "1.25rem" }}>
-                      {service.title}
-                    </h5>
+                        {service.title}
+                      </h5>
                     <p className="card-text text-muted flex-grow-1 mb-4" style={{ lineHeight: "1.6", fontSize: "0.95rem" }}>
                       {service.description}
                     </p>
@@ -205,11 +205,11 @@ export default function Payroll() {
                         ))}
                       </ul>
                     </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
         </div>
       </section>
 
@@ -255,7 +255,7 @@ export default function Payroll() {
                   <h5 className="fw-bold mb-3 text-center">Verification</h5>
                   <p className="text-muted text-center">{payrollProcess[2].description}</p>
                 </div>
-
+                
                 {/* Step 4 */}
                 <div className="d-flex flex-column align-items-center position-relative z-index-1" style={{ flex: "1" }}>
                   <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mb-3" style={{ width: "70px", height: "70px" }}>
@@ -265,7 +265,7 @@ export default function Payroll() {
                   <p className="text-muted text-center">{payrollProcess[3].description}</p>
                 </div>
               </div>
-            </div>
+                </div>
           </div>
         </div>
       </section>
@@ -298,9 +298,9 @@ export default function Payroll() {
                 <div>
                   <h5 className="fw-bold">Timely Processing</h5>
                   <p className="text-muted mb-0">We ensure all payroll processing and payments are completed on time to maintain employee satisfaction.</p>
-                </div>
               </div>
-              
+            </div>
+
               <div className="d-flex align-items-start mb-4">
                 <div className="me-4">
                   <div className="bg-primary bg-opacity-10 rounded-3 p-3">
@@ -310,14 +310,14 @@ export default function Payroll() {
                 <div>
                   <h5 className="fw-bold">Full Compliance</h5>
                   <p className="text-muted mb-0">We stay updated with the latest labor laws and statutory requirements to ensure full compliance.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            
+              
             <div className="col-lg-6">
               <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Industries We Serve</h2>
               
-              <div className="row">
+                    <div className="row">
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
                     <i className="bi bi-building text-primary fs-1 mb-3"></i>
@@ -332,15 +332,15 @@ export default function Payroll() {
                     <h5 className="fw-bold">SMEs</h5>
                     <p className="text-muted mb-0">Small and medium-sized enterprises</p>
                   </div>
-                </div>
+                      </div>
                 
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
                     <i className="bi bi-gear text-primary fs-1 mb-3"></i>
                     <h5 className="fw-bold">Manufacturing</h5>
                     <p className="text-muted mb-0">Industrial and production businesses</p>
-                  </div>
-                </div>
+                      </div>
+                    </div>
                 
                 <div className="col-sm-6 mb-4">
                   <div className="bg-white rounded-3 p-4 h-100 shadow-sm">
@@ -387,8 +387,8 @@ export default function Payroll() {
             >
               <i className="bi bi-telephone me-2"></i> Call Now
             </a>
-          </div>
         </div>
+      </div>
         <div className="position-absolute top-0 end-0 w-100 h-100" style={{ 
           background: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
           opacity: "0.05", 

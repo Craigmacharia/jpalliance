@@ -1,271 +1,385 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Team = () => {
   const teamMembers = [
     {
-      name: "Josphat Mwangi",
-      role: "Managing Partner",
-      expertise: "Tax & Audit Specialist",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      experience: "15+ years",
-      linkedin: "#"
+      id: 1,
+      name: "Josphat Mwangi Chege",
+      position: "Managing Partner",
+      qualifications: "CPA (K)",
+      profile: [
+        "15 years of professional experience; 10 years in audit, tax and financial advisory services",
+        "Broad experience in private companies in SME sector, manufacturing donor funded projects",
+        "International experience in Somalia, Uganda & Southern Sudan with OXFARM, EU and USAID funded projects"
+      ],
+      experience: [
+        { year: "2020 May to Date", organization: "JP Alliance & Associates", position: "Founder & Managing Partner" },
+        { year: "2018 May to Sept 2019", organization: "Thomas and Associates", position: "Audit Manager" },
+        { year: "2016 – 2018 May", organization: "Mazars Kenya", position: "Senior Auditor" }
+      ],
+      membership: "Institute of Certified Public Accountants of Kenya (ICPAK) and Institute of Internal Auditors (IIA)"
     },
     {
-      name: "Sarah Kamau",
-      role: "Senior Partner",
-      expertise: "Business Advisory",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      experience: "12+ years",
-      linkedin: "#"
+      id: 2,
+      name: "Jane Waithira",
+      position: "Audit Manager",
+      qualifications: "B-Com, CPA (K)",
+      profile: [
+        "Over 15 years of professional experience in audit, tax and financial consultancy",
+        "Broad experience in audit of insurance companies, pension schemes, NGOs, SACCOs",
+        "Experience with regulated corporate entities across all sectors of the economy"
+      ],
+      experience: [
+        { year: "2021 to Date", organization: "JP Alliance & Associates", position: "Manager" },
+        { year: "2016 – 2018 May", organization: "Mazars Kenya", position: "Manager" },
+        { year: "2010-2014", organization: "King'ang'i Kamau & Co", position: "Audit Manager" }
+      ],
+      membership: "Institute of Certified Public Accountants of Kenya (ICPAK)"
     },
     {
-      name: "David Ochieng",
-      role: "Partner",
-      expertise: "Internal Audit",
-      image: "https://randomuser.me/api/portraits/men/75.jpg",
-      experience: "10+ years",
-      linkedin: "#"
-    },
-    {
-      name: "Grace Wambui",
-      role: "Partner",
-      expertise: "Accounting Services",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      experience: "8+ years",
-      linkedin: "#"
-    },
-    {
-      name: "Michael Njoroge",
-      role: "Senior Manager",
-      expertise: "Risk Management",
-      image: "https://randomuser.me/api/portraits/men/41.jpg",
-      experience: "7+ years",
-      linkedin: "#"
-    },
-    {
-      name: "Lucy Achieng",
-      role: "Tax Consultant",
-      expertise: "Tax Planning",
-      image: "https://randomuser.me/api/portraits/women/55.jpg",
-      experience: "6+ years",
-      linkedin: "#"
-    },
-    {
-      name: "James Mutua",
-      role: "Audit Manager",
-      expertise: "External Audit",
-      image: "https://randomuser.me/api/portraits/men/22.jpg",
-      experience: "9+ years",
-      linkedin: "#"
-    },
-    {
-      name: "Patricia Mwende",
-      role: "Business Advisor",
-      expertise: "Financial Consulting",
-      image: "https://randomuser.me/api/portraits/women/33.jpg",
-      experience: "5+ years",
-      linkedin: "#"
+      id: 3,
+      name: "Joseph Wambua Maluki",
+      position: "Tax Manager",
+      qualifications: "B.Com (Finance), CPA (K)",
+      profile: [
+        "Over 12 years of professional experience in tax and financial consultancy services",
+        "Experienced and well conversant with Small and Medium Entities in financial & tax advisory"
+      ],
+      experience: [
+        { year: "2023-Present", organization: "JP Alliance & Associates", position: "Tax Manager" },
+        { year: "Jul 2019 – 2022", organization: "MNC Consulting Group Ltd", position: "Audit Manager" },
+        { year: "2017 – Jun 2018", organization: "Mwingi Central – NG-CDF", position: "Accountant" }
+      ],
+      membership: "Institute of Certified Public Accountants of Kenya (ICPAK)"
     }
   ];
 
   return (
-    <div className="team-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
-      {/* Hero Section */}
+    <div className="team-page" style={styles.container}>
+      {/* Enhanced Hero Section */}
       <section 
-    className="text-white py-5 text-center position-relative" 
-    style={{ 
-      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/agm.png') center/cover no-repeat",
-      minHeight: "60vh",
-      display: "flex",
-      alignItems: "center"
-    }}
-  >
-    <div className="container py-4 position-relative z-index-1">
-      <h1 className="display-5 fw-bold mb-3">Meet The Team</h1>
-      <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
-        Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
-      </p>
-      <div className="mt-4">
-        
-      </div>
-    </div>
-  </section>
-
-      {/* Team Content */}
-      <div className="container py-5">
-        <div className="text-center mb-5">
-          <h2 className="fw-bold mb-3" style={{ color: "#004C99" }}>Our Expert Team</h2>
-          <p className="text-muted mx-auto" style={{ maxWidth: "700px" }}>
-            Certified professionals with decades of combined experience in auditing, tax, and financial advisory services
-          </p>
+        className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
+        style={{ 
+          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
+          minHeight: "60vh"
+        }}
+      >
+        <div className="container position-relative z-index-1 text-center">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <h1 className="display-4 fw-bold mb-4">JP Alliance Team</h1>
+              <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
+                A well traiined and highly skilled team of professionals to meet our client's needs.
+              </p>
+            </div>
+          </div>
         </div>
+        <div className="position-absolute bottom-0 start-0 end-0 bg-white" style={{ height: "50px", clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
+      </section>
 
-        <div className="row g-4">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="col-lg-3 col-md-4 col-sm-6">
+      {/* Team Members Section */}
+      <section className="py-5">
+        <Container>
+          <div className="team-members">
+            {teamMembers.map((member, index) => (
               <div 
-                className="card border-0 shadow-sm h-100 team-card"
-                style={{ 
-                  borderRadius: "15px",
-                  transition: "all 0.3s ease"
-                }}
+                key={member.id} 
+                className={`team-member-card ${index % 2 === 1 ? 'reversed' : ''}`}
+                style={styles.memberCard}
               >
-                <div className="card-body text-center p-4">
-                  <div className="position-relative mb-4">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="rounded-circle shadow-sm"
-                      style={{ 
-                        width: "120px", 
-                        height: "120px", 
-                        objectFit: "cover",
-                        border: "4px solid white",
-                        boxShadow: "0 4px 15px rgba(0,0,0,0.1)"
-                      }}
-                    />
-                    <div className="position-absolute bottom-0 end-0 bg-primary text-white rounded-circle p-2">
-                      <i className="bi bi-award-fill"></i>
+                <Row className="align-items-stretch g-0">
+                  {/* Image Section */}
+                  <Col md={4}>
+                    <div 
+                      className="h-100 d-flex align-items-center justify-content-center p-4"
+                      style={index % 2 === 0 ? styles.imageSectionPrimary : styles.imageSectionSecondary}
+                    >
+                      <div className="staff-image-wrapper text-center">
+                        <div className="staff-image-placeholder">
+                          <i className="bi bi-person-fill" style={styles.personIcon}></i>
+                        </div>
+                        <div className="mt-4">
+                          <h5 className="text-white mb-3" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                            {member.name.split(' ')[0]}
+                          </h5>
+                          <div className="d-flex justify-content-center gap-3">
+                            <a href="tel:+254755453975" className="text-white">
+                              <i className="bi bi-telephone-fill" style={styles.contactIcon}></i>
+                            </a>
+                            <a 
+                              href="https://wa.me/254755453975" 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="text-white"
+                            >
+                              <i className="bi bi-whatsapp" style={styles.contactIcon}></i>
+                            </a>
+                            <a href="mailto:info@jpalliance.com" className="text-white">
+                              <i className="bi bi-envelope-fill" style={styles.contactIcon}></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <h5 className="card-title fw-bold mb-2" style={{ color: "#004C99" }}>
-                    {member.name}
-                  </h5>
-                  <p className="text-primary fw-medium mb-2">{member.role}</p>
-                  <p className="text-muted small mb-2">{member.expertise}</p>
-                  <p className="text-muted small mb-3">
-                    <i className="bi bi-briefcase me-1"></i>
-                    {member.experience} experience
-                  </p>
-                  <div className="social-links">
-                    <a 
-                      href={member.linkedin} 
-                      className="text-primary me-2"
-                      style={{ fontSize: "1.2rem" }}
-                    >
+                  </Col>
+
+                  {/* Content Section */}
+                  <Col md={8}>
+                    <div className="p-4 p-lg-5 h-100" style={styles.contentSection}>
+                      <div className="mb-4">
+                        <h3 style={styles.staffName}>{member.name}</h3>
+                        <div style={styles.position}>{member.position}</div>
+                        <div className="d-flex align-items-center mt-2">
+                          <i className="bi bi-award-fill me-2" style={styles.qualIcon}></i>
+                          <span style={styles.qualifications}>{member.qualifications}</span>
+                        </div>
+                      </div>
                       
-                    </a>
-                    <a 
-                      href="#" 
-                      className="text-primary me-2"
-                      style={{ fontSize: "1.2rem" }}
-                    >
+                      <div className="mb-4">
+                        <h5 className="d-flex align-items-center mb-3" style={styles.sectionTitle}>
+                          <i className="bi bi-person-badge-fill me-2"></i>
+                          Profile Summary
+                        </h5>
+                        <ul className="list-unstyled">
+                          {member.profile.map((item, itemIndex) => (
+                            <li key={itemIndex} className="d-flex align-items-start mb-2">
+                              <i className="bi bi-check-circle-fill me-2 mt-1" style={styles.bulletIcon}></i>
+                              <span style={styles.listText}>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                       
-                    </a>
-                  </div>
-                </div>
+                      <div className="mb-4">
+                        <h5 className="d-flex align-items-center mb-3" style={styles.sectionTitle}>
+                          <i className="bi bi-briefcase-fill me-2"></i>
+                          Professional Experience
+                        </h5>
+                        {member.experience.map((exp, expIndex) => (
+                          <div key={expIndex} className="mb-3 pb-3 border-bottom" style={styles.experienceItem}>
+                            <div style={styles.experienceYear}>{exp.year}</div>
+                            <div style={styles.experienceOrg}>{exp.organization}</div>
+                            <div style={styles.experiencePos}>{exp.position}</div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div style={styles.professionalMembership}>
+                        <h5 className="d-flex align-items-center mb-3" style={styles.sectionTitle}>
+                          <i className="bi bi-shield-check me-2"></i>
+                          Professional Membership
+                        </h5>
+                        <p style={styles.membershipText}>{member.membership}</p>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-        {/* Team Stats */}
-        <div className="row text-center mt-5 pt-5">
-          <div className="col-md-3 col-6 mb-4">
-            <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
-              <h3 className="fw-bold text-primary mb-2">12</h3>
-              <p className="text-muted mb-0">Team Members</p>
-            </div>
-          </div>
-          <div className="col-md-3 col-6 mb-4">
-            <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
-              <h3 className="fw-bold text-primary mb-2">75+</h3>
-              <p className="text-muted mb-0">Years Experience</p>
-            </div>
-          </div>
-          <div className="col-md-3 col-6 mb-4">
-            <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
-              <h3 className="fw-bold text-primary mb-2">100%</h3>
-              <p className="text-muted mb-0">Certified Professionals</p>
-            </div>
-          </div>
-          <div className="col-md-3 col-6 mb-4">
-            <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
-              <h3 className="fw-bold text-primary mb-2">15+</h3>
-              <p className="text-muted mb-0">Professional Certifications</p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-5 pt-4">
-          <h3 className="fw-bold mb-4" style={{ color: "#004C99" }}>Join Our Team</h3>
-          <p className="lead mb-4 mx-auto" style={{ maxWidth: "700px" }}>
-            We're always looking for talented professionals to join our growing team
-          </p>
-          <div className="d-flex justify-content-center gap-3 flex-wrap">
-            <Link 
-              to="/careers" 
-              className="btn btn-primary px-4 py-2 rounded-pill"
-              style={{
-                fontWeight: "600",
-                backgroundColor: "#004C99",
-                border: "none",
-                transition: "all 0.3s ease"
-              }}
-            >
-              View Open Positions
-            </Link>
-            <Link 
-              to="/contact" 
-              className="btn btn-outline-primary px-4 py-2 rounded-pill"
-              style={{
-                fontWeight: "600",
-                borderColor: "#004C99",
-                color: "#004C99",
-                transition: "all 0.3s ease"
-              }}
-            >
-              Contact HR
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* CSS */}
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap');
           
-          .team-card {
+          .team-member-card {
             transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 76, 153, 0.1);
+            margin-bottom: 2rem;
           }
           
-          .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+          .team-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 76, 153, 0.15);
           }
           
-          .team-card:hover .card-title {
-            color: #003366 !important;
+          .staff-image-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255, 255, 255, 0.3);
           }
           
-          .btn-primary:hover {
-            background-color: #003366 !important;
-            transform: translateY(-2px);
-          }
-          
-          .btn-outline-primary:hover {
-            background-color: #004C99 !important;
-            color: white !important;
-            transform: translateY(-2px);
-          }
-          
-          .social-links a {
-            transition: all 0.3s ease;
-          }
-          
-          .social-links a:hover {
-            transform: translateY(-3px);
-            color: #003366 !important;
+          @media (max-width: 768px) {
+            .team-member-card.reversed .row {
+              flex-direction: column-reverse;
+            }
           }
         `}
       </style>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    fontFamily: "'Comfortaa', cursive",
+    backgroundColor: '#f8f9fa',
+    minHeight: '100vh'
+  },
+  hero: {
+    background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)",
+    paddingTop: '5rem',
+    paddingBottom: '8rem',
+    position: 'relative'
+  },
+  heroOverlay: {
+    background: "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
+    opacity: '0.1'
+  },
+  heroContent: {
+    color: 'white'
+  },
+  heroTitle: {
+    fontSize: '3.5rem',
+    fontWeight: '700',
+    marginBottom: '1rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  titleUnderline: {
+    width: '80px',
+    height: '4px',
+    background: 'rgba(255, 255, 255, 0.8)',
+    margin: '0 auto 2rem auto',
+    borderRadius: '2px'
+  },
+  heroSubtitle: {
+    fontSize: '1.3rem',
+    fontWeight: '400',
+    marginBottom: '3rem',
+    opacity: '0.9',
+    maxWidth: '600px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    lineHeight: '1.6'
+  },
+  heroStats: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '4rem',
+    flexWrap: 'wrap'
+  },
+  statItem: {
+    textAlign: 'center'
+  },
+  statNumber: {
+    fontSize: '2.5rem',
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  statLabel: {
+    fontSize: '1rem',
+    opacity: '0.9',
+    fontWeight: '500'
+  },
+  memberCard: {
+    backgroundColor: 'white',
+    borderRadius: '12px'
+  },
+  imageSectionPrimary: {
+    backgroundColor: '#004C99',
+    background: 'linear-gradient(135deg, #004C99 0%, #0066CC 100%)'
+  },
+  imageSectionSecondary: {
+    backgroundColor: '#0066CC',
+    background: 'linear-gradient(135deg, #0066CC 0%, #004C99 100%)'
+  },
+  contentSection: {
+    backgroundColor: 'white'
+  },
+  personIcon: {
+    fontSize: '4rem',
+    color: 'rgba(255, 255, 255, 0.9)'
+  },
+  contactIcon: {
+    fontSize: '1.2rem',
+    opacity: '0.8',
+    transition: 'opacity 0.3s ease'
+  },
+  staffName: {
+    color: '#004C99',
+    fontSize: '1.5rem',
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  position: {
+    color: '#0066CC',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    marginBottom: '0.5rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  qualifications: {
+    color: '#555',
+    fontSize: '0.95rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  qualIcon: {
+    color: '#004C99',
+    fontSize: '1rem'
+  },
+  sectionTitle: {
+    color: '#004C99',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  bulletIcon: {
+    color: '#28a745',
+    fontSize: '0.9rem'
+  },
+  listText: {
+    color: '#555',
+    fontSize: '0.95rem',
+    lineHeight: '1.5',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  experienceItem: {
+    borderColor: '#e9ecef !important'
+  },
+  experienceYear: {
+    color: '#0066CC',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    marginBottom: '0.2rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  experienceOrg: {
+    color: '#004C99',
+    fontSize: '1rem',
+    fontWeight: '600',
+    marginBottom: '0.2rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  experiencePos: {
+    color: '#666',
+    fontSize: '0.9rem',
+    fontFamily: "'Comfortaa', cursive"
+  },
+  professionalMembership: {
+    backgroundColor: '#f8f9fa',
+    padding: '1.25rem',
+    borderRadius: '8px',
+    borderLeft: '4px solid #004C99'
+  },
+  membershipText: {
+    color: '#555',
+    fontSize: '0.95rem',
+    margin: 0,
+    lineHeight: '1.5',
+    fontFamily: "'Comfortaa', cursive"
+  }
 };
 
 export default Team;

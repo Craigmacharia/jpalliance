@@ -141,7 +141,7 @@ export default function Tax() {
             <div className="col-lg-6">
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  src="/taxs.jpg" 
                   alt="Tax Advisory Services" 
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}

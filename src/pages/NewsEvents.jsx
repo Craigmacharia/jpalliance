@@ -54,7 +54,7 @@ const NewsEvents = () => {
         
         <p>RSVP by July 20, 2025, to secure your spot. Limited seats available.</p>
       `,
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "/evt.png",
       category: "Event",
       author: "Sarah Kamau",
       readTime: "4 min read"
@@ -82,7 +82,7 @@ const NewsEvents = () => {
         
         <p>The award ceremony was attended by industry leaders and professionals from across East Africa, highlighting the growing recognition of Kenyan audit firms on the regional stage.</p>
       `,
-      image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "/audit.jpg",
       category: "Achievement",
       author: "David Ochieng",
       readTime: "5 min read"
@@ -115,7 +115,7 @@ const NewsEvents = () => {
       time: "8:30 AM - 4:00 PM",
       location: "Safari Park Hotel, Nairobi",
       description: "A full-day forum featuring industry experts discussing strategies for sustainable business growth in the current economic climate.",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+      image: "watu.png"
     }
   ];
 
@@ -125,7 +125,7 @@ const NewsEvents = () => {
       <section 
     className="text-white py-5 text-center position-relative" 
     style={{ 
-      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/uzima.png') center/cover no-repeat",
+      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/jplogo5.png') center/cover no-repeat",
       minHeight: "60vh",
       display: "flex",
       alignItems: "center"

@@ -99,8 +99,8 @@ const InternalAudit = () => {
                 >
                   <i className="bi bi-telephone me-2"></i> Call Directly
                 </a>
-              </div>
-            </div>
+                    </div>
+                  </div>
             <div className="col-lg-6">
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
@@ -109,10 +109,10 @@ const InternalAudit = () => {
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
                 />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
       </section>
 
             {/* Services Grid */}
@@ -121,12 +121,12 @@ const InternalAudit = () => {
                 <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Internal Audit Services</h2>
                 <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
                   Practical, risk-based internal audit services that strengthen controls and enhance operational efficiency
-                </p>
-              </div>
+              </p>
+            </div>
               <div className="row g-4 mb-4">
-                {auditServices.map((service, index) => (
-                  <div key={index} className="col-md-6 col-lg-4">
-                    <div 
+              {auditServices.map((service, index) => (
+                <div key={index} className="col-md-6 col-lg-4">
+                  <div 
                       className="card h-100 border-0 service-card"
                       style={{ 
                         borderRadius: "12px",
@@ -139,7 +139,7 @@ const InternalAudit = () => {
                       <div className="card-body p-4 d-flex flex-column">
                         <div 
                           className="icon-wrapper mb-4 p-3 rounded-3 d-inline-flex align-items-center justify-content-center"
-                          style={{ 
+                    style={{ 
                             width: "70px",
                             height: "70px",
                             background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)",
@@ -148,18 +148,18 @@ const InternalAudit = () => {
                           }}
                         >
                           <i className={`bi ${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
-                        </div>
+                      </div>
                         <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99", minHeight: "60px", fontSize: "1.25rem" }}>
-                          {service.title}
-                        </h5>
+                        {service.title}
+                      </h5>
                         <p className="card-text text-muted flex-grow-1 mb-0" style={{ lineHeight: "1.6", fontSize: "0.95rem" }}>
                           {service.description}
                         </p>
-                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
             </section>
 
             {/* Process Section */}
@@ -176,12 +176,7 @@ const InternalAudit = () => {
       <div className="col-lg-10 mx-auto">
         <div className="position-relative">
           {/* Connecting line - positioned behind the circles */}
-          <div className="position-absolute top-50 start-0 end-0" style={{ 
-            height: "3px", 
-            backgroundColor: "#004C99", 
-            zIndex: 0,
-            transform: "translateY(-50%)"
-          }}></div>
+          
           
           <div className="d-flex flex-column flex-md-row justify-content-between position-relative">
             {/* Step 1 */}
@@ -270,15 +265,15 @@ const InternalAudit = () => {
                   >
                     <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
                   </a>
-                  <a 
-                    href="tel:+254755453975" 
+                  <a
+                    href="tel:+254755453975"
                     className="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-semibold"
                     style={{ transition: "all 0.3s ease", minWidth: "200px" }}
                   >
                     <i className="bi bi-telephone me-2"></i> Call Now
                   </a>
                 </div>
-              </div>
+                </div>
               <div className="position-absolute top-0 end-0 w-100 h-100" style={{ 
                 background: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
                 opacity: "0.05", 
@@ -286,51 +281,51 @@ const InternalAudit = () => {
               }}></div>
             </section>
 
-      {/* Additional Info */}
+            {/* Additional Info */}
       <section className="py-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 mb-4">
-              <div className="card border-0 shadow-sm h-100" style={{ borderRadius: "15px" }}>
-                <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3" style={{ color: "#004C99" }}>Why Choose Our Audit Services?</h5>
-                  <ul className="list-unstyled">
-                    <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Certified audit professionals</li>
-                    <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Compliance with international standards</li>
-                    <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Thorough risk assessment</li>
-                    <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Detailed reporting and recommendations</li>
-                    <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Stakeholder confidence building</li>
-                    <li><i className="bi bi-check-circle text-primary me-2"></i>Ongoing support and consultation</li>
-                  </ul>
+              <div className="col-md-6 mb-4">
+                <div className="card border-0 shadow-sm h-100" style={{ borderRadius: "15px" }}>
+                  <div className="card-body p-4">
+                    <h5 className="fw-bold mb-3" style={{ color: "#004C99" }}>Why Choose Our Audit Services?</h5>
+                    <ul className="list-unstyled">
+                      <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Certified audit professionals</li>
+                      <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Compliance with international standards</li>
+                      <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Thorough risk assessment</li>
+                      <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Detailed reporting and recommendations</li>
+                      <li className="mb-2"><i className="bi bi-check-circle text-primary me-2"></i>Stakeholder confidence building</li>
+                      <li><i className="bi bi-check-circle text-primary me-2"></i>Ongoing support and consultation</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="col-md-6 mb-4">
-              <div className="card border-0 shadow-sm h-100" style={{ borderRadius: "15px" }}>
-                <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3" style={{ color: "#004C99" }}>Industries We Serve</h5>
-                  <div className="row">
-                    <div className="col-6">
-                      <ul className="list-unstyled">
-                        <li className="mb-2"><i className="bi bi-building text-primary me-2"></i>Corporate</li>
-                        <li className="mb-2"><i className="bi bi-shop text-primary me-2"></i>SMEs</li>
-                        <li className="mb-2"><i className="bi bi-heart text-primary me-2"></i>NGOs</li>
-                      </ul>
-                    </div>
-                    <div className="col-6">
-                      <ul className="list-unstyled">
-                        <li className="mb-2"><i className="bi bi-bank text-primary me-2"></i>Financial Institutions</li>
-                        <li className="mb-2"><i className="bi bi-gear text-primary me-2"></i>Manufacturing</li>
-                        <li className="mb-2"><i className="bi bi-cart text-primary me-2"></i>Retail</li>
-                      </ul>
+              
+              <div className="col-md-6 mb-4">
+                <div className="card border-0 shadow-sm h-100" style={{ borderRadius: "15px" }}>
+                  <div className="card-body p-4">
+                    <h5 className="fw-bold mb-3" style={{ color: "#004C99" }}>Industries We Serve</h5>
+                    <div className="row">
+                      <div className="col-6">
+                        <ul className="list-unstyled">
+                          <li className="mb-2"><i className="bi bi-building text-primary me-2"></i>Corporate</li>
+                          <li className="mb-2"><i className="bi bi-shop text-primary me-2"></i>SMEs</li>
+                          <li className="mb-2"><i className="bi bi-heart text-primary me-2"></i>NGOs</li>
+                        </ul>
+                      </div>
+                      <div className="col-6">
+                        <ul className="list-unstyled">
+                          <li className="mb-2"><i className="bi bi-bank text-primary me-2"></i>Financial Institutions</li>
+                          <li className="mb-2"><i className="bi bi-gear text-primary me-2"></i>Manufacturing</li>
+                          <li className="mb-2"><i className="bi bi-cart text-primary me-2"></i>Retail</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* CSS */}

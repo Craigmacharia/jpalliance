@@ -14,13 +14,13 @@ function Footer() {
         }}
       />
 
-      <footer 
+    <footer 
         className="text-white position-relative overflow-hidden" 
-        style={{ 
+      style={{ 
           background: "linear-gradient(180deg, #004C99 0%, #003366 50%, #001a33 100%)",
-          fontFamily: "'Quicksand', sans-serif"
-        }}
-      >
+        fontFamily: "'Quicksand', sans-serif"
+      }}
+    >
         {/* Background decorative elements */}
         <div 
           className="position-absolute top-0 start-0 w-100 h-100 opacity-5"
@@ -32,7 +32,7 @@ function Footer() {
 
         <div className="container position-relative z-index-1">
           <div className="row py-5">
-            {/* Company Info */}
+          {/* Company Info */}
             <div className="col-lg-4 col-md-6 mb-5">
               <div className="d-flex align-items-center mb-4">
                 <img 
@@ -54,15 +54,15 @@ function Footer() {
               </div>
               
               <p style={{ lineHeight: "1.7", fontSize: "0.95rem", opacity: "0.9" }}>
-                Delivering excellence in auditing, tax, and business advisory 
+              Delivering excellence in auditing, tax, and business advisory 
                 with integrity and professional expertise.
-              </p>
+            </p>
               
               <div className="mt-4">
-                <a 
-                  href="https://wa.me/254755453975" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+              <a 
+                href="https://wa.me/254738462705" 
+                target="_blank" 
+                rel="noopener noreferrer"
                   className="btn btn-success btn-sm rounded-pill me-3 mb-2 footer-btn"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
@@ -75,27 +75,27 @@ function Footer() {
                   <i className="bi bi-whatsapp me-2"></i> WhatsApp
                 </a>
                 <a 
-                  href="tel:+254755453975" 
+                  href="tel:254738462705" 
                   className="btn btn-outline-light btn-sm rounded-pill mb-2 footer-btn"
-                  style={{
-                    fontFamily: "'Quicksand', sans-serif",
-                    fontWeight: "600",
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontWeight: "600",
                     padding: "0.5rem 1.2rem",
                     transition: "all 0.3s ease",
                     borderColor: "rgba(255,255,255,0.3)"
-                  }}
-                >
+                }}
+              >
                   <i className="bi bi-telephone me-2"></i> Call Now
-                </a>
-              </div>
+              </a>
             </div>
+          </div>
 
-            {/* Quick Links */}
+          {/* Quick Links */}
             <div className="col-lg-2 col-md-6 mb-5">
               <h5 className="fw-bold mb-4 text-white" style={{ fontSize: "1.1rem" }}>
                 <i className="bi bi-link-45deg me-2"></i>Quick Links
               </h5>
-              <ul className="list-unstyled">
+            <ul className="list-unstyled">
                 {[
                   { to: "/", text: "Home", icon: "bi-house" },
                   { to: "/team", text: "Team", icon: "bi-people" },
@@ -104,7 +104,7 @@ function Footer() {
                   { to: "/services", text: "Services", icon: "bi-gear" }
                 ].map((link, index) => (
                   <li key={index} className="mb-3">
-                    <Link 
+                <Link 
                       className="text-white text-decoration-none footer-link d-flex align-items-center" 
                       to={link.to}
                       style={{ 
@@ -115,18 +115,18 @@ function Footer() {
                     >
                       <i className={`bi ${link.icon} me-2 text-white`} style={{ fontSize: "0.8rem" }}></i>
                       {link.text}
-                    </Link>
-                  </li>
+                </Link>
+              </li>
                 ))}
-              </ul>
-            </div>
+            </ul>
+          </div>
 
-            {/* Services */}
+          {/* Services */}
             <div className="col-lg-3 col-md-6 mb-5">
               <h5 className="fw-bold mb-4 text-white" style={{ fontSize: "1.1rem" }}>
                 <i className="bi bi-stars me-2"></i>Our Services
               </h5>
-              <ul className="list-unstyled">
+            <ul className="list-unstyled">
                 {[
                   { to: "/services/tax", text: "Tax Services", icon: "bi-calculator" },
                   { to: "/services/payroll", text: "Payroll", icon: "bi-people" },
@@ -135,7 +135,7 @@ function Footer() {
                   { to: "/services/forensic-audit", text: "Forensic Audit", icon: "bi-search" }
                 ].map((service, index) => (
                   <li key={index} className="mb-3">
-                    <Link 
+                <Link 
                       className="text-white text-decoration-none footer-link d-flex align-items-center" 
                       to={service.to}
                       style={{ 
@@ -146,21 +146,21 @@ function Footer() {
                     >
                       <i className={`bi ${service.icon} me-2 text-white`} style={{ fontSize: "0.8rem" }}></i>
                       {service.text}
-                    </Link>
-                  </li>
+                </Link>
+              </li>
                 ))}
-              </ul>
-            </div>
+            </ul>
+          </div>
 
-            {/* Contact Info */}
+          {/* Contact Info */}
             <div className="col-lg-3 col-md-6 mb-5">
               <h5 className="fw-bold mb-4 text-white" style={{ fontSize: "1.1rem" }}>
                 <i className="bi bi-geo-alt me-2"></i>Contact Us
               </h5>
               
               <div className="mb-4">
-                <a 
-                  href="mailto:cmacharia482@gmail.com" 
+              <a 
+                href="mailto:Contact@jpa.co.ke" 
                   className="text-white text-decoration-none footer-link d-flex align-items-center mb-3"
                   style={{ 
                     transition: "all 0.3s ease",
@@ -169,10 +169,10 @@ function Footer() {
                   }}
                 >
                   <i className="bi bi-envelope-fill me-3 text-white"></i> 
-                  <span>info@jpalliance.com</span>
-                </a>
-                <a 
-                  href="tel:+254755453975" 
+                  <span>Contact@jpa.co.ke</span>
+              </a>
+              <a 
+                  href="tel:+254738462705" 
                   className="text-white text-decoration-none footer-link d-flex align-items-center mb-3"
                   style={{ 
                     transition: "all 0.3s ease",
@@ -181,16 +181,16 @@ function Footer() {
                   }}
                 >
                   <i className="bi bi-telephone-fill me-3 text-white"></i> 
-                  <span>+254 755 453 975</span>
+                  <span>+254 738 462 705</span>
                 </a>
                 <div className="d-flex align-items-center mb-3">
                   <i className="bi bi-geo-alt-fill me-3 text-white"></i> 
                   <span style={{ fontSize: "0.95rem", opacity: "0.9" }}>Nairobi, Kenya</span>
                 </div>
-              </div>
-              
-              {/* Social Icons */}
-              <div>
+            </div>
+            
+            {/* Social Icons */}
+            <div>
                 <h6 className="fw-bold mb-3 text-white" style={{ fontSize: "1rem" }}>
                   <i className="bi bi-share me-2"></i>Follow Us
                 </h6>
@@ -204,8 +204,8 @@ function Footer() {
                     <a 
                       key={index}
                       href={social.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                target="_blank" 
+                rel="noopener noreferrer"
                       className="social-icon d-flex align-items-center justify-content-center"
                       style={{ 
                         width: "40px",
@@ -233,9 +233,9 @@ function Footer() {
             <div className="row align-items-center">
               <div className="col-md-6 mb-3 mb-md-0">
                 <p className="mb-0 opacity-75" style={{ fontSize: "0.9rem" }}>
-                  &copy; {new Date().getFullYear()} JP Alliance & Associates. All Rights Reserved.
-                </p>
-              </div>
+          &copy; {new Date().getFullYear()} JP Alliance & Associates. All Rights Reserved.
+        </p>
+      </div>
               <div className="col-md-6 text-md-end">
                 <div className="d-flex gap-4 justify-content-md-end">
                   <Link to="/privacy" className="text-white text-decoration-none footer-link opacity-75" style={{ fontSize: "0.85rem" }}>
@@ -249,6 +249,7 @@ function Footer() {
             </div>
           </div>
         </div>
+        <hr></hr>
       </footer>
       
 
@@ -304,10 +305,10 @@ function Footer() {
               transform: translateX(5px);
             }
             
-            .social-icon:hover {
+        .social-icon:hover {
               transform: translateY(-3px) scale(1.05);
             }
-          }
+        }
         `}
       </style>
     </>

@@ -67,8 +67,8 @@ const ExternalAudit = () => {
             <div className="col-lg-8">
               <h1 className="display-4 fw-bold mb-4">External Audit Services</h1>
               <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px", fontWeight: 500 }}>
-                Independent and objective audit services that ensure compliance, improve financial reporting, and build trust with stakeholders
-              </p>
+            Independent and objective audit services that ensure compliance, improve financial reporting, and build trust with stakeholders
+          </p>
             </div>
           </div>
         </div>
@@ -177,14 +177,14 @@ const ExternalAudit = () => {
               <div className="text-center mb-5">
                 <h2 className="fw-bold mb-4 display-5" style={{ color: "#004C99" }}>Our Audit Services</h2>
                 <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-                  Comprehensive external audit solutions tailored to meet regulatory requirements and organizational needs
-                </p>
-              </div>
+                Comprehensive external audit solutions tailored to meet regulatory requirements and organizational needs
+              </p>
+            </div>
 
               <div className="row g-4 mb-4">
-                {auditServices.map((service, index) => (
-                  <div key={index} className="col-md-6 col-lg-4">
-                    <div 
+              {auditServices.map((service, index) => (
+                <div key={index} className="col-md-6 col-lg-4">
+                  <div 
                       className="card h-100 border-0 service-card"
                       style={{ 
                         borderRadius: "12px",
@@ -197,7 +197,7 @@ const ExternalAudit = () => {
                       <div className="card-body p-4 d-flex flex-column">
                         <div 
                           className="icon-wrapper mb-4 p-3 rounded-3 d-inline-flex align-items-center justify-content-center"
-                          style={{ 
+                    style={{ 
                             width: "70px",
                             height: "70px",
                             background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)",
@@ -206,18 +206,18 @@ const ExternalAudit = () => {
                           }}
                         >
                           <i className={`bi ${service.icon} text-white`} style={{ fontSize: "1.8rem" }}></i>
-                        </div>
+                      </div>
                         <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99", minHeight: "60px", fontSize: "1.25rem" }}>
-                          {service.title}
-                        </h5>
+                        {service.title}
+                      </h5>
                         <p className="card-text text-muted flex-grow-1 mb-0" style={{ lineHeight: "1.6", fontSize: "0.95rem" }}>
                           {service.description}
                         </p>
-                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
             </section>
 
             {/* Process Section */}
@@ -227,8 +227,8 @@ const ExternalAudit = () => {
                 <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
                   A structured approach to deliver high-quality assurance and practical recommendations
                 </p>
-              </div>
-
+                </div>
+                
               <div className="row">
                 <div className="col-lg-10 mx-auto">
                   <div className="d-flex flex-column flex-md-row justify-content-between position-relative">
@@ -243,9 +243,9 @@ const ExternalAudit = () => {
                         <p className="text-muted text-center">{step.description}</p>
                       </div>
                     ))}
-                  </div>
                 </div>
               </div>
+            </div>
             </section>
 
             

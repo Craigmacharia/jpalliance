@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = "mailto:cmacharia482@gmail.com?subject=Contact%20from%20Website&body=" + 
+    window.location.href = "mailto:Contact@jpa.co.ke?subject=Contact%20from%20Website&body=" + 
       encodeURIComponent(`Name: ${e.target.name.value}\nEmail: ${e.target.email.value}\nMessage: ${e.target.message.value}`);
   };
 
@@ -15,7 +15,7 @@ const Contact = () => {
       <section 
     className="text-white py-5 text-center position-relative" 
     style={{ 
-      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/fon.png') center/cover no-repeat",
+      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 153, 0.9)), url('/contact.jpg') center/cover no-repeat",
       minHeight: "60vh",
       display: "flex",
       alignItems: "center"
@@ -112,7 +112,7 @@ const Contact = () => {
                   <i className="bi bi-envelope-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
                   <div>
                     <h6 className="fw-bold mb-1">Email</h6>
-                    <a href="mailto:cmacharia482@gmail.com" className="text-decoration-none">cmacharia482@gmail.com</a>
+                    <a href="mailto:Contact@jpa.co.ke" className="text-decoration-none">Contact@jpa.co.ke</a>
                   </div>
                 </div>
                 
@@ -120,7 +120,7 @@ const Contact = () => {
                   <i className="bi bi-telephone-fill text-primary me-3" style={{ fontSize: "1.2rem" }}></i>
                   <div>
                     <h6 className="fw-bold mb-1">Phone</h6>
-                    <a href="tel:+254755453975" className="text-decoration-none">+254 755 453975</a>
+                    <a href="tel:+254738462705" className="text-decoration-none">+254 738 462 705</a>
                   </div>
                 </div>
                 

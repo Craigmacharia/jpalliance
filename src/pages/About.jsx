@@ -4,60 +4,57 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const About = () => {
-  // Core values data
+  // Core values data - Updated to match your profile
   const coreValues = [
-    {
-      title: "Integrity",
-      icon: "bi-shield-check",
-      description: "Upholding honesty and transparency in every service we provide."
-    },
     {
       title: "Excellence",
       icon: "bi-award",
-      description: "Delivering top-quality results through professionalism and dedication."
+      description: "With efficiency and diligence, carry out tasks to attain utmost excellence in our service delivery"
     },
     {
-      title: "Client Focus",
+      title: "Integrity",
+      icon: "bi-shield-check",
+      description: "Demonstrate high standards of honesty, reliability and confidentiality in all engagements"
+    },
+    {
+      title: "Teamwork",
       icon: "bi-people",
-      description: "Building lasting relationships through personalized solutions."
+      description: "Working together as a team with unity of purpose to achieve our mission effectively"
     },
     {
-      title: "Innovation",
-      icon: "bi-lightbulb",
-      description: "Continuously improving with modern strategies and tools."
+      title: "Responsibility",
+      icon: "bi-check-circle",
+      description: "Being accountable for every action and efficiently utilizing resources to meet client needs"
     }
   ];
 
-  // Team stats
+  // Team stats - Updated to match your data
   const stats = [
     { value: "15+", label: "Years Experience" },
-    { value: "200+", label: "Clients Served" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "12", label: "Professional Staff" }
+    { value: "30+", label: "Clients Served" },
+    { value: "8", label: "Professional Staff" },
+    { value: "98%", label: "Client Satisfaction" }
   ];
 
   return (
     <div className="about-page" style={{ fontFamily: "'Quicksand', sans-serif" }}>
       {/* Hero Section */}
       <section 
-    className="text-white py-5 text-center position-relative" 
-    style={{ 
-      background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 150, 0.5)), url('/edu.png') center/cover no-repeat",
-      minHeight: "60vh",
-      display: "flex",
-      alignItems: "center"
-    }}
-  >
-    <div className="container py-4 position-relative z-index-1">
-      <h1 className="display-5 fw-bold mb-3">About JP Alliance</h1>
-      <p className="lead mx-auto mb-4" style={{ maxWidth: "700px" }}>
-        Expert tax solutions to ensure compliance, minimize liabilities, and maximize your financial benefits
-      </p>
-      <div className="mt-4">
-        
-      </div>
-    </div>
-  </section>
+        className="text-white py-5 text-center position-relative" 
+        style={{ 
+          background: "linear-gradient(rgba(0, 76, 153, 0.85), rgba(0, 76, 150, 0.5)), url('/corp.jpg') center/cover no-repeat",
+          minHeight: "60vh",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <div className="container py-4 position-relative z-index-1">
+          <h1 className="display-5 fw-bold mb-3">About JP Alliance</h1>
+          <p className="lead mx-auto mb-4" style={{ maxWidth: "700px", fontSize: "1.2rem" }}>
+            Independent firm of Certified Public Accountants with expertise in audit and assurance, tax advisory and business consulting
+          </p>
+        </div>
+      </section>
 
       {/* Company Overview */}
       <div className="container py-5">
@@ -65,27 +62,28 @@ const About = () => {
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="position-relative">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80"
+                src="trust.jpg"
                 alt="JP Alliance Office"
-                className="img-fluid rounded shadow-lg"
-                style={{ border: "5px solid white" }}
+                className="img-fluid rounded shadow"
+                loading="lazy"
+                style={{ border: "4px solid white" }}
               />
-              <div className="position-absolute top-0 start-0 bg-primary text-white p-3 rounded-end">
-                <h5 className="mb-0">Since 2008</h5>
-                <p className="mb-0">Trusted Financial Partners</p>
+              <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
+                <h5 className="mb-0" style={{ fontWeight: 600 }}>Since 2008</h5>
+                <p className="mb-0" style={{ fontSize: "0.9rem" }}>Serving Kenyan Businesses</p>
               </div>
             </div>
           </div>
           <div className="col-lg-6">
-            <h3 className="fw-bold mb-4" style={{ color: "#004C99" }}>Who We Are</h3>
-            <p className="lead mb-4">
-              JP Alliance & Associates is a premier audit and financial advisory firm based in Nairobi, Kenya.
+            <h3 className="mb-4" style={{ color: "#004787", fontWeight: 600 }}>Who We Are</h3>
+            <p className="mb-4" style={{ lineHeight: "1.7" }}>
+              JP Alliance & Associates is an independent firm of Certified Public Accountants with expertise in audit and assurance, tax advisory and business consulting. Registered by The Institute of Certified Public Accountants of Kenya (ICPAK), we are mandated to conduct audit and assurance, tax advisory, and business consulting services.
             </p>
-            <p className="mb-4">
-              Founded by Josphat Chege, and with over 15 years of experience, we provide comprehensive financial solutions to businesses across East Africa. Our team of certified professionals is dedicated to helping clients navigate complex financial landscapes with confidence and clarity.
+            <p className="mb-4" style={{ lineHeight: "1.7" }}>
+              Our professional team of 8 staff is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
             </p>
-            <p className="mb-4">
-              We specialize in delivering tailored solutions that address the unique challenges faced by businesses in today's dynamic economic environment. Our client-centric approach ensures that we understand your specific needs and provide personalized services that drive growth and sustainability.
+            <p className="mb-4" style={{ lineHeight: "1.7" }}>
+              We specialize in delivering tailored solutions that address the unique challenges faced by businesses in today's dynamic economic environment, ensuring financial accuracy and sustainable growth.
             </p>
           </div>
         </div>
@@ -94,8 +92,8 @@ const About = () => {
         <div className="row text-center mb-5">
           {stats.map((stat, index) => (
             <div key={index} className="col-md-3 col-6 mb-4">
-              <div className="p-4 border-0 rounded shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
-                <h3 className="fw-bold text-primary mb-2">{stat.value}</h3>
+              <div className="p-4 border-0 rounded shadow-sm bg-light">
+                <h3 className="fw-bold text-primary mb-2" style={{ fontSize: "2.2rem" }}>{stat.value}</h3>
                 <p className="text-muted mb-0">{stat.label}</p>
               </div>
             </div>
@@ -106,38 +104,38 @@ const About = () => {
         <div className="row mb-5">
           <div className="col-md-6 mb-4">
             <div 
-              className="card border-0 shadow-sm h-100 hover-card"
+              className="card border-0 shadow-sm h-100"
               style={{
-                background: "linear-gradient(135deg, #004C99 0%, #003366 100%)",
+                background: "linear-gradient(135deg, #004787 0%, #003366 100%)",
                 color: "white",
-                borderRadius: "15px"
+                borderRadius: "15px",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease"
               }}
             >
               <div className="card-body p-4 text-center">
                 <i className="bi bi-bullseye display-4 mb-3"></i>
                 <h4 className="fw-bold mb-3">Our Mission</h4>
-                <p className="mb-0">
-                  To empower businesses and individuals with trustworthy financial solutions, 
-                  helping them achieve sustainable growth while maintaining the highest ethical standards.
+                <p className="mb-0" style={{ lineHeight: "1.6" }}>
+                  We offer a service that is full of profundity and analytical precision to enable us meet our stakeholder's expectations and goals while at the same time ensuring our staff grow in skill and grace.
                 </p>
               </div>
             </div>
           </div>
           <div className="col-md-6 mb-4">
             <div 
-              className="card border-0 shadow-sm h-100 hover-card"
+              className="card border-0 shadow-sm h-100"
               style={{
-                background: "linear-gradient(135deg, #0066CC 0%, #004C99 100%)",
+                background: "linear-gradient(135deg, #0066CC 0%, #004787 100%)",
                 color: "white",
-                borderRadius: "15px"
+                borderRadius: "15px",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease"
               }}
             >
               <div className="card-body p-4 text-center">
                 <i className="bi bi-eye display-4 mb-3"></i>
                 <h4 className="fw-bold mb-3">Our Vision</h4>
-                <p className="mb-0">
-                  To be a leading audit and advisory firm recognized for innovation, 
-                  accuracy, and dedication to client success across Kenya and beyond.
+                <p className="mb-0" style={{ lineHeight: "1.6" }}>
+                  To be the firm of choice providing excellent financial business solutions in Africa and beyond.
                 </p>
               </div>
             </div>
@@ -147,22 +145,26 @@ const About = () => {
         {/* Core Values */}
         <div className="mb-5">
           <div className="text-center mb-5">
-            <h3 className="fw-bold" style={{ color: "#004C99" }}>Our Core Values</h3>
-            <p className="text-muted">The principles that guide everything we do</p>
+            <h3 style={{ color: "#004787", fontWeight: 600 }}>Our Core Values</h3>
+            <div className="heading-underline mx-auto mb-3"></div>
+            <p className="text-muted">The principles that guide our work and client relationships</p>
           </div>
-          <div className="row">
+          <div className="row g-4">
             {coreValues.map((value, index) => (
-              <div key={index} className="col-md-3 col-sm-6 mb-4">
+              <div key={index} className="col-md-3 col-sm-6">
                 <div 
-                  className="card border-0 shadow-sm p-4 text-center h-100 hover-card"
-                  style={{ borderRadius: "15px" }}
+                  className="card h-100 border-0 shadow-sm p-4 text-center"
+                  style={{
+                    borderRadius: "15px",
+                    transition: "transform 0.2s ease, box-shadow 0.2s ease"
+                  }}
                 >
                   <div className="card-body">
                     <div className="icon-wrapper mb-3">
-                      <i className={`bi ${value.icon} text-primary`} style={{ fontSize: "2.5rem" }}></i>
+                      <i className={`bi ${value.icon} text-primary`} style={{ fontSize: "2.2rem" }}></i>
                     </div>
-                    <h5 className="card-title fw-bold mb-3" style={{ color: "#004C99" }}>{value.title}</h5>
-                    <p className="card-text">{value.description}</p>
+                    <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{value.title}</h5>
+                    <p className="card-text" style={{ lineHeight: "1.6" }}>{value.description}</p>
                   </div>
                 </div>
               </div>
@@ -175,15 +177,25 @@ const About = () => {
           <div className="col-12">
             <div className="card border-0 shadow-sm p-5" style={{ backgroundColor: "#f8f9fa", borderRadius: "15px" }}>
               <div className="text-center mb-4">
-                <h3 className="fw-bold" style={{ color: "#004C99" }}>Why Choose JP Alliance?</h3>
+                <h3 style={{ color: "#004787", fontWeight: 600 }}>Why Choose JP Alliance?</h3>
+                <div className="heading-underline mx-auto mb-3"></div>
               </div>
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <div className="d-flex align-items-start">
                     <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
                     <div>
+                      <h6 className="fw-bold">ICPAK Registered</h6>
+                      <p className="text-muted mb-0">Officially registered and mandated by The Institute of Certified Public Accountants of Kenya</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 mb-3">
+                  <div className="d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+                    <div>
                       <h6 className="fw-bold">Certified Professionals</h6>
-                      <p className="text-muted mb-0">Our team consists of qualified CPAs and financial experts</p>
+                      <p className="text-muted mb-0">Team of 8 qualified staff with decades of combined experience</p>
                     </div>
                   </div>
                 </div>
@@ -191,8 +203,8 @@ const About = () => {
                   <div className="d-flex align-items-start">
                     <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
                     <div>
-                      <h6 className="fw-bold">Personalized Service</h6>
-                      <p className="text-muted mb-0">Tailored solutions for your unique business needs</p>
+                      <h6 className="fw-bold">Sector Expertise</h6>
+                      <p className="text-muted mb-0">Deep knowledge across all sectors including SMEs and private companies</p>
                     </div>
                   </div>
                 </div>
@@ -200,8 +212,8 @@ const About = () => {
                   <div className="d-flex align-items-start">
                     <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
                     <div>
-                      <h6 className="fw-bold">Proven Track Record</h6>
-                      <p className="text-muted mb-0">15+ years of delivering exceptional results</p>
+                      <h6 className="fw-bold">Quality Assurance</h6>
+                      <p className="text-muted mb-0">Regular staff training and independent review of all assignments</p>
                     </div>
                   </div>
                 </div>
@@ -209,8 +221,17 @@ const About = () => {
                   <div className="d-flex align-items-start">
                     <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
                     <div>
-                      <h6 className="fw-bold">Comprehensive Solutions</h6>
-                      <p className="text-muted mb-0">Full range of financial and advisory services</p>
+                      <h6 className="fw-bold">International Standards</h6>
+                      <p className="text-muted mb-0">Compliance with IFRS and International Auditing Standards</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 mb-3">
+                  <div className="d-flex align-items-start">
+                    <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+                    <div>
+                      <h6 className="fw-bold">Client-Centric Approach</h6>
+                      <p className="text-muted mb-0">Tailored solutions addressing unique business challenges</p>
                     </div>
                   </div>
                 </div>
@@ -221,11 +242,11 @@ const About = () => {
 
         {/* Closing CTA */}
         <div className="text-center py-4">
-          <h4 className="fw-bold mb-4" style={{ color: "#004C99" }}>
+          <h4 className="fw-bold mb-4" style={{ color: "#004787" }}>
             Ready to Experience the JP Alliance Difference?
           </h4>
-          <p className="lead mb-4">
-            Let's work together to achieve your financial goals and drive your business forward.
+          <p className="lead mb-4" style={{ maxWidth: "700px", margin: "0 auto" }}>
+            Partner with our team of certified financial experts to navigate complex financial landscapes with confidence.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Link 
@@ -233,7 +254,7 @@ const About = () => {
               className="btn btn-primary px-4 py-2 rounded-pill"
               style={{
                 fontWeight: "600",
-                backgroundColor: "#004C99",
+                backgroundColor: "#004787",
                 border: "none",
                 transition: "all 0.3s ease"
               }}
@@ -245,8 +266,8 @@ const About = () => {
               className="btn btn-outline-primary px-4 py-2 rounded-pill"
               style={{
                 fontWeight: "600",
-                borderColor: "#004C99",
-                color: "#004C99",
+                borderColor: "#004787",
+                color: "#004787",
                 transition: "all 0.3s ease"
               }}
             >
@@ -261,35 +282,54 @@ const About = () => {
         {`
           @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
           
-          .hover-card {
-            transition: all 0.3s ease;
-          }
-          .hover-card:hover {
+          .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15) !important;
           }
+          
           .btn-primary:hover {
             background-color: #003366 !important;
             transform: translateY(-2px);
           }
+          
           .btn-outline-primary:hover {
-            background-color: #004C99 !important;
+            background-color: #004787 !important;
             color: white !important;
             transform: translateY(-2px);
           }
+          
           .icon-wrapper {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 76, 135, 0.1);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 76, 135, 0.08);
             border-radius: 50%;
             transition: all 0.3s ease;
           }
-          .hover-card:hover .icon-wrapper {
+          
+          .card:hover .icon-wrapper {
             transform: scale(1.1);
-            background: rgba(0, 76, 135, 0.2);
+            background: rgba(0, 76, 135, 0.15);
+          }
+          
+          .heading-underline { 
+            width: 60px; 
+            height: 3px; 
+            background: #004787; 
+            border-radius: 2px; 
+          }
+
+          /* Reduced motion for accessibility */
+          @media (prefers-reduced-motion: reduce) {
+            .card,
+            .btn-primary,
+            .btn-outline-primary,
+            .icon-wrapper {
+              transition: none !important;
+              transform: none !important;
+            }
           }
         `}
       </style>
