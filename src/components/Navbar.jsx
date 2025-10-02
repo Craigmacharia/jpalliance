@@ -16,10 +16,8 @@ function Navbar() {
       
       // Show/hide navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide navbar
         setIsVisible(false);
       } else {
-        // Scrolling up - show navbar
         setIsVisible(true);
       }
       
@@ -59,13 +57,15 @@ function Navbar() {
       <nav 
         className={`navbar navbar-expand-lg navbar-dark position-fixed top-0 w-100 ${isVisible ? 'nav-visible' : 'nav-hidden'}`}
         style={{ 
-          background: isScrolled ? "rgba(0, 76, 153, 0.98)" : "#004C99",
+          background: isScrolled ? "rgba(0, 76, 153, 0.35)" : "rgba(0, 76, 153, 0.25)",
           fontFamily: "'Quicksand', sans-serif",
           padding: "0.5rem 0",
-          boxShadow: isScrolled ? "0 2px 10px rgba(0,0,0,0.1)" : "none",
-          backdropFilter: isScrolled ? "blur(10px)" : "none",
+          boxShadow: isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.15)" : "none",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
           zIndex: 1030,
-          transition: "transform 0.3s ease, background-color 0.3s ease"
+          transition: "transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease"
         }}
       >
         <div className="container">
@@ -88,8 +88,19 @@ function Navbar() {
               />
             </div>
             <div className="d-none d-md-block">
-              <div style={{ fontSize: "1.1rem", fontWeight: "600" }}>JP Alliance</div>
-              <div className="small opacity-85" style={{ fontSize: "0.75rem" }}>& Associates</div>
+              <div style={{ 
+                fontSize: "1.1rem", 
+                fontWeight: "700",
+                textShadow: "0 1px 2px rgba(0,0,0,0.2)"
+              }}>
+                JP Alliance
+              </div>
+              <div className="small opacity-90" style={{ 
+                fontSize: "0.75rem",
+                textShadow: "0 1px 1px rgba(0,0,0,0.2)"
+              }}>
+                & Associates
+              </div>
             </div>
           </Link>
 
@@ -103,7 +114,7 @@ function Navbar() {
               padding: "0.25rem",
               width: "40px",
               height: "40px",
-              background: "rgba(255,255,255,0.1)",
+              background: "rgba(255,255,255,0.15)",
               borderRadius: "6px"
             }}
           >
@@ -115,12 +126,12 @@ function Navbar() {
             <ul className="navbar-nav ms-auto align-items-lg-center">
               <li className="nav-item">
                 <Link 
-                  className="nav-link text-white" 
+                  className="nav-link text-white fw-semibold" 
                   to="/"
                   onClick={closeMobileMenu}
                   style={{
                     padding: "0.75rem 1rem",
-                    fontWeight: "500",
+                    textShadow: "0 1px 2px rgba(0,0,0,0.2)"
                   }}
                 >
                   <i className="bi bi-house-door me-2"></i>
@@ -131,13 +142,13 @@ function Navbar() {
               {/* Services Dropdown */}
               <li className="nav-item dropdown">
                 <button
-                  className="nav-link dropdown-toggle text-white d-flex align-items-center justify-content-between border-0 bg-transparent w-100"
+                  className="nav-link dropdown-toggle text-white d-flex align-items-center justify-content-between border-0 bg-transparent w-100 fw-semibold"
                   onClick={toggleServices}
                   style={{
                     padding: "0.75rem 1rem",
-                    fontWeight: "500",
                     cursor: "pointer",
-                    textAlign: "left"
+                    textAlign: "left",
+                    textShadow: "0 1px 2px rgba(0,0,0,0.2)"
                   }}
                 >
                   <span>
@@ -150,13 +161,17 @@ function Navbar() {
                 <ul 
                   className={`dropdown-menu shadow border-0 ${isServicesOpen ? 'show' : ''}`}
                   style={{
-                    background: "white",
+                    background: "rgba(255, 255, 255, 0.95)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
                     borderRadius: "8px",
-                    minWidth: "220px",
+                    minWidth: "240px",
+                    boxShadow: "0 12px 32px rgba(0,0,0,0.15)",
+                    border: "1px solid rgba(255,255,255,0.3)"
                   }}
                 >
-                  <li className="dropdown-header text-muted fw-bold mb-2 px-3 py-2 small">
-                    <i className="bi bi-stars me-2"></i>Our Services
+                  <li className="dropdown-header text-dark fw-bold mb-2 px-3 py-2 small border-bottom">
+                    <i className="bi bi-stars me-2 text-primary"></i>Our Professional Services
                   </li>
                   
                   {[
@@ -169,12 +184,13 @@ function Navbar() {
                   ].map((service, index) => (
                     <li key={index}>
                       <Link 
-                        className="dropdown-item text-dark py-2 px-3" 
+                        className="dropdown-item text-dark fw-medium py-2 px-3" 
                         to={service.to}
                         onClick={closeMobileMenu}
                         style={{
                           fontSize: "0.9rem",
-                          borderLeft: "3px solid transparent"
+                          borderLeft: "3px solid transparent",
+                          transition: "all 0.2s ease"
                         }}
                       >
                         <i className={`bi ${service.icon} me-2 text-primary`}></i>
@@ -187,18 +203,18 @@ function Navbar() {
 
               {/* Other Navigation Items */}
               {[
-                { to: "/team", icon: "bi-people-fill", text: "Team" },
+                { to: "/team", icon: "bi-people-fill", text: "Our Team" },
                 { to: "/news", icon: "bi-newspaper", text: "News & Events" },
                 { to: "/careers", icon: "bi-briefcase", text: "Careers" }
               ].map((item, index) => (
                 <li className="nav-item" key={index}>
                   <Link 
-                    className="nav-link text-white" 
+                    className="nav-link text-white fw-semibold" 
                     to={item.to}
                     onClick={closeMobileMenu}
                     style={{
                       padding: "0.75rem 1rem",
-                      fontWeight: "500",
+                      textShadow: "0 1px 2px rgba(0,0,0,0.2)"
                     }}
                   >
                     <i className={`bi ${item.icon} me-2`}></i>
@@ -207,19 +223,21 @@ function Navbar() {
                 </li>
               ))}
 
-              {/* CTA Button - Mobile Optimized */}
+              {/* CTA Button - Enhanced Visibility */}
               <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
                 <Link 
-                  className="btn btn-light px-4 py-2 rounded-pill fw-semibold d-flex align-items-center justify-content-center" 
+                  className="btn btn-light px-4 py-2 rounded-pill fw-bold d-flex align-items-center justify-content-center" 
                   to="/contact"
                   onClick={closeMobileMenu}
                   style={{
-                    background: "white",
-                    border: "none",
+                    background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                    border: "2px solid rgba(255,255,255,0.8)",
                     color: "#004C99",
-                    minWidth: "120px",
+                    minWidth: "130px",
                     fontSize: "0.9rem",
-                    margin: "0.5rem 1rem"
+                    margin: "0.5rem 1rem",
+                    boxShadow: "0 4px 15px rgba(0, 76, 153, 0.2)",
+                    textShadow: "none"
                   }}
                 >
                   <i className="bi bi-telephone me-2"></i>
@@ -240,7 +258,7 @@ function Navbar() {
           @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
           
           .navbar {
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
           }
           
           .nav-visible {
@@ -252,61 +270,73 @@ function Navbar() {
           }
           
           .nav-link {
-            transition: none;
+            transition: all 0.2s ease;
             border-radius: 6px;
             margin: 0.1rem 0;
           }
           
           .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateY(-1px);
           }
           
           .dropdown-item {
-            transition: none;
+            transition: all 0.2s ease;
             border-left: 3px solid transparent !important;
             border-radius: 4px;
             margin: 0.1rem 0.25rem;
           }
           
           .dropdown-item:hover {
-            background: #f8f9fa !important;
-            color: #004C99 !important;
+            background: linear-gradient(135deg, #004C99 0%, #0066CC 100%) !important;
+            color: white !important;
             border-left-color: #004C99 !important;
+            transform: translateX(4px);
+          }
+          
+          .dropdown-item:hover i {
+            color: white !important;
+          }
+          
+          .btn-light {
+            transition: all 0.3s ease !important;
           }
           
           .btn-light:hover {
-            background: #f8f9fa !important;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 76, 153, 0.3) !important;
+            border-color: white !important;
           }
           
           /* Desktop dropdown styles */
           @media (min-width: 992px) {
             .nav-item.dropdown:hover .dropdown-menu {
               display: block;
-            }
-            
-            .btn-light {
-              transition: all 0.3s ease;
+              animation: fadeIn 0.2s ease;
             }
           }
           
-          /* Mobile menu styles */
+          /* Mobile menu styles with enhanced glass effect */
           @media (max-width: 991.98px) {
             .navbar-collapse {
-              background: white;
+              background: rgba(255, 255, 255, 0.95) !important;
+              backdrop-filter: blur(15px) !important;
+              -webkit-backdrop-filter: blur(15px) !important;
+              border-radius: 12px;
+              box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+              border: 1px solid rgba(255, 255, 255, 0.3);
               margin: 1rem -1rem -0.5rem -1rem;
               padding: 1rem;
-              border-radius: 12px;
-              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-              border: 1px solid rgba(0, 0, 0, 0.1);
             }
             
             .nav-link {
-              color: #333 !important;
-              border-bottom: 1px solid #f0f0f0;
+              color: #004C99 !important;
+              border-bottom: 1px solid rgba(0, 76, 153, 0.1);
               margin: 0.25rem 0;
               padding: 0.75rem 1rem !important;
+              text-shadow: none !important;
+              font-weight: 600 !important;
             }
             
             .nav-link:last-child {
@@ -314,14 +344,16 @@ function Navbar() {
             }
             
             .nav-link:hover {
-              background: #f8f9fa !important;
-              color: #004C99 !important;
+              background: rgba(0, 76, 153, 0.1) !important;
+              color: #002d66 !important;
             }
             
             .dropdown-menu {
-              background: #f8f9fa !important;
-              border: none;
-              box-shadow: none;
+              background: rgba(255, 255, 255, 0.95) !important;
+              backdrop-filter: blur(10px) !important;
+              -webkit-backdrop-filter: blur(10px) !important;
+              border: 1px solid rgba(255,255,255,0.3);
+              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
               position: static !important;
               transform: none !important;
               margin: 0.5rem 0;
@@ -329,23 +361,22 @@ function Navbar() {
               padding: 0.5rem;
             }
             
-            .dropdown-menu.show {
-              display: block !important;
-            }
-            
             .btn-light {
-              background: #004C99 !important;
+              background: linear-gradient(135deg, #004C99 0%, #0066CC 100%) !important;
               color: white !important;
               margin: 1rem 0 0.5rem 0 !important;
               border: 2px solid #004C99 !important;
-              min-width: 140px !important;
+              min-width: 150px !important;
               padding: 0.75rem 1.5rem !important;
+              font-weight: 700 !important;
+              box-shadow: 0 4px 15px rgba(0, 76, 153, 0.3) !important;
             }
             
             .btn-light:hover {
-              background: #0066CC !important;
+              background: linear-gradient(135deg, #0066CC 0%, #004C99 100%) !important;
               border-color: #0066CC !important;
               transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(0, 76, 153, 0.4) !important;
             }
             
             .navbar-toggler {
@@ -358,13 +389,16 @@ function Navbar() {
             }
           }
 
-          /* Remove all complex animations */
-          .navbar-toggler {
-            transition: background-color 0.2s ease;
-          }
-
-          .dropdown-menu {
-            animation: none;
+          /* Animation for dropdown */
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(-5px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
 
           /* Square logo styling */
@@ -372,9 +406,20 @@ function Navbar() {
             border-radius: 6px !important;
           }
           
-          /* Improved dropdown toggle for mobile */
+          /* Improved dropdown toggle */
           .dropdown-toggle::after {
             display: none !important;
+          }
+
+          /* Enhanced text readability */
+          .navbar-brand,
+          .nav-link,
+          .dropdown-toggle {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+          }
+
+          .dropdown-header {
+            text-shadow: none !important;
           }
         `}
       </style>
