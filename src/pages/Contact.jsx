@@ -46,7 +46,7 @@ const Contact = () => {
                     type="text" 
                     id="name" 
                     className="form-control py-2" 
-                    placeholder="Your Name" 
+                    placeholder="Dexter Morgan" 
                     required 
                     style={{ borderRadius: "6px" }}
                   />
@@ -57,7 +57,7 @@ const Contact = () => {
                     type="email" 
                     id="email" 
                     className="form-control py-2" 
-                    placeholder="Your Email" 
+                    placeholder="dexmorgan82@gmail.com" 
                     required 
                     style={{ borderRadius: "6px" }}
                   />

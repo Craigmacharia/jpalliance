@@ -7,15 +7,30 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Show/hide navbar based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+      
+      // Background change logic
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -42,14 +57,15 @@ function Navbar() {
       />
 
       <nav 
-        className="navbar navbar-expand-lg navbar-dark position-sticky top-0"
+        className={`navbar navbar-expand-lg navbar-dark position-fixed top-0 w-100 ${isVisible ? 'nav-visible' : 'nav-hidden'}`}
         style={{ 
           background: isScrolled ? "rgba(0, 76, 153, 0.98)" : "#004C99",
-          fontFamily: "'Segoe UI', sans-serif",
+          fontFamily: "'Quicksand', sans-serif",
           padding: "0.5rem 0",
           boxShadow: isScrolled ? "0 2px 10px rgba(0,0,0,0.1)" : "none",
           backdropFilter: isScrolled ? "blur(10px)" : "none",
-          zIndex: 1030
+          zIndex: 1030,
+          transition: "transform 0.3s ease, background-color 0.3s ease"
         }}
       >
         <div className="container">
@@ -86,7 +102,9 @@ function Navbar() {
             style={{ 
               padding: "0.25rem",
               width: "40px",
-              height: "40px"
+              height: "40px",
+              background: "rgba(255,255,255,0.1)",
+              borderRadius: "6px"
             }}
           >
             <span className="navbar-toggler-icon"></span>
@@ -101,7 +119,7 @@ function Navbar() {
                   to="/"
                   onClick={closeMobileMenu}
                   style={{
-                    padding: "0.5rem 1rem",
+                    padding: "0.75rem 1rem",
                     fontWeight: "500",
                   }}
                 >
@@ -113,18 +131,20 @@ function Navbar() {
               {/* Services Dropdown */}
               <li className="nav-item dropdown">
                 <button
-                  className="nav-link dropdown-toggle text-white d-flex align-items-center border-0 bg-transparent"
+                  className="nav-link dropdown-toggle text-white d-flex align-items-center justify-content-between border-0 bg-transparent w-100"
                   onClick={toggleServices}
                   style={{
-                    padding: "0.5rem 1rem",
+                    padding: "0.75rem 1rem",
                     fontWeight: "500",
                     cursor: "pointer",
-                    width: "100%",
                     textAlign: "left"
                   }}
                 >
-                  <i className="bi bi-gear me-2"></i>
-                  Services
+                  <span>
+                    <i className="bi bi-gear me-2"></i>
+                    Services
+                  </span>
+                  <i className={`bi bi-chevron-${isServicesOpen ? 'up' : 'down'} ms-2 small`}></i>
                 </button>
                 
                 <ul 
@@ -177,7 +197,7 @@ function Navbar() {
                     to={item.to}
                     onClick={closeMobileMenu}
                     style={{
-                      padding: "0.5rem 1rem",
+                      padding: "0.75rem 1rem",
                       fontWeight: "500",
                     }}
                   >
@@ -187,22 +207,23 @@ function Navbar() {
                 </li>
               ))}
 
-              {/* CTA Button */}
-              <li className="nav-item ms-lg-2">
+              {/* CTA Button - Mobile Optimized */}
+              <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
                 <Link 
-                  className="btn btn-light px-3 py-2 rounded-1 fw-semibold" 
+                  className="btn btn-light px-4 py-2 rounded-pill fw-semibold d-flex align-items-center justify-content-center" 
                   to="/contact"
                   onClick={closeMobileMenu}
                   style={{
                     background: "white",
                     border: "none",
                     color: "#004C99",
-                    minWidth: "100px",
-                    fontSize: "0.9rem"
+                    minWidth: "120px",
+                    fontSize: "0.9rem",
+                    margin: "0.5rem 1rem"
                   }}
                 >
-                  <i className="bi bi-telephone me-1"></i>
-                  Contact
+                  <i className="bi bi-telephone me-2"></i>
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -210,15 +231,30 @@ function Navbar() {
         </div>
       </nav>
 
+      {/* Spacer to prevent content from being hidden behind fixed navbar */}
+      <div style={{ height: "80px" }} />
+
       {/* CSS Styles */}
       <style>
         {`
+          @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+          
           .navbar {
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+          }
+          
+          .nav-visible {
+            transform: translateY(0);
+          }
+          
+          .nav-hidden {
+            transform: translateY(-100%);
           }
           
           .nav-link {
             transition: none;
+            border-radius: 6px;
+            margin: 0.1rem 0;
           }
           
           .nav-link:hover {
@@ -228,6 +264,8 @@ function Navbar() {
           .dropdown-item {
             transition: none;
             border-left: 3px solid transparent !important;
+            border-radius: 4px;
+            margin: 0.1rem 0.25rem;
           }
           
           .dropdown-item:hover {
@@ -238,6 +276,8 @@ function Navbar() {
           
           .btn-light:hover {
             background: #f8f9fa !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           }
           
           /* Desktop dropdown styles */
@@ -245,20 +285,32 @@ function Navbar() {
             .nav-item.dropdown:hover .dropdown-menu {
               display: block;
             }
+            
+            .btn-light {
+              transition: all 0.3s ease;
+            }
           }
           
           /* Mobile menu styles */
           @media (max-width: 991.98px) {
             .navbar-collapse {
               background: white;
-              margin-top: 1rem;
-              border-radius: 8px;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              margin: 1rem -1rem -0.5rem -1rem;
+              padding: 1rem;
+              border-radius: 12px;
+              box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+              border: 1px solid rgba(0, 0, 0, 0.1);
             }
             
             .nav-link {
               color: #333 !important;
-              border-bottom: 1px solid #f8f9fa;
+              border-bottom: 1px solid #f0f0f0;
+              margin: 0.25rem 0;
+              padding: 0.75rem 1rem !important;
+            }
+            
+            .nav-link:last-child {
+              border-bottom: none;
             }
             
             .nav-link:hover {
@@ -273,6 +325,8 @@ function Navbar() {
               position: static !important;
               transform: none !important;
               margin: 0.5rem 0;
+              border-radius: 8px;
+              padding: 0.5rem;
             }
             
             .dropdown-menu.show {
@@ -282,17 +336,31 @@ function Navbar() {
             .btn-light {
               background: #004C99 !important;
               color: white !important;
-              margin-top: 0.5rem;
+              margin: 1rem 0 0.5rem 0 !important;
+              border: 2px solid #004C99 !important;
+              min-width: 140px !important;
+              padding: 0.75rem 1.5rem !important;
             }
             
             .btn-light:hover {
               background: #0066CC !important;
+              border-color: #0066CC !important;
+              transform: translateY(-2px);
+            }
+            
+            .navbar-toggler {
+              background: rgba(255, 255, 255, 0.15) !important;
+              transition: background-color 0.2s ease;
+            }
+            
+            .navbar-toggler:hover {
+              background: rgba(255, 255, 255, 0.25) !important;
             }
           }
 
           /* Remove all complex animations */
           .navbar-toggler {
-            transition: none;
+            transition: background-color 0.2s ease;
           }
 
           .dropdown-menu {
@@ -302,6 +370,11 @@ function Navbar() {
           /* Square logo styling */
           .rounded {
             border-radius: 6px !important;
+          }
+          
+          /* Improved dropdown toggle for mobile */
+          .dropdown-toggle::after {
+            display: none !important;
           }
         `}
       </style>
