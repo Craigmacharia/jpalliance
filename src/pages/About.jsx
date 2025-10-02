@@ -30,10 +30,7 @@ const About = () => {
 
   // Team stats - Updated to match your data
   const stats = [
-    { value: "15+", label: "Years Experience" },
-    { value: "30+", label: "Clients Served" },
-    { value: "8", label: "Professional Staff" },
-    { value: "98%", label: "Client Satisfaction" }
+    
   ];
 
   return (
@@ -69,7 +66,7 @@ const About = () => {
                 style={{ border: "4px solid white" }}
               />
               <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
-                <h5 className="mb-0" style={{ fontWeight: 600 }}>Since 2008</h5>
+                <h5 className="mb-0" style={{ fontWeight: 600 }}>Diligently</h5>
                 <p className="mb-0" style={{ fontSize: "0.9rem" }}>Serving Kenyan Businesses</p>
               </div>
             </div>
@@ -80,7 +77,7 @@ const About = () => {
               JP Alliance & Associates is an independent firm of Certified Public Accountants with expertise in audit and assurance, tax advisory and business consulting. Registered by The Institute of Certified Public Accountants of Kenya (ICPAK), we are mandated to conduct audit and assurance, tax advisory, and business consulting services.
             </p>
             <p className="mb-4" style={{ lineHeight: "1.7" }}>
-              Our professional team of 8 staff is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
+              Our professional team is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
             </p>
             <p className="mb-4" style={{ lineHeight: "1.7" }}>
               We specialize in delivering tailored solutions that address the unique challenges faced by businesses in today's dynamic economic environment, ensuring financial accuracy and sustainable growth.
@@ -195,7 +192,7 @@ const About = () => {
                     <i className="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
                     <div>
                       <h6 className="fw-bold">Certified Professionals</h6>
-                      <p className="text-muted mb-0">Team of 8 qualified staff with decades of combined experience</p>
+                      <p className="text-muted mb-0">Team of qualified staff with decades of combined experience</p>
                     </div>
                   </div>
                 </div>

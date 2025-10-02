@@ -121,16 +121,16 @@ export default function Tax() {
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Tax%20Advisory%20Services."
+                  href="https://wa.me/+254738462705?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Tax%20Advisory%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
+                  <i className="bi bi-whatsapp me-2"></i> Consultation
                 </a>
                 <a 
-                  href="tel:+254755453975" 
+                  href="tel:+254738462705" 
                   className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill fw-semibold"
                   style={{ transition: "all 0.3s ease" }}
                 >

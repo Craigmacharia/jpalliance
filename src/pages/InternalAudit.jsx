@@ -51,7 +51,7 @@ const InternalAudit = () => {
       <section 
         className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
         style={{ 
-          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('/branch.png') center/cover no-repeat",
+          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('/forensic.jpg') center/cover no-repeat",
           minHeight: "60vh"
         }}
       >
@@ -84,16 +84,16 @@ const InternalAudit = () => {
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Internal%20Audit%20Services."
+                  href="https://wa.me/+254738462705?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Internal%20Audit%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
+                  <i className="bi bi-whatsapp me-2"></i> Consultation
                 </a>
                 <a 
-                  href="tel:+254755453975" 
+                  href="tel:+254738462705" 
                   className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill fw-semibold"
                   style={{ transition: "all 0.3s ease" }}
                 >
@@ -247,39 +247,7 @@ const InternalAudit = () => {
 </section>
 
             {/* CTA Section */}
-            <section className="py-5 text-white text-center position-relative overflow-hidden" style={{ 
-              background: "linear-gradient(135deg, #004C99 0%, #0066CC 100%)" 
-            }}>
-              <div className="container py-4 position-relative z-index-1">
-                <h2 className="fw-bold mb-4 display-5">Ready to Elevate Internal Audit?</h2>
-                <p className="lead mb-5 mx-auto fs-5" style={{ maxWidth: "700px" }}>
-                  Let's design a risk-based internal audit program that delivers value beyond compliance
-                </p>
-                <div className="d-flex justify-content-center gap-3 flex-wrap">
-                  <a
-                    href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20Internal%20Audit%20Services."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-light btn-lg px-5 py-3 rounded-pill fw-semibold shadow"
-                    style={{ transition: "all 0.3s ease", minWidth: "200px" }}
-                  >
-                    <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
-                  </a>
-                  <a
-                    href="tel:+254755453975"
-                    className="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-semibold"
-                    style={{ transition: "all 0.3s ease", minWidth: "200px" }}
-                  >
-                    <i className="bi bi-telephone me-2"></i> Call Now
-                  </a>
-                </div>
-                </div>
-              <div className="position-absolute top-0 end-0 w-100 h-100" style={{ 
-                background: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat",
-                opacity: "0.05", 
-                zIndex: 0 
-              }}></div>
-            </section>
+            
 
             {/* Additional Info */}
       <section className="py-5">

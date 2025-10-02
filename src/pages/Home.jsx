@@ -23,7 +23,7 @@ const Home = () => {
     {
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
       title: "Professional Audit & Assurance Services",
-      description: "Comprehensive financial audits with precision and integrity since 2008"
+      description: "Comprehensive financial audits with precision and integrity"
     },
     {
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
@@ -123,8 +123,8 @@ const Home = () => {
       icon: "bi-journal-bookmark"
     },
     {
-      title: "Business Consulting",
-      description: "Financial analysis, evaluation and advisory services for business improvement",
+      title: "Due Diligence",
+      description: "Comprehensive financial investigation and risk assessment for informed business choices",
       icon: "bi-briefcase"
     },
     {
@@ -133,7 +133,7 @@ const Home = () => {
       icon: "bi-clipboard-check"
     },
     {
-      title: "Financing Arrangement",
+      title: "Business Valuation",
       description: "Project feasibility reviews, financial planning and investment structuring",
       icon: "bi-graph-up"
     }
@@ -141,19 +141,11 @@ const Home = () => {
 
   // Stats data
   const stats = [
-    { value: "15+", label: "Years Experience" },
-    { value: "30+", label: "Clients Served" },
-    { value: "8", label: "Professional Staff" },
-    { value: "98%", label: "Client Satisfaction" }
+    
   ];
 
   // Single testimonial data
-  const testimonial = {
-    quote: "JP Alliance & Associates transformed our financial systems and helped us achieve 30% growth in just one year. Their expertise in tax planning saved us significant costs while their audit services ensured complete compliance.",
-    company: "Highlands Mineral Water",
-    position: "Manufacturing - Soft Drinks",
-    results: ["30% Business Growth", "Full Tax Compliance", "Streamlined Financial Systems"]
-  };
+
 
   return (
     <div style={{ fontFamily: "'Quicksand', sans-serif" }}>
@@ -296,7 +288,7 @@ const Home = () => {
                 JP Alliance & Associates is an independent firm of Certified Public Accountants with expertise in audit and assurance, tax advisory and business consulting. Registered by The Institute of Certified Public Accountants of Kenya (ICPAK), we are mandated to conduct audit and assurance, tax advisory, and business consulting services.
               </p>
               <p className="mb-4" style={{ lineHeight: "1.7" }}>
-                Our professional team of 8 staff is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
+                Our professional team is well trained in providing independent audit, assurance and advisory services across all sectors. We have in-depth knowledge of the regional business environment and significant experience with both Small and Medium Entities and Private Companies with public interest.
               </p>
               <Link 
                 to="/about" 
@@ -320,7 +312,7 @@ const Home = () => {
                   style={{ border: "4px solid white" }}
                 />
                 <div className="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-end">
-                  <h5 className="mb-0" style={{ fontWeight: 600 }}>Since 2008</h5>
+                  <h5 className="mb-0" style={{ fontWeight: 600 }}>Diligently</h5>
                   <p className="mb-0" style={{ fontSize: "0.9rem" }}>Serving Kenyan Businesses</p>
                 </div>
               </div>
@@ -362,178 +354,100 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-5 bg-white">
-        <div className="container">
-          <div className="text-center mb-5 reveal">
-            <h3 style={{ color: "#004787", fontWeight: 600 }}>Our Professional Services</h3>
-            <div className="heading-underline mx-auto mb-3"></div>
-            <p className="text-muted">Comprehensive financial and business solutions tailored to your needs</p>
-          </div>
-          <div className="row g-4 reveal">
-            {services.map((service, index) => (
-              <div key={index} className="col-lg-4 col-md-6">
-                <div 
-                  className="card h-100 border-0 shadow-sm p-4"
-                  style={{
-                    borderRadius: "15px",
-                    transition: "transform 0.2s ease, box-shadow 0.2s ease"
-                  }}
-                >
-                  <div className="card-body text-center">
-                    <div className="icon-wrapper mb-3">
-                      <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "1.8rem" }}></i>
-                    </div>
-                    <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{service.title}</h5>
-                    <p className="card-text mb-4" style={{ lineHeight: "1.6" }}>{service.description}</p>
-                    <Link 
-                      to="/services" 
-                      className="btn btn-outline-primary px-3 rounded-pill"
-                      style={{
-                        fontWeight: "600",
-                        borderColor: "#004787",
-                        color: "#004787"
-                      }}
-                    >
-                      Learn More
-                    </Link>
-                  </div>
-                </div>
+      {/* Services Section */}
+<section className="py-5 bg-white">
+  <div className="container">
+    <div className="text-center mb-5 reveal">
+      <h3 style={{ color: "#004787", fontWeight: 600 }}>Our Professional Services</h3>
+      <div className="heading-underline mx-auto mb-3"></div>
+      <p className="text-muted">Comprehensive financial and business solutions tailored to your needs</p>
+    </div>
+    <div className="row g-4 reveal">
+      {services.map((service, index) => (
+        <div key={index} className="col-lg-4 col-md-6">
+          <div 
+            className="card h-100 border-0 shadow-sm p-4"
+            style={{
+              borderRadius: "15px",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }}
+          >
+            <div className="card-body text-center">
+              <div className="icon-wrapper mb-3">
+                <i className={`bi ${service.icon} text-primary`} style={{ fontSize: "1.8rem" }}></i>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Single Product Card Testimonial Section */}
-      <section className="py-5 bg-light">
-        <div className="container reveal">
-          <div className="text-center mb-5">
-            <h3 style={{ color: "#004787", fontWeight: 600 }}>Client Success Story</h3>
-            <div className="heading-underline mx-auto mb-3"></div>
-            <p className="text-muted">Transforming businesses through expert financial guidance</p>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="card border-0 shadow-sm overflow-hidden">
-                <div className="row g-0">
-                  <div className="col-md-8">
-                    <div className="card-body p-4 p-lg-5">
-                      <div className="d-flex align-items-center mb-4">
-                        <i className="bi bi-chat-quote text-primary me-3" style={{ fontSize: "1.5rem" }}></i>
-                        <h5 className="mb-0" style={{ color: "#004787", fontWeight: 600 }}>Client Testimonial</h5>
-                      </div>
-                      <p style={{ fontSize: "1.05rem", lineHeight: "1.7", color: "#333" }}>
-                        "{testimonial.quote}"
-                      </p>
-                      <div className="mt-4">
-                        <h6 style={{ fontWeight: 600, color: "#004787" }}>{testimonial.company}</h6>
-                        <p className="text-muted mb-3">{testimonial.position}</p>
-                        <div className="d-flex flex-wrap gap-2">
-                          {testimonial.results.map((result, index) => (
-                            <span 
-                              key={index}
-                              className="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill"
-                              style={{ fontSize: "0.85rem", fontWeight: "500" }}
-                            >
-                              {result}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 bg-primary text-white">
-                    <div className="card-body p-4 p-lg-5 d-flex flex-column justify-content-center h-100">
-                      <h5 className="mb-4" style={{ fontWeight: 600 }}>Services Delivered</h5>
-                      <ul className="list-unstyled mb-0">
-                        <li className="mb-2">
-                          <i className="bi bi-check-circle-fill me-2"></i>
-                          Comprehensive Audit
-                        </li>
-                        <li className="mb-2">
-                          <i className="bi bi-check-circle-fill me-2"></i>
-                          Tax Advisory
-                        </li>
-                        <li className="mb-2">
-                          <i className="bi bi-check-circle-fill me-2"></i>
-                          Financial Systems Review
-                        </li>
-                        <li className="mb-2">
-                          <i className="bi bi-check-circle-fill me-2"></i>
-                          Compliance Management
-                        </li>
-                        <li>
-                          <i className="bi bi-check-circle-fill me-2"></i>
-                          Growth Strategy
-                        </li>
-                      </ul>
-                      <div className="mt-4 pt-3 border-top border-white border-opacity-25">
-                        <small className="opacity-75">Ready to achieve similar results?</small>
-                        <Link 
-                          to="/testimonials" 
-                          className="btn btn-light btn-sm w-100 mt-2 rounded-pill"
-                          style={{ fontWeight: "600" }}
-                        >
-                          View more Success Stories
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h5 className="card-title mb-3" style={{ color: "#004787", fontWeight: 600 }}>{service.title}</h5>
+              <p className="card-text mb-4" style={{ lineHeight: "1.6" }}>{service.description}</p>
+              <Link 
+                to="/services" 
+                className="btn btn-outline-primary px-3 rounded-pill"
+                style={{
+                  fontWeight: "600",
+                  borderColor: "#004787",
+                  color: "#004787"
+                }}
+              >
+                Learn More
+              </Link>
             </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      {/* CTA Section */}
-      <section 
-        className="py-5 text-white text-center reveal"
-        style={{ 
-          backgroundColor: "#004787",
-          borderRadius: "12px",
-          margin: "10px 15px"
+{/* CTA Section */}
+<section 
+  className="py-5 text-white text-center reveal"
+  style={{ 
+    backgroundColor: "#004787",
+    borderRadius: "12px",
+    margin: "10px 15px"
+  }}
+>
+  <div className="container py-4">
+    <h3 className="mb-4" style={{ fontWeight: 600 }}>Ready to Grow Your Business?</h3>
+    <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px", fontSize: "1.1rem" }}>
+      Partner with our team of certified financial experts to navigate complex financial landscapes with confidence.
+    </p>
+    <div className="d-flex justify-content-center gap-3 flex-wrap">
+      <Link 
+        to="/contact" 
+        className="btn btn-light btn-lg px-4 py-3 rounded-pill"
+        style={{
+          fontWeight: "600",
+          minWidth: "180px"
         }}
       >
-        <div className="container py-4">
-          <h3 className="mb-4" style={{ fontWeight: 600 }}>Ready to Grow Your Business?</h3>
-          <p className="lead mb-5 mx-auto" style={{ maxWidth: "700px", fontSize: "1.1rem" }}>
-            Partner with our team of certified financial experts to navigate complex financial landscapes with confidence.
-          </p>
-          <div className="d-flex justify-content-center gap-3 flex-wrap">
-            <Link 
-              to="/contact" 
-              className="btn btn-light btn-lg px-4 py-3 rounded-pill"
-              style={{
-                fontWeight: "600",
-                minWidth: "180px"
-              }}
-            >
-              Get a Consultation
-            </Link>
-            <a 
-              href="tel:+254738462705" 
-              className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
-              style={{
-                fontWeight: "600",
-                minWidth: "140px"
-              }}
-            >
-              <i className="bi bi-telephone me-2"></i> Call Us
-            </a>
-            <a 
-              href="mailto:Contact@jpa.co.ke" 
-              className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
-              style={{
-                fontWeight: "600",
-                minWidth: "140px"
-              }}
-            >
-              <i className="bi bi-envelope me-2"></i> Email Us
-            </a>
-          </div>
-        </div>
-      </section>
+        Get a Consultation
+      </Link>
+      <a 
+        href="tel:+254755453975" 
+        className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
+        style={{
+          fontWeight: "600",
+          minWidth: "140px"
+        }}
+      >
+        <i className="bi bi-telephone me-2"></i> Call Us
+      </a>
+      <a 
+        href="mailto:Contact@jpa.co.ke" 
+        className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
+        style={{
+          fontWeight: "600",
+          minWidth: "140px"
+        }}
+      >
+        <i className="bi bi-envelope me-2"></i> Email Us
+      </a>
+    </div>
+  </div>
+</section>
+
+      {/* CTA Section */}
+      
 
       {/* Optimized CSS */}
       <style>

@@ -58,7 +58,7 @@ const ExternalAudit = () => {
       <section 
         className="text-white py-5 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
         style={{ 
-          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('/build.png') center/cover no-repeat",
+          background: "linear-gradient(135deg, rgba(0, 76, 153, 0.9) 0%, rgba(0, 50, 100, 0.85) 100%), url('/services.jpg') center/cover no-repeat",
           minHeight: "60vh"
         }}
       >
@@ -91,16 +91,16 @@ const ExternalAudit = () => {
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/254755453975?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20External%20Audit%20Services."
+                  href="https://wa.me/+254738462705?text=Hello%20JP%20Alliance!%20I%20am%20interested%20in%20your%20External%20Audit%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-semibold shadow-sm"
                   style={{ transition: "all 0.3s ease" }}
                 >
-                  <i className="bi bi-whatsapp me-2"></i> WhatsApp Consultation
+                  <i className="bi bi-whatsapp me-2"></i> Consultation
                 </a>
                 <a 
-                  href="tel:+254755453975" 
+                  href="tel:+254738462705" 
                   className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill fw-semibold"
                   style={{ transition: "all 0.3s ease" }}
                 >

@@ -135,7 +135,7 @@ const BusinessAdvisory = () => {
             <div className="col-lg-6">
               <div className="rounded-3 overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="/advisory.jpg" 
                   altBusiness Advisory Team 
                   className="img-fluid" 
                   style={{ width: "100%", height: "400px", objectFit: "cover" }}
