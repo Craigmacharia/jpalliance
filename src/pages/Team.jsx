@@ -132,26 +132,7 @@ const Team = () => {
           </Row>
 
           {/* Contact Section */}
-          <Row className="justify-content-center mt-5">
-            <Col lg={8} className="text-center">
-              <div style={styles.contactCard}>
-                <h4 className="mb-3" style={styles.contactTitle}>Ready to Work With Us?</h4>
-                <p style={styles.contactText}>
-                  Contact our team to discuss how we can support your business goals
-                </p>
-                <div className="d-flex align-items-center justify-content-center mt-3">
-                  <i className="bi bi-telephone-fill me-2" style={styles.contactIcon}></i>
-                  <a 
-                    href="tel:+254738462705" 
-                    style={styles.phoneLink}
-                    className="text-decoration-none fw-semibold"
-                  >
-                    +254 738 462 705
-                  </a>
-                </div>
-              </div>
-            </Col>
-          </Row>
+          
         </Container>
       </section>
 

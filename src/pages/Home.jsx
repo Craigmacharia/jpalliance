@@ -423,7 +423,7 @@ const Home = () => {
         Get a Consultation
       </Link>
       <a 
-        href="tel:+254755453975" 
+        href="tel:+254738462705" 
         className="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"
         style={{
           fontWeight: "600",
