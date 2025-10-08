@@ -28,12 +28,12 @@ const Home = () => {
     {
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
       title: "Tax Advisory Experts",
-      description: "Strategic tax planning and compliance services for businesses across East Africa"
+      description: "Strategic tax planning and compliance services for businesses across Africa"
     },
     {
       image: "watu.png",
       title: "Business Consulting & Financial Advisory",
-      description: "Tailored solutions addressing unique business challenges in today's dynamic economy"
+      description: "Tailored solutions addressing unique business challenges in today's economy"
     }
   ];
 
